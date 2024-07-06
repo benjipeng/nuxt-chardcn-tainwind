@@ -16,7 +16,8 @@ jobs:
           node-version: "20"
       # Pick your own package manager and build script
       - run: npm install
-      - run: npx nuxt build --preset github_pages
+      - run: NUXT_APP_BASE_URL=/nuxt-chardcn-tainwind/ npx nuxt build --preset github_pages
+      - run: ls -la ./
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
