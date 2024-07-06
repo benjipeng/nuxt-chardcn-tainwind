@@ -7,8 +7,6 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     baseURL: '/nuxt-chardcn-tainwind/',
-    buildAssetsDir: '/nuxt-chardcn-tainwind/_nuxt/',
-    cdnURL: 'https://benjipeng.github.io'
   },
   vite: {
     build: {
