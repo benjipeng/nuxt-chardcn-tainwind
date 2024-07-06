@@ -13,6 +13,6 @@ export default defineNuxtConfig({
   },
   ssr: false,
   app: {
-    baseURL: 'https://benjipeng.github.io/nuxt-chardcn-tainwind/'
+    baseURL: '/nuxt-chardcn-tainwind/'
   }
 })
