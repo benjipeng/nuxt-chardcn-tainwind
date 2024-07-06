@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: "20"
 
+
       - name: Cache dependencies
         uses: actions/cache@v4
         with:
@@ -24,6 +25,7 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-node-
 
+      - run: npm i
       - run: npm ci
       - run: npm run generate
 
