@@ -60,6 +60,8 @@ jobs:
           NUXT_APP_BASE_URL: /nuxt-chardcn-tainwind/
           NUXT_APP_CDN_URL: https://benjipeng.github.io
         run: ${{ steps.detect-package-manager.outputs.manager }} run generate
+      - name: Show artifact
+        run: ls -la ./
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
