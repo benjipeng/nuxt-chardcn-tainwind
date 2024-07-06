@@ -1,6 +1,10 @@
 <template>
   <aside
-    class="bg-gray-800 text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out"
+    :class="[
+      'bg-gray-800 text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform',
+      'md:relative md:translate-x-0 transition duration-200 ease-in-out',
+      { '-translate-x-full': !isOpen },
+    ]"
   >
     <nav>
       <NuxtLink
@@ -26,3 +30,9 @@
     </nav>
   </aside>
 </template>
+
+<script setup lang="ts">
+defineProps<{
+  isOpen: boolean;
+}>();
+</script>

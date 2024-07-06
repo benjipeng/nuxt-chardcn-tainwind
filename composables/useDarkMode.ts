@@ -1,4 +1,4 @@
-import { ref, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 
 export function useDarkMode() {
     const isDarkMode = ref(false)
@@ -9,14 +9,19 @@ export function useDarkMode() {
     }
 
     const updateTheme = () => {
-        if (isDarkMode.value) {
-            document.documentElement.classList.add('dark')
-        } else {
-            document.documentElement.classList.remove('dark')
+        if (process.client) {
+            if (isDarkMode.value) {
+                document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.remove('dark')
+            }
         }
     }
 
-    watch(isDarkMode, updateTheme, { immediate: true })
+    onMounted(() => {
+        isDarkMode.value = window.matchMedia('(prefers-color-scheme: dark)').matches
+        updateTheme()
+    })
 
     return {
         isDarkMode,
