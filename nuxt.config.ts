@@ -12,4 +12,7 @@ export default defineNuxtConfig({
     componentDir: './components/ui'
   },
   ssr: false,
+  app: {
+    baseURL: 'https://benjipeng.github.io/nuxt-chardcn-tainwind/'
+  }
 })
