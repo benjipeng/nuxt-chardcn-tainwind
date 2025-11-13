@@ -12,5 +12,9 @@ export default defineNuxtConfig({
     build: {
       assetsInlineLimit: 0
     }
+  },
+  compatibilityDate: '2024-11-13',
+  future: {
+    compatibilityVersion: 4
   }
 })
