@@ -32,11 +32,11 @@ export default defineNuxtConfig({
   ssr: true,
 
   app: {
-    baseURL: '/nuxt-chardcn-tainwind/',
+    baseURL: '/mayday-archive/',
     head: {
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/nuxt-chardcn-tainwind/favicon.svg' },
-        { rel: 'icon', type: 'image/x-icon', href: '/nuxt-chardcn-tainwind/favicon.ico' }
+        { rel: 'icon', type: 'image/svg+xml', href: '/mayday-archive/favicon.svg' },
+        { rel: 'icon', type: 'image/x-icon', href: '/mayday-archive/favicon.ico' }
       ]
     }
   },

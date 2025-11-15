@@ -1,12 +1,12 @@
 # Mayday Archive
 
-![Deploy Status](https://github.com/benjipeng/nuxt-chardcn-tainwind/actions/workflows/deploy.yml/badge.svg)
+![Deploy Status](https://github.com/benjipeng/mayday-archive/actions/workflows/deploy.yml/badge.svg)
 
 > **Insights from aviation's most significant accidents**
 
 Educational webapp documenting major aviation disasters (100+ fatalities) and the safety improvements they inspired. Explore 207+ accidents, understand their causes, and learn how aviation became 400× safer since 1959.
 
-**[View Live Demo →](https://benjipeng.github.io/nuxt-chardcn-tainwind/)**
+**[View Live Demo →](https://benjipeng.github.io/mayday-archive/)**
 
 ## Tech Stack
 
