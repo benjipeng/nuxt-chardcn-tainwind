@@ -1,75 +1,72 @@
-# Nuxt 3 Minimal Starter
+# Mayday Archive
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+![Deploy Status](https://github.com/benjipeng/nuxt-chardcn-tainwind/actions/workflows/deploy.yml/badge.svg)
 
-## Setup
+> **Insights from aviation's most significant accidents**
 
-Make sure to install the dependencies:
+Educational webapp documenting major aviation disasters (100+ fatalities) and the safety improvements they inspired. Explore 207+ accidents, understand their causes, and learn how aviation became 400× safer since 1959.
+
+**[View Live Demo →](https://benjipeng.github.io/nuxt-chardcn-tainwind/)**
+
+## Tech Stack
+
+- **Framework**: Nuxt 4.2.1 (Vue 3, SSG)
+- **Styling**: Tailwind CSS v3.4.17
+- **UI**: shadcn-nuxt v0.10.4
+- **Fonts**: B612, Work Sans, B612 Mono
+- **Icons**: @nuxt/icon (Lucide)
+- **Deployment**: GitHub Pages (Static)
+
+## Quick Start
 
 ```bash
-# npm
+# Install dependencies
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Start dev server (http://localhost:3000)
 npm run dev
 
-# pnpm
-pnpm run dev
+# Generate static site
+npm run generate
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
+# Preview static build
+npm run preview:static
 ```
 
-## Production
+## Project Structure
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+```
+/components
+  /sections/          # Hero, FeaturedDisasters, StatsDashboard, etc.
+  Navbar.vue          # Three-state scroll navbar
+  Footer.vue
+  DisasterCard.vue
+/composables
+  useNavbarScroll.ts  # Scroll detection
+/pages
+  index.vue           # Landing page
+/assets/css
+  tailwind.css        # Aviation-themed color palette
 ```
 
-Locally preview production build:
+## Development
 
-```bash
-# npm
-npm run preview
+See [CLAUDE.md](./CLAUDE.md) for detailed project guidelines and [ROADMAP.md](./ROADMAP.md) for current progress.
 
-# pnpm
-pnpm run preview
+**Color System**: All components use semantic tokens from `tailwind.css`:
+- `cockpit-green` - Primary (HUD green)
+- `aviation-amber` - Warnings
+- `alert-red` - Alerts/fatalities
+- `radar-cyan` - Data/technical
 
-# yarn
-yarn preview
+**Never use**: hard-coded colors, Tailwind gray scale, or dynamic class names.
 
-# bun
-bun run preview
-```
+## Deployment
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Automatically deployed to GitHub Pages via GitHub Actions on push to `main`.
+
+The `.nojekyll` file ensures Nuxt's `_nuxt/` assets are properly served.
+
+## License
+
+Educational purposes only. © 2025
