@@ -1,11 +1,13 @@
-import { ref, onMounted } from 'vue'
-
 export function useDarkMode() {
     const isDarkMode = ref(false)
 
     const toggleDarkMode = () => {
         isDarkMode.value = !isDarkMode.value
         updateTheme()
+        // Persist to localStorage
+        if (process.client) {
+            localStorage.setItem('darkMode', isDarkMode.value ? 'dark' : 'light')
+        }
     }
 
     const updateTheme = () => {
@@ -19,7 +21,15 @@ export function useDarkMode() {
     }
 
     onMounted(() => {
-        isDarkMode.value = window.matchMedia('(prefers-color-scheme: dark)').matches
+        // Check localStorage first, then fall back to system preference
+        const savedTheme = localStorage.getItem('darkMode')
+
+        if (savedTheme) {
+            isDarkMode.value = savedTheme === 'dark'
+        } else {
+            isDarkMode.value = window.matchMedia('(prefers-color-scheme: dark)').matches
+        }
+
         updateTheme()
     })
 

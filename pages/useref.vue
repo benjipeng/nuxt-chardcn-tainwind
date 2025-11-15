@@ -12,8 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-
 const inputRef = ref<HTMLInputElement | null>(null);
 
 const focusInput = () => {
