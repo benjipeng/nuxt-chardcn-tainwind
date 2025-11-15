@@ -33,6 +33,12 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: '/nuxt-chardcn-tainwind/',
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/nuxt-chardcn-tainwind/favicon.svg' },
+        { rel: 'icon', type: 'image/x-icon', href: '/nuxt-chardcn-tainwind/favicon.ico' }
+      ]
+    }
   },
 
   // Optimize for static generation
