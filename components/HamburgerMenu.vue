@@ -15,7 +15,7 @@
   <Transition name="slide">
     <div
       v-if="isOpen"
-      class="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-bg-secondary z-[60] shadow-2xl flex flex-col"
+      class="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-bg-secondary/95 backdrop-blur-sm z-[60] shadow-2xl flex flex-col"
       @click.stop
     >
       <!-- Header -->
@@ -133,7 +133,7 @@
       </div>
 
       <!-- Footer Info -->
-      <div class="flex-shrink-0 p-6 border-t border-border-subtle bg-bg-secondary">
+      <div class="flex-shrink-0 p-6 border-t border-border-subtle">
         <p class="text-xs text-text-tertiary font-body">
           Insights from aviation's most significant accidents
         </p>
