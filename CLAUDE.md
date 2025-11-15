@@ -31,6 +31,24 @@ Educational webapp documenting aviation's most significant accidents and safety 
   tailwind.css        # Color palette (CSS variables)
 ```
 
+## Project Status
+
+**IMPORTANT: Always check `ROADMAP.md` before starting new work.**
+
+**ROADMAP.md** tracks project progress with checkbox convention:
+- `[ ]` = Todo
+- `[-]` = In Progress (add 🏗️ YYYY/MM/DD when started)
+- `[x]` = Completed (add ✅ YYYY/MM/DD when finished)
+
+**Current Status:**
+- Phase 1 (Foundation & Landing Page) ✅ Complete
+- Phase 2 (Core Content Pages) - Ready to start
+
+When completing tasks:
+1. Update checkbox from `[-]` to `[x]`
+2. Add completion timestamp: `✅ YYYY/MM/DD`
+3. Mark next task as `[-]` with start timestamp: `🏗️ YYYY/MM/DD`
+
 ## Color System - CRITICAL
 
 **ALL components MUST use semantic tokens from `assets/css/tailwind.css` and `tailwind.config.js`**
