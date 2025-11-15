@@ -143,7 +143,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   isOpen: boolean
 }>()
 
@@ -168,10 +168,6 @@ watch(() => props.isOpen, (isOpen) => {
     }
   }
 })
-
-const props = defineProps<{
-  isOpen: boolean
-}>()
 
 // Clean up on unmount
 onUnmounted(() => {

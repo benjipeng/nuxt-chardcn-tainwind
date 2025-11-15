@@ -121,30 +121,13 @@
             />
           </button>
 
-          <!-- Hamburger Menu Button -->
+          <!-- Hamburger Menu Button (mobile: always visible, desktop: only when minimal) -->
           <button
             :class="[
               'p-2 hover:bg-cockpit-green/10 rounded-md transition-all duration-300',
-              navbarState === 'minimal' || isMobile ? 'opacity-100 block' : 'opacity-0 hidden md:hidden'
+              // Always visible on mobile, visible on desktop only when navbar is minimal
+              navbarState === 'minimal' ? 'block' : 'hidden md:hidden'
             ]"
-            @click="toggleMenu"
-            aria-label="Menu"
-          >
-            <Icon
-              v-if="!isMenuOpen"
-              name="lucide:menu"
-              class="w-6 h-6 text-text-primary"
-            />
-            <Icon
-              v-else
-              name="lucide:x"
-              class="w-6 h-6 text-text-primary"
-            />
-          </button>
-
-          <!-- Mobile Hamburger (always visible on mobile) -->
-          <button
-            class="md:hidden p-2 hover:bg-cockpit-green/10 rounded-md transition-colors"
             @click="toggleMenu"
             aria-label="Menu"
           >
@@ -183,17 +166,22 @@ const toggleMenu = () => {
 }
 
 // Detect mobile screen size
+const checkMobile = () => {
+  if (process.client) {
+    isMobile.value = window.innerWidth < 768
+  }
+}
+
 onMounted(() => {
   if (process.client) {
-    const checkMobile = () => {
-      isMobile.value = window.innerWidth < 768
-    }
     checkMobile()
     window.addEventListener('resize', checkMobile)
+  }
+})
 
-    onUnmounted(() => {
-      window.removeEventListener('resize', checkMobile)
-    })
+onUnmounted(() => {
+  if (process.client) {
+    window.removeEventListener('resize', checkMobile)
   }
 })
 
@@ -201,13 +189,13 @@ onMounted(() => {
 const navbarClasses = computed(() => {
   switch (navbarState.value) {
     case 'full':
-      return 'h-22 md:h-24'
+      return 'h-20 md:h-24'
     case 'compact':
       return 'h-16 md:h-20'
     case 'minimal':
       return 'h-14 md:h-16'
     default:
-      return 'h-22 md:h-24'
+      return 'h-20 md:h-24'
   }
 })
 

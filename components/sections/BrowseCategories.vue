@@ -22,14 +22,14 @@
           <div
             :class="[
               'p-3 rounded-lg mb-4 w-fit',
-              `bg-${category.color}/10`
+              getCategoryBgClass(category.color)
             ]"
           >
             <Icon
               :name="category.icon"
               :class="[
                 'w-8 h-8 transition-transform group-hover:scale-110',
-                `text-${category.color}`
+                getCategoryTextClass(category.color)
               ]"
             />
           </div>
@@ -119,6 +119,37 @@ const categories = [
     link: '/browse?category=other'
   }
 ]
+
+// Helper functions to map color strings to static Tailwind classes
+const getCategoryBgClass = (color: string) => {
+  switch (color) {
+    case 'aviation-amber':
+      return 'bg-aviation-amber/10'
+    case 'alert-red':
+      return 'bg-alert-red/10'
+    case 'radar-cyan':
+      return 'bg-radar-cyan/10'
+    case 'nav-magenta':
+      return 'bg-nav-magenta/10'
+    default:
+      return 'bg-cockpit-green/10'
+  }
+}
+
+const getCategoryTextClass = (color: string) => {
+  switch (color) {
+    case 'aviation-amber':
+      return 'text-aviation-amber'
+    case 'alert-red':
+      return 'text-alert-red'
+    case 'radar-cyan':
+      return 'text-radar-cyan'
+    case 'nav-magenta':
+      return 'text-nav-magenta'
+    default:
+      return 'text-cockpit-green'
+  }
+}
 </script>
 
 <style scoped>
