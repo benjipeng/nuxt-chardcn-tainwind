@@ -1,9 +1,9 @@
 <template>
   <nav
     :class="[
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out',
+      'fixed top-2 left-3 right-3 z-50 transition-all duration-300 ease-out',
       'bg-bg-secondary/95 backdrop-blur-sm',
-      'border-b border-border-subtle',
+      'border border-border-subtle rounded-xl',
       navbarClasses
     ]"
   >
