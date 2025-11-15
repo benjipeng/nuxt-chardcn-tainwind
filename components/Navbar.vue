@@ -126,7 +126,7 @@
             :class="[
               'p-2 hover:bg-cockpit-green/10 rounded-md transition-all duration-300',
               // Always visible on mobile, visible on desktop only when navbar is minimal
-              navbarState === 'minimal' ? 'block' : 'hidden md:hidden'
+              navbarState === 'minimal' ? 'block' : 'block md:hidden'
             ]"
             @click="toggleMenu"
             aria-label="Menu"
