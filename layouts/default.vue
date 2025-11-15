@@ -18,11 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import TheSidebar from "~/components/TheSidebar.vue";
-import TheHeader from "~/components/TheHeader.vue";
-import { useDarkMode } from "~/composables/useDarkMode";
-
+// All imports are auto-imported in Nuxt 4
 const { isDarkMode } = useDarkMode();
 const isSidebarOpen = ref(false);
 

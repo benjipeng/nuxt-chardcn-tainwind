@@ -6,8 +6,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
-
 const windowWidth = ref(0);
 
 const updateWidth = () => {
