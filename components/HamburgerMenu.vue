@@ -6,7 +6,7 @@
   >
     <div
       v-if="isOpen"
-      class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+      class="fixed inset-0 bg-bg-backdrop/60 backdrop-blur-sm z-40"
       @click="$emit('close')"
     />
   </Transition>
@@ -121,7 +121,7 @@
           >
             <div
               :class="[
-                'w-4 h-4 rounded-full bg-white shadow-md transition-transform mt-1',
+                'w-4 h-4 rounded-full bg-bg-primary shadow-md transition-transform mt-1',
                 isDarkMode ? 'translate-x-5' : 'translate-x-1'
               ]"
             />

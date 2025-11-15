@@ -14,6 +14,7 @@
     --bg-secondary: 249 250 251;      /* #f9fafb - Cards, navbar */
     --bg-tertiary: 243 244 246;       /* #f3f4f6 - Hover, inputs */
     --bg-overlay: 255 255 255;        /* #ffffff - Modals */
+    --bg-backdrop: 0 0 0;             /* #000000 - Dimming overlay (use with opacity) */
 
     /* Text Colors (AAA compliant) */
     --text-primary: 17 24 39;         /* #111827 - 15.8:1 contrast - Body text */
@@ -72,6 +73,7 @@
     --bg-secondary: 31 41 55;         /* #1f2937 - Elevated surfaces */
     --bg-tertiary: 55 65 81;          /* #374151 - Hover states, inputs */
     --bg-overlay: 17 24 39;           /* #111827 - Modals, overlays */
+    --bg-backdrop: 0 0 0;             /* #000000 - Dimming overlay (use with opacity) */
 
     /* Text Colors (AAA compliant) */
     --text-primary: 249 250 251;      /* #f9fafb - 16.8:1 contrast - Body text */

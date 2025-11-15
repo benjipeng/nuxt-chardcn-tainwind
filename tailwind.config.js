@@ -32,6 +32,7 @@ module.exports = {
           secondary: "rgb(var(--bg-secondary) / <alpha-value>)",
           tertiary: "rgb(var(--bg-tertiary) / <alpha-value>)",
           overlay: "rgb(var(--bg-overlay) / <alpha-value>)",
+          backdrop: "rgb(var(--bg-backdrop) / <alpha-value>)",
         },
 
         // Text tokens

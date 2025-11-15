@@ -122,7 +122,7 @@
 .btn-primary {
   @apply inline-flex items-center gap-2 px-8 py-4 rounded-lg;
   @apply bg-cockpit-green hover:bg-cockpit-green/90;
-  @apply text-white font-body font-semibold;
+  @apply text-primary-foreground font-body font-semibold;
   @apply transition-all duration-200;
   @apply shadow-lg shadow-cockpit-green/20 hover:shadow-glow-green;
   @apply transform hover:scale-105;
