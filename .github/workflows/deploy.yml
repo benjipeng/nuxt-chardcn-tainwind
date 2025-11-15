@@ -34,10 +34,10 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Generate static site
-        run: yarn generate
+        run: npm run generate
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
