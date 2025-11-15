@@ -1,9 +1,33 @@
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', 'shadcn-nuxt'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    'shadcn-nuxt',
+    '@nuxt/fonts',
+    '@nuxt/icon'
+  ],
+
   shadcn: {
     prefix: '',
     componentDir: './components/ui'
   },
+
+  // Font configuration
+  fonts: {
+    families: [
+      // B612 - Aviation cockpit font for headings
+      { name: 'B612', provider: 'google' },
+      // Work Sans - Modern professional font for body
+      { name: 'Work Sans', provider: 'google' }
+    ]
+  },
+
+  // Icon configuration
+  icon: {
+    serverBundle: {
+      collections: ['lucide']
+    }
+  },
+
   // SSG mode enabled (ssr: true is default)
   ssr: true,
 
@@ -14,12 +38,7 @@ export default defineNuxtConfig({
   // Optimize for static generation
   nitro: {
     prerender: {
-      routes: [
-        '/',
-        '/usestate',
-        '/useeffect',
-        '/useref'
-      ],
+      routes: ['/'],
       crawlLinks: true,
       failOnError: false
     }

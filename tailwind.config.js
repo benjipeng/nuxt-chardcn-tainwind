@@ -15,7 +15,52 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        display: ['B612', 'sans-serif'],      // Aviation cockpit font for headings
+        body: ['Work Sans', 'sans-serif'],    // Professional body font
+        mono: ['B612 Mono', 'monospace'],     // Technical/data font
+      },
       colors: {
+        /* ========================================
+           MAYDAY ARCHIVE - Aviation Color System
+           Semantic color tokens for both themes
+           ======================================== */
+
+        // Background tokens
+        bg: {
+          primary: "rgb(var(--bg-primary) / <alpha-value>)",
+          secondary: "rgb(var(--bg-secondary) / <alpha-value>)",
+          tertiary: "rgb(var(--bg-tertiary) / <alpha-value>)",
+          overlay: "rgb(var(--bg-overlay) / <alpha-value>)",
+          backdrop: "rgb(var(--bg-backdrop) / <alpha-value>)",
+        },
+
+        // Text tokens
+        text: {
+          primary: "rgb(var(--text-primary) / <alpha-value>)",
+          secondary: "rgb(var(--text-secondary) / <alpha-value>)",
+          tertiary: "rgb(var(--text-tertiary) / <alpha-value>)",
+          disabled: "rgb(var(--text-disabled) / <alpha-value>)",
+        },
+
+        // Aviation accent colors (buttons, UI elements)
+        "cockpit-green": "rgb(var(--accent-green) / <alpha-value>)",
+        "aviation-amber": "rgb(var(--accent-amber) / <alpha-value>)",
+        "alert-red": "rgb(var(--accent-red) / <alpha-value>)",
+        "nav-magenta": "rgb(var(--accent-magenta) / <alpha-value>)",
+        "radar-cyan": "rgb(var(--accent-cyan) / <alpha-value>)",
+
+        // Aviation accent colors (text - higher contrast)
+        "cockpit-green-text": "rgb(var(--accent-green-text) / <alpha-value>)",
+        "aviation-amber-text": "rgb(var(--accent-amber-text) / <alpha-value>)",
+        "alert-red-text": "rgb(var(--accent-red-text) / <alpha-value>)",
+
+        // Border tokens
+        "border-subtle": "rgb(var(--border-subtle) / <alpha-value>)",
+        "border-default": "rgb(var(--border-default) / <alpha-value>)",
+        "border-strong": "rgb(var(--border-strong) / <alpha-value>)",
+
+        /* Shadcn UI Compatibility */
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -55,6 +100,12 @@ module.exports = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        "glow-green": "0 0 20px rgba(16, 185, 129, 0.4)",
+        "glow-amber": "0 0 20px rgba(251, 191, 36, 0.4)",
+        "glow-red": "0 0 20px rgba(239, 68, 68, 0.3)",
+        "glow-cyan": "0 0 20px rgba(34, 211, 238, 0.3)",
       },
       keyframes: {
         "accordion-down": {
