@@ -15,6 +15,11 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        display: ['B612', 'sans-serif'],      // Aviation cockpit font for headings
+        body: ['Work Sans', 'sans-serif'],    // Professional body font
+        mono: ['B612 Mono', 'monospace'],     // Technical/data font
+      },
       colors: {
         /* ========================================
            MAYDAY ARCHIVE - Aviation Color System
