@@ -1,14 +1,14 @@
 <template>
   <nav
     :class="[
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-350 ease-out',
+      'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out',
       'bg-bg-secondary/95 backdrop-blur-sm',
       'border-b border-border-subtle',
       navbarClasses
     ]"
   >
-    <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between">
+    <div class="container mx-auto px-4 h-full">
+      <div class="flex items-center justify-between h-full">
         <!-- Logo and Title -->
         <NuxtLink
           to="/"
@@ -27,7 +27,7 @@
               :class="[
                 'font-display font-bold text-cockpit-green',
                 'transition-all duration-300',
-                navbarState === 'full' ? 'text-xl' : 'text-lg'
+                navbarState === 'full' ? 'text-xl' : navbarState === 'compact' ? 'text-lg' : 'text-base'
               ]"
             >
               MA
@@ -35,7 +35,7 @@
           </div>
 
           <!-- Title Text -->
-          <div class="flex flex-col">
+          <div class="flex flex-col justify-center">
             <span
               :class="[
                 'font-display font-bold text-text-primary',

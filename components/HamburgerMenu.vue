@@ -15,11 +15,11 @@
   <Transition name="slide">
     <div
       v-if="isOpen"
-      class="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-bg-secondary z-50 shadow-2xl"
+      class="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-bg-secondary z-60 shadow-2xl flex flex-col"
       @click.stop
     >
       <!-- Header -->
-      <div class="flex items-center justify-between p-6 border-b border-border-default">
+      <div class="flex items-center justify-between p-6 border-b border-border-default flex-shrink-0">
         <div class="flex items-center gap-3">
           <div
             class="flex items-center justify-center w-10 h-10 border-2 border-cockpit-green bg-cockpit-green/10 rounded-md"
@@ -44,8 +44,10 @@
         </button>
       </div>
 
-      <!-- Navigation Links -->
-      <nav class="flex flex-col gap-1 p-4">
+      <!-- Scrollable Content Area -->
+      <div class="flex-1 overflow-y-auto">
+        <!-- Navigation Links -->
+        <nav class="flex flex-col gap-1 p-4 pb-32">
         <NuxtLink
           to="/browse"
           class="menu-item group"
@@ -128,9 +130,10 @@
           </div>
         </button>
       </nav>
+      </div>
 
       <!-- Footer Info -->
-      <div class="absolute bottom-0 left-0 right-0 p-6 border-t border-border-subtle">
+      <div class="flex-shrink-0 p-6 border-t border-border-subtle bg-bg-secondary">
         <p class="text-xs text-text-tertiary font-body">
           Insights from aviation's most significant accidents
         </p>
