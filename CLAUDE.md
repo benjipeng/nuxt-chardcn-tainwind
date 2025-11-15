@@ -33,18 +33,25 @@ Educational webapp documenting aviation's most significant accidents and safety 
 
 ## Project Status
 
-**IMPORTANT: Always check `ROADMAP.md` before starting new work.**
+**ROADMAP.md** is the single source of truth for project progress.
 
-**ROADMAP.md** tracks project progress with checkbox convention:
-- `[ ]` = Todo
-- `[-]` = In Progress
-- `[x]` = Completed
+**Workflow:**
+
+1. **Before starting ANY new work**: Read ROADMAP.md to understand current phase and next tasks
+2. **When starting a task**: Update checkbox from `[ ]` to `[-]` in ROADMAP.md
+3. **When completing a task**: Update checkbox from `[-]` to `[x]` in ROADMAP.md
+4. **After completing a task**: Check ROADMAP.md for the next task
+
+**Checkbox Convention:**
+- `[ ]` = Not started
+- `[-]` = In progress (you are currently working on this)
+- `[x]` = Complete
 
 **Current Status:**
 - Phase 1 (Foundation & Landing Page) ✅ Complete
 - Phase 2 (Core Content Pages) - Ready to start
 
-When completing tasks, update checkboxes: `[ ]` → `[-]` → `[x]`
+**IMPORTANT:** Update ROADMAP.md as you work, not at the end of the session.
 
 ## Color System - CRITICAL
 
