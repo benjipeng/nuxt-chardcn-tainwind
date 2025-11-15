@@ -15,7 +15,7 @@
   <Transition name="slide">
     <div
       v-if="isOpen"
-      class="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-bg-secondary z-60 shadow-2xl flex flex-col"
+      class="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-bg-secondary z-[60] shadow-2xl flex flex-col"
       @click.stop
     >
       <!-- Header -->
@@ -48,88 +48,88 @@
       <div class="flex-1 overflow-y-auto">
         <!-- Navigation Links -->
         <nav class="flex flex-col gap-1 p-4 pb-32">
-        <NuxtLink
-          to="/browse"
-          class="menu-item group"
-          @click="$emit('close')"
-        >
-          <Icon
-            name="lucide:layers"
-            class="w-5 h-5 text-cockpit-green group-hover:text-cockpit-green-text transition-colors"
-          />
-          <span>Browse Disasters</span>
-        </NuxtLink>
-
-        <NuxtLink
-          to="/timeline"
-          class="menu-item group"
-          @click="$emit('close')"
-        >
-          <Icon
-            name="lucide:calendar"
-            class="w-5 h-5 text-radar-cyan group-hover:text-radar-cyan transition-colors"
-          />
-          <span>Timeline</span>
-        </NuxtLink>
-
-        <NuxtLink
-          to="/about"
-          class="menu-item group"
-          @click="$emit('close')"
-        >
-          <Icon
-            name="lucide:info"
-            class="w-5 h-5 text-nav-magenta group-hover:text-nav-magenta transition-colors"
-          />
-          <span>About</span>
-        </NuxtLink>
-
-        <div class="h-px bg-border-default my-2" />
-
-        <button
-          class="menu-item group"
-          @click="handleSearch"
-        >
-          <Icon
-            name="lucide:search"
-            class="w-5 h-5 text-text-secondary group-hover:text-cockpit-green-text transition-colors"
-          />
-          <span>Search</span>
-        </button>
-
-        <div class="h-px bg-border-default my-2" />
-
-        <!-- Dark Mode Toggle -->
-        <button
-          class="menu-item group"
-          @click="toggleDarkMode"
-        >
-          <Icon
-            v-if="isDarkMode"
-            name="lucide:moon"
-            class="w-5 h-5 text-aviation-amber"
-          />
-          <Icon
-            v-else
-            name="lucide:sun"
-            class="w-5 h-5 text-aviation-amber"
-          />
-          <span>{{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}</span>
-          <div
-            :class="[
-              'ml-auto w-10 h-6 rounded-full transition-colors',
-              isDarkMode ? 'bg-cockpit-green' : 'bg-border-default'
-            ]"
+          <NuxtLink
+            to="/browse"
+            class="menu-item group"
+            @click="$emit('close')"
           >
+            <Icon
+              name="lucide:layers"
+              class="w-5 h-5 text-cockpit-green group-hover:text-cockpit-green-text transition-colors"
+            />
+            <span>Browse Disasters</span>
+          </NuxtLink>
+
+          <NuxtLink
+            to="/timeline"
+            class="menu-item group"
+            @click="$emit('close')"
+          >
+            <Icon
+              name="lucide:calendar"
+              class="w-5 h-5 text-radar-cyan group-hover:text-radar-cyan transition-colors"
+            />
+            <span>Timeline</span>
+          </NuxtLink>
+
+          <NuxtLink
+            to="/about"
+            class="menu-item group"
+            @click="$emit('close')"
+          >
+            <Icon
+              name="lucide:info"
+              class="w-5 h-5 text-nav-magenta group-hover:text-nav-magenta transition-colors"
+            />
+            <span>About</span>
+          </NuxtLink>
+
+          <div class="h-px bg-border-default my-2" />
+
+          <button
+            class="menu-item group"
+            @click="handleSearch"
+          >
+            <Icon
+              name="lucide:search"
+              class="w-5 h-5 text-text-secondary group-hover:text-cockpit-green-text transition-colors"
+            />
+            <span>Search</span>
+          </button>
+
+          <div class="h-px bg-border-default my-2" />
+
+          <!-- Dark Mode Toggle -->
+          <button
+            class="menu-item group"
+            @click="toggleDarkMode"
+          >
+            <Icon
+              v-if="isDarkMode"
+              name="lucide:moon"
+              class="w-5 h-5 text-aviation-amber"
+            />
+            <Icon
+              v-else
+              name="lucide:sun"
+              class="w-5 h-5 text-aviation-amber"
+            />
+            <span>{{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}</span>
             <div
               :class="[
-                'w-4 h-4 rounded-full bg-bg-primary shadow-md transition-transform mt-1',
-                isDarkMode ? 'translate-x-5' : 'translate-x-1'
+                'ml-auto w-10 h-6 rounded-full transition-colors',
+                isDarkMode ? 'bg-cockpit-green' : 'bg-border-default'
               ]"
-            />
-          </div>
-        </button>
-      </nav>
+            >
+              <div
+                :class="[
+                  'w-4 h-4 rounded-full bg-bg-primary shadow-md transition-transform mt-1',
+                  isDarkMode ? 'translate-x-5' : 'translate-x-1'
+                ]"
+              />
+            </div>
+          </button>
+        </nav>
       </div>
 
       <!-- Footer Info -->
