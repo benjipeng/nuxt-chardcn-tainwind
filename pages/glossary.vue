@@ -6,10 +6,10 @@
     <!-- Content -->
     <div class="container mx-auto px-4 py-20 relative">
       <!-- Hero -->
-      <Motion
+      <div
+        v-motion
         :initial="{ opacity: 0, y: -30, scale: 0.95 }"
-        :animate="{ opacity: 1, y: 0, scale: 1 }"
-        :transition="{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }"
+        :enter="{ opacity: 1, y: 0, scale: 1, transition: { duration: 600, ease: [0.16, 1, 0.3, 1] } }"
         class="mb-12 text-center"
       >
         <div class="flex items-center justify-center gap-3 mb-6">
@@ -24,54 +24,58 @@
         <p class="text-lg text-text-secondary font-body max-w-2xl mx-auto">
           Common terms and acronyms used in aviation accident documentation
         </p>
-      </Motion>
+      </div>
 
       <!-- Glossary Content -->
       <div class="max-w-4xl mx-auto">
-        <Motion
+        <Card
           v-for="(section, sectionIndex) in glossarySections"
           :key="sectionIndex"
+          v-motion
           :initial="{ opacity: 0, y: 20 }"
-          :animate="{ opacity: 1, y: 0 }"
-          :transition="{ duration: 0.5, delay: 0.1 * (sectionIndex + 1), ease: [0.16, 1, 0.3, 1] }"
-          class="mb-8"
+          :enter="{
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 500,
+              delay: 100 * (sectionIndex + 1),
+              ease: [0.16, 1, 0.3, 1]
+            }
+          }"
+          class="mb-8 transition-all duration-300 hover:shadow-glow-cyan"
         >
-          <Card class="transition-all duration-300 hover:shadow-glow-cyan">
-            <CardHeader>
-              <CardTitle class="flex items-center gap-2">
-                <Icon
-                  :name="section.icon"
-                  class="w-5 h-5 text-radar-cyan"
-                />
-                {{ section.category }}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <dl class="space-y-4">
-                <div
-                  v-for="(term, termIndex) in section.terms"
-                  :key="termIndex"
-                  class="group"
-                >
-                  <dt class="font-display font-bold text-cockpit-green-text mb-1">
-                    {{ term.term }}
-                  </dt>
-                  <dd class="text-text-secondary font-body ml-4">
-                    {{ term.definition }}
-                  </dd>
-                </div>
-              </dl>
-            </CardContent>
-          </Card>
-        </Motion>
+          <CardHeader>
+            <CardTitle class="flex items-center gap-2">
+              <Icon
+                :name="section.icon"
+                class="w-5 h-5 text-radar-cyan"
+              />
+              {{ section.category }}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <dl class="space-y-4">
+              <div
+                v-for="(term, termIndex) in section.terms"
+                :key="termIndex"
+                class="group"
+              >
+                <dt class="font-display font-bold text-cockpit-green-text mb-1">
+                  {{ term.term }}
+                </dt>
+                <dd class="text-text-secondary font-body ml-4">
+                  {{ term.definition }}
+                </dd>
+              </div>
+            </dl>
+          </CardContent>
+        </Card>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Motion } from '@oku-ui/motion'
-
 useSeoMeta({
   title: 'Glossary - Mayday Archive',
   description: 'Aviation terms and acronyms explained for disaster documentation.',

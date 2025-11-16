@@ -11,7 +11,7 @@ Educational webapp documenting aviation's most significant accidents and safety 
 - **UI**: shadcn-nuxt v0.10.4
 - **Fonts**: B612 (display), Work Sans (body), B612 Mono (mono)
 - **Icons**: @nuxt/icon (Lucide)
-- **Animations**: @oku-ui/motion
+- **Animations**: @vueuse/motion
 
 ## Project Structure
 
