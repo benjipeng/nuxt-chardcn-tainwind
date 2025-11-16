@@ -38,19 +38,6 @@ export default defineNuxtConfig({
   // SSG mode enabled (ssr: true is default)
   ssr: true,
 
-  // Route rules for pre-rendering
-  routeRules: {
-    '/': { prerender: true },
-    '/browse': { prerender: true },
-    '/timeline': { prerender: true },
-    '/disaster/tenerife-1977': { prerender: true },
-    '/disaster/jal123-1985': { prerender: true },
-    '/disaster/charkhi-dadri-1996': { prerender: true },
-    '/disaster/aa191-1979': { prerender: true },
-    '/disaster/af447-2009': { prerender: true },
-    '/disaster/ethiopian-302-2019': { prerender: true }
-  },
-
   app: {
     baseURL: '/mayday-archive/',
     head: {
@@ -67,24 +54,6 @@ export default defineNuxtConfig({
       routes: ['/'],
       crawlLinks: true,
       failOnError: false
-    }
-  },
-
-  // Generate dynamic routes for SSG using prerender:routes hook (Nuxt 4 recommended)
-  hooks: {
-    async 'prerender:routes'(ctx) {
-      // Read disaster content files from filesystem
-      const { readdirSync } = await import('fs')
-      const { join } = await import('path')
-
-      const contentDir = join(process.cwd(), 'content', 'disasters')
-      const files = readdirSync(contentDir)
-
-      // Add disaster detail routes to prerender context
-      for (const file of files.filter((f: string) => f.endsWith('.md'))) {
-        const slug = file.replace('.md', '')
-        ctx.routes.add(`/disaster/${slug}`)
-      }
     }
   },
 
