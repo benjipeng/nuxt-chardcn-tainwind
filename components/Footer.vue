@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-bg-secondary border-t border-border-subtle py-12 px-4">
     <div class="container mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         <!-- Brand -->
         <div class="md:col-span-1">
           <div class="flex items-center gap-3 mb-4">
@@ -84,13 +84,6 @@
                 Glossary
               </NuxtLink>
             </li>
-          </ul>
-        </div>
-
-        <!-- About -->
-        <div>
-          <h3 class="font-display font-bold text-text-primary mb-4">About</h3>
-          <ul class="space-y-2">
             <li>
               <NuxtLink
                 to="/about"
