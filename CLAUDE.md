@@ -27,9 +27,70 @@ Educational webapp documenting aviation's most significant accidents and safety 
   useDarkMode.ts      # Theme toggle
 /pages
   index.vue           # Landing page
+  browse.vue          # Browse/filter disasters
+  timeline.vue        # Timeline visualization
+  disaster/[slug].vue # Disaster detail pages
+/content
+  /disasters          # Markdown files (one per disaster)
+/public/images
+  /disasters          # Disaster images organized by slug
 /assets/css
   tailwind.css        # Color palette (CSS variables)
 ```
+
+## Content Management
+
+**Content is managed via Markdown files** using @nuxt/content module.
+
+### Adding a Disaster
+
+1. Create `/content/disasters/[slug].md` (slug = `tenerife-1977`, `jal123-1985`, etc.)
+2. Add frontmatter (YAML) at top with required fields
+3. Write article content in markdown below frontmatter
+4. Add images to `/public/images/disasters/[slug]/`
+
+### Required Frontmatter Fields
+
+```yaml
+---
+slug: tenerife-1977                    # Unique identifier
+title: Tenerife Airport Disaster       # Display name
+date: 1977-03-27                       # ISO date format
+fatalities: 583                        # Number
+survivors: 61                          # Number (optional)
+aircraft: Boeing 747 (×2)              # Aircraft type
+operator: Pan Am & KLM                 # Airline/operator
+categories:                            # Array (for filtering)
+  - Human Error
+  - Communication
+location:
+  city: Los Rodeos Airport, Tenerife   # City/location
+  country: Spain                       # Country
+images:
+  hero: /images/disasters/tenerife-1977/hero.jpg        # Main image
+  thumbnail: /images/disasters/tenerife-1977/thumb.jpg  # Card image
+  gallery:                             # Optional array
+    - /images/disasters/tenerife-1977/photo1.jpg
+summary: Brief 1-2 sentence description for cards
+---
+
+# Article content starts here...
+```
+
+### Categories
+
+Use exactly these category values for consistency:
+- `Human Error` - Pilot mistakes, ATC errors, communication failures
+- `Mechanical` - Design flaws, maintenance errors, equipment malfunctions
+- `Weather` - Severe conditions, icing, turbulence, wind shear
+- `Other` - Terrorism, sabotage, bird strikes, mid-air collisions
+
+### How It Works
+
+- **Browse/Timeline pages** automatically query ALL .md files in `/content/disasters/`
+- **Detail pages** automatically generated for each .md file at `/disaster/[slug]`
+- **No code changes** needed when adding new disasters
+- **SSG** generates static HTML at build time
 
 ## Project Status
 
