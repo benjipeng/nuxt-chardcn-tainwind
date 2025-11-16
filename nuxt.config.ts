@@ -70,11 +70,9 @@ export default defineNuxtConfig({
     }
   },
 
-  // Generate dynamic routes for SSG
+  // Generate dynamic routes for SSG using prerender:routes hook (Nuxt 4 recommended)
   hooks: {
-    async 'nitro:config'(nitroConfig) {
-      if (nitroConfig.dev) return
-
+    async 'prerender:routes'(ctx) {
       // Read disaster content files from filesystem
       const { readdirSync } = await import('fs')
       const { join } = await import('path')
@@ -82,22 +80,11 @@ export default defineNuxtConfig({
       const contentDir = join(process.cwd(), 'content', 'disasters')
       const files = readdirSync(contentDir)
 
-      // Generate routes for all disaster detail pages (without baseURL, Nuxt handles that)
-      const disasterRoutes = files
-        .filter((file: string) => file.endsWith('.md'))
-        .map((file: string) => `/disaster/${file.replace('.md', '')}`)
-
-      // Add all routes to prerender (Nuxt will automatically prepend baseURL)
-      nitroConfig.prerender = nitroConfig.prerender || {}
-      nitroConfig.prerender.routes = nitroConfig.prerender.routes || []
-
-      // Clear default routes and add our explicit list
-      nitroConfig.prerender.routes = [
-        '/',
-        '/browse',
-        '/timeline',
-        ...disasterRoutes
-      ]
+      // Add disaster detail routes to prerender context
+      for (const file of files.filter((f: string) => f.endsWith('.md'))) {
+        const slug = file.replace('.md', '')
+        ctx.routes.add(`/disaster/${slug}`)
+      }
     }
   },
 
