@@ -49,41 +49,54 @@ Educational webapp documenting aviation's most significant accidents and safety 
 3. Write article content in markdown below frontmatter
 4. Add images to `/public/images/disasters/[slug]/`
 
-### Required Frontmatter Fields
+### Frontmatter Structure
+
+**All fields are required unless marked optional.**
 
 ```yaml
 ---
-slug: tenerife-1977                    # Unique identifier
-title: Tenerife Airport Disaster       # Display name
-date: 1977-03-27                       # ISO date format
-fatalities: 583                        # Number
-survivors: 61                          # Number (optional)
-aircraft: Boeing 747 (×2)              # Aircraft type
-operator: Pan Am & KLM                 # Airline/operator
-categories:                            # Array (for filtering)
+slug: tenerife-1977
+title: Tenerife Airport Disaster
+date: 1977-03-27
+fatalities: 583
+aircraft: Boeing 747
+categories:
   - Human Error
-  - Communication
 location:
-  city: Los Rodeos Airport, Tenerife   # City/location
-  country: Spain                       # Country
+  city: Tenerife
+  country: Spain
 images:
-  hero: /images/disasters/tenerife-1977/hero.jpg        # Main image
-  thumbnail: /images/disasters/tenerife-1977/thumb.jpg  # Card image
-  gallery:                             # Optional array
-    - /images/disasters/tenerife-1977/photo1.jpg
-summary: Brief 1-2 sentence description for cards
+  hero: /images/disasters/tenerife-1977/hero.jpg
+  thumbnail: /images/disasters/tenerife-1977/thumb.jpg
+summary: Two Boeing 747s collided on a foggy runway, killing 583 in aviation's deadliest accident.
 ---
 
 # Article content starts here...
 ```
 
-### Categories
+### Field Reference
 
-Use exactly these category values for consistency:
-- `Human Error` - Pilot mistakes, ATC errors, communication failures
-- `Mechanical` - Design flaws, maintenance errors, equipment malfunctions
-- `Weather` - Severe conditions, icing, turbulence, wind shear
-- `Other` - Terrorism, sabotage, bird strikes, mid-air collisions
+| Field | Type | Example | Notes |
+|-------|------|---------|-------|
+| `slug` | string | `tenerife-1977` | Unique identifier (lowercase, hyphenated) |
+| `title` | string | `Tenerife Airport Disaster` | Display name |
+| `date` | ISO date | `1977-03-27` | YYYY-MM-DD format |
+| `fatalities` | number | `583` | Do not quote numbers |
+| `aircraft` | string | `Boeing 747` | Aircraft type |
+| `categories` | array | See below | 1-2 values max |
+| `location.city` | string | `Tenerife` | City or location |
+| `location.country` | string | `Spain` | Country |
+| `images.hero` | path | `/images/disasters/.../hero.jpg` | Detail page header |
+| `images.thumbnail` | path | `/images/disasters/.../thumb.jpg` | Browse/timeline cards |
+| `summary` | string | `Brief description...` | 1-2 sentences for cards |
+
+### Category Values
+
+Use **exactly** these values (1-2 per disaster):
+- `Human Error`
+- `Mechanical`
+- `Weather`
+- `Other`
 
 ### How It Works
 
