@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/content',
-    '@oku-ui/motion/nuxt'
+    '@vueuse/motion/nuxt'
   ],
 
   shadcn: {

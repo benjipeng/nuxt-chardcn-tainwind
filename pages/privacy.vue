@@ -1,109 +1,105 @@
 <template>
   <div class="min-h-screen bg-bg-primary">
     <!-- Hero Section -->
-    <Motion
+    <section
+      v-motion
       :initial="{ opacity: 0, y: -30, scale: 0.95 }"
-      :animate="{ opacity: 1, y: 0, scale: 1 }"
-      :transition="{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }"
+      :enter="{ opacity: 1, y: 0, scale: 1, transition: { duration: 600, ease: [0.16, 1, 0.3, 1] } }"
+      class="relative bg-bg-secondary border-b border-border-subtle overflow-hidden"
     >
-      <section class="relative bg-bg-secondary border-b border-border-subtle overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-cockpit-green/5 to-transparent pointer-events-none" />
-        <div class="container mx-auto px-4 py-16 md:py-24 relative">
-          <div class="max-w-3xl mx-auto text-center">
-            <Motion
-              :initial="{ opacity: 0, scale: 0.8 }"
-              :animate="{ opacity: 1, scale: 1 }"
-              :transition="{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }"
-            >
-              <h1 class="font-display text-4xl md:text-5xl font-bold text-text-primary mb-4">
-                Privacy
-              </h1>
-            </Motion>
-            <Motion
-              :initial="{ opacity: 0 }"
-              :animate="{ opacity: 1 }"
-              :transition="{ delay: 0.4, duration: 0.5 }"
-            >
-              <p class="text-lg text-text-secondary font-body">
-                Last Updated: {{ lastUpdated }}
-              </p>
-            </Motion>
-          </div>
+      <div class="absolute inset-0 bg-gradient-to-br from-cockpit-green/5 to-transparent pointer-events-none" />
+      <div class="container mx-auto px-4 py-16 md:py-24 relative">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1
+            v-motion
+            :initial="{ opacity: 0, scale: 0.8 }"
+            :enter="{ opacity: 1, scale: 1, transition: { delay: 200, duration: 500, ease: [0.16, 1, 0.3, 1] } }"
+            class="font-display text-4xl md:text-5xl font-bold text-text-primary mb-4"
+          >
+            Privacy
+          </h1>
+          <p
+            v-motion
+            :initial="{ opacity: 0 }"
+            :enter="{ opacity: 1, transition: { delay: 400, duration: 500 } }"
+            class="text-lg text-text-secondary font-body"
+          >
+            Last Updated: {{ lastUpdated }}
+          </p>
         </div>
-      </section>
-    </Motion>
+      </div>
+    </section>
 
     <!-- Main Content -->
     <section class="py-12 md:py-16">
       <div class="container mx-auto px-4 max-w-4xl">
-        <Motion
+        <Card
           v-for="(card, index) in cards"
           :key="index"
+          v-motion
           :initial="{ y: 60, scale: 0.95 }"
-          :whileInView="{ y: 0, scale: 1 }"
-          :viewport="{ once: true, margin: '-50px' }"
-          :transition="{
-            duration: 0.6,
-            delay: 0.12 * index,
-            ease: [0.16, 1, 0.3, 1]
+          :visibleOnce="{
+            y: 0,
+            scale: 1,
+            transition: {
+              duration: 600,
+              delay: 120 * index,
+              ease: [0.16, 1, 0.3, 1]
+            }
           }"
-          :whileHover="{
+          :hovered="{
             y: -6,
             scale: 1.02,
-            transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
+            transition: { duration: 300, ease: [0.16, 1, 0.3, 1] }
           }"
-          class="mb-8"
+          :class="[
+            'transition-all duration-300 backdrop-blur-sm mb-8',
+            'border-border-subtle',
+            card.borderClass,
+            card.glowClass
+          ]"
         >
-            <Card :class="[
-              'transition-all duration-300 backdrop-blur-sm',
-              'border-border-subtle',
-              card.borderClass,
-              card.glowClass
-            ]">
-              <CardHeader>
-                <CardTitle :class="card.titleClass">
-                  <component :is="card.icon" v-if="card.icon" />
-                  {{ card.title }}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <component :is="card.content" />
-              </CardContent>
-            </Card>
-        </Motion>
+          <CardHeader>
+            <CardTitle :class="card.titleClass">
+              <component :is="card.icon" v-if="card.icon" />
+              {{ card.title }}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <component :is="card.content" />
+          </CardContent>
+        </Card>
 
         <!-- Bottom Navigation -->
-        <Motion
+        <div
+          v-motion
           :initial="{ opacity: 0, y: 20 }"
-          :animate="{ opacity: 1, y: 0 }"
-          :transition="{ delay: 0.9, duration: 0.5, ease: [0.16, 1, 0.3, 1] }"
+          :enter="{ opacity: 1, y: 0, transition: { delay: 900, duration: 500, ease: [0.16, 1, 0.3, 1] } }"
+          class="mt-12 pt-8 border-t border-border-default"
         >
-          <div class="mt-12 pt-8 border-t border-border-default">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <NuxtLink
-                to="/terms"
-                class="group flex items-center gap-2 text-cockpit-green-text hover:text-cockpit-green transition-all duration-300 font-body"
-              >
-                <Icon name="lucide:file-text" class="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
-                <span class="transition-all duration-300 group-hover:translate-x-1">Terms of Use</span>
-              </NuxtLink>
-              <NuxtLink
-                to="/"
-                class="group flex items-center gap-2 text-text-secondary hover:text-cockpit-green-text transition-all duration-300 font-body"
-              >
-                <Icon name="lucide:home" class="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
-                <span class="transition-all duration-300 group-hover:translate-x-1">Return to Home</span>
-              </NuxtLink>
-            </div>
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <NuxtLink
+              to="/terms"
+              class="group flex items-center gap-2 text-cockpit-green-text hover:text-cockpit-green transition-all duration-300 font-body"
+            >
+              <Icon name="lucide:file-text" class="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
+              <span class="transition-all duration-300 group-hover:translate-x-1">Terms of Use</span>
+            </NuxtLink>
+            <NuxtLink
+              to="/"
+              class="group flex items-center gap-2 text-text-secondary hover:text-cockpit-green-text transition-all duration-300 font-body"
+            >
+              <Icon name="lucide:home" class="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
+              <span class="transition-all duration-300 group-hover:translate-x-1">Return to Home</span>
+            </NuxtLink>
           </div>
-        </Motion>
+        </div>
       </div>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Motion } from '@oku-ui/motion'
 import { h } from 'vue'
 
 useHead({
