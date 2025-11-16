@@ -143,25 +143,3 @@ Always push to `claude/*` branches.
 4. NEVER nest lifecycle hooks
 5. ALWAYS validate WCAG contrast
 6. ALWAYS use `process.client` for browser-only code
-
-## Aviation Data
-
-**Featured Disasters:**
-- Tenerife (1977) - 583 deaths
-- JAL 123 (1985) - 520 deaths
-- Charkhi Dadri (1996) - 349 deaths
-- Ethiopian 302 (2019) - 157 deaths
-- Air France 447 (2009) - 228 deaths
-- AA 191 (1979) - 273 deaths
-
-**Categories:**
-- Human Error (~166) - `aviation-amber`
-- Mechanical (~43) - `alert-red`
-- Weather (~23) - `radar-cyan`
-- Other (~18) - `nav-magenta`
-
-**Statistics:**
-- 207+ major accidents (100+ fatalities)
-- 400× safer than 1959
-- 0.1 per million flights (2024)
-- 0 CFIT incidents (2024)
