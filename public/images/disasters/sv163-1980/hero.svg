@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#0f172a"/>
+
+  <!-- Definitions -->
+  <defs>
+    <!-- Radar grid pattern -->
+    <pattern id="radar-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="40" cy="40" r="40" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="40" cy="40" r="20" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <line x1="40" y1="0" x2="40" y2="80" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+      <line x1="0" y1="40" x2="80" y2="40" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+
+    <!-- Glow for fire -->
+    <filter id="fire-glow">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Smoke gradient -->
+    <radialGradient id="smoke">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#64748b" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#475569" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Radar background -->
+  <rect width="1920" height="1080" fill="url(#radar-grid)"/>
+
+  <!-- Taxiway/runway -->
+  <g opacity="0.5">
+    <rect x="600" y="680" width="720" height="220" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+    <line x1="960" y1="680" x2="960" y2="900" stroke="#fbbf24" stroke-width="3" stroke-dasharray="25,15"/>
+  </g>
+
+  <!-- Smoke clouds -->
+  <g opacity="0.6">
+    <ellipse cx="850" cy="480" rx="180" ry="120" fill="url(#smoke)"/>
+    <ellipse cx="1050" cy="450" rx="200" ry="140" fill="url(#smoke)"/>
+    <ellipse cx="950" cy="380" rx="160" ry="100" fill="url(#smoke)"/>
+  </g>
+
+  <!-- L-1011 TriStar - Top-down view ON GROUND -->
+  <g transform="translate(960, 640) rotate(0)" stroke="#00d4aa" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Fuselage -->
+    <ellipse cx="0" cy="0" rx="42" ry="155"/>
+
+    <!-- Cockpit nose -->
+    <path d="M -32,-140 Q 0,-160 32,-140" fill="#00d4aa" opacity="0.3"/>
+
+    <!-- Wings -->
+    <ellipse cx="0" cy="-12" rx="195" ry="50"/>
+
+    <!-- Wing structural lines -->
+    <line x1="-195" y1="-12" x2="-42" y2="-12" stroke-width="2.5"/>
+    <line x1="195" y1="-12" x2="42" y2="-12" stroke-width="2.5"/>
+
+    <!-- Wing engines (2) -->
+    <ellipse cx="-125" cy="-12" rx="16" ry="30" fill="#00d4aa" opacity="0.4"/>
+    <ellipse cx="125" cy="-12" rx="16" ry="30" fill="#00d4aa" opacity="0.4"/>
+
+    <!-- Tail engine (L-1011 distinctive feature, S-duct intake) -->
+    <g transform="translate(0, 135)">
+      <ellipse cx="0" cy="0" rx="12" ry="22" fill="#00d4aa" opacity="0.4"/>
+    </g>
+
+    <!-- Vertical stabilizer -->
+    <path d="M -17,118 L 0,155 L 17,118" fill="#00d4aa" opacity="0.6"/>
+    <rect x="-10" y="118" width="20" height="42" fill="#00d4aa" opacity="0.5"/>
+
+    <!-- Horizontal stabilizers -->
+    <ellipse cx="0" cy="122" rx="54" ry="14" opacity="0.7"/>
+
+    <!-- FIRE/SMOKE IN AFT CARGO HOLD -->
+    <g filter="url(#fire-glow)">
+      <!-- Fire zone in aft fuselage -->
+      <ellipse cx="-15" cy="75" rx="55" ry="40" fill="#ff4757" opacity="0.15"/>
+      <ellipse cx="-15" cy="75" rx="70" ry="55" stroke="#ff4757" stroke-width="4" opacity="0.5" fill="none"/>
+      <ellipse cx="-15" cy="75" rx="90" ry="70" stroke="#ff4757" stroke-width="3" opacity="0.3" fill="none"/>
+
+      <!-- Fire indicator lines -->
+      <line x1="-40" y1="60" x2="10" y2="90" stroke="#fbbf24" stroke-width="3" opacity="0.7"/>
+      <line x1="10" y1="60" x2="-40" y2="90" stroke="#fbbf24" stroke-width="3" opacity="0.7"/>
+    </g>
+  </g>
+
+  <!-- Emergency vehicles (indicated by small rectangles) -->
+  <g opacity="0.5">
+    <rect x="750" y="730" width="35" height="20" fill="#ff4757" opacity="0.4"/>
+    <rect x="1135" y="740" width="35" height="20" fill="#ff4757" opacity="0.4"/>
+    <text x="767" y="770" font-family="monospace" font-size="12" fill="#ff4757">FIRE</text>
+    <text x="1145" y="780" font-family="monospace" font-size="12" fill="#ff4757">FIRE</text>
+  </g>
+
+  <!-- Top identifier -->
+  <g font-family="monospace" text-anchor="middle">
+    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">SV163</text>
+    <text x="960" y="165" font-size="22" fill="#94a3b8">19 AUG 1980</text>
+    <text x="960" y="195" font-size="22" fill="#94a3b8">RIYADH, SAUDI ARABIA</text>
+  </g>
+
+  <!-- Failure callout -->
+  <g font-family="monospace" fill="#ff4757">
+    <line x1="890" y1="710" x2="720" y2="600" stroke="#ff4757" stroke-width="2.5" filter="url(#fire-glow)"/>
+    <text x="710" y="595" font-size="20" font-weight="bold" text-anchor="end">CARGO FIRE</text>
+    <text x="710" y="620" font-size="16" fill="#94a3b8" text-anchor="end">No evacuation ordered</text>
+  </g>
+
+  <!-- Timing indicator -->
+  <g font-family="monospace" opacity="0.6">
+    <text x="1400" y="400" font-size="18" fill="#fbbf24">LANDED SAFELY: 21:36</text>
+    <text x="1400" y="425" font-size="18" fill="#fbbf24">ENGINES OFF: 21:42</text>
+    <text x="1400" y="450" font-size="18" fill="#ff4757">DOOR OPENED: 22:05</text>
+    <text x="1400" y="475" font-size="16" fill="#64748b">23 minute delay</text>
+  </g>
+
+  <!-- Bottom info -->
+  <g>
+    <rect x="0" y="1000" width="1920" height="80" fill="#1e293b" opacity="0.8"/>
+    <text x="100" y="1050" font-family="monospace" font-size="32" fill="#ff4757" font-weight="bold">301 FATALITIES</text>
+    <text x="1820" y="1050" font-family="monospace" font-size="20" fill="#64748b" text-anchor="end">LOCKHEED L-1011 TRISTAR / HZ-AHK</text>
+  </g>
+</svg>

@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#0f172a"/>
+
+  <!-- Definitions -->
+  <defs>
+    <!-- Radar grid pattern -->
+    <pattern id="radar-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="40" cy="40" r="40" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="40" cy="40" r="20" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <line x1="40" y1="0" x2="40" y2="80" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+      <line x1="0" y1="40" x2="80" y2="40" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+
+    <!-- Wave pattern for ocean -->
+    <pattern id="waves" width="100" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 0,10 Q 25,5 50,10 T 100,10" stroke="#38bdf8" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <path d="M 0,15 Q 25,10 50,15 T 100,15" stroke="#38bdf8" stroke-width="1" fill="none" opacity="0.2"/>
+    </pattern>
+
+    <!-- Failure glow -->
+    <filter id="failure-glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Radar background -->
+  <rect width="1920" height="1080" fill="url(#radar-grid)"/>
+
+  <!-- Ocean surface -->
+  <g>
+    <rect x="0" y="850" width="1920" height="230" fill="#0a1628"/>
+    <rect x="0" y="850" width="1920" height="230" fill="url(#waves)"/>
+    <line x1="0" y1="850" x2="1920" y2="850" stroke="#38bdf8" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <!-- Dive path -->
+  <g stroke="#ff4757" stroke-width="3" fill="none" opacity="0.4" stroke-dasharray="15,10">
+    <path d="M 800,300 Q 900,500 1000,750"/>
+    <text x="790" y="295" font-family="monospace" font-size="16" fill="#ff4757">24,000 ft</text>
+  </g>
+
+  <!-- MD-83 - Abstract top-down view (diving, inverted moment shown) -->
+  <g transform="translate(960, 540) rotate(-45)">
+    <g stroke="#00d4aa" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Fuselage (narrow body) -->
+      <ellipse cx="0" cy="0" rx="32" ry="125"/>
+
+      <!-- Cockpit nose -->
+      <path d="M -22,-110 Q 0,-130 22,-110" fill="#00d4aa" opacity="0.3"/>
+
+      <!-- Wings -->
+      <ellipse cx="0" cy="-5" rx="160" ry="40"/>
+
+      <!-- Wing structural lines -->
+      <line x1="-160" y1="-5" x2="-32" y2="-5" stroke-width="2.5"/>
+      <line x1="160" y1="-5" x2="32" y2="-5" stroke-width="2.5"/>
+
+      <!-- Tail section (T-tail configuration) -->
+      <g>
+        <!-- Vertical stabilizer -->
+        <path d="M -13,95 L 0,125 L 13,95" fill="#00d4aa" opacity="0.6"/>
+        <rect x="-7" y="95" width="14" height="35" fill="#00d4aa" opacity="0.5"/>
+
+        <!-- HORIZONTAL STABILIZER - JACKSCREW FAILURE -->
+        <g filter="url(#failure-glow)">
+          <!-- Stabilizer at nose-down position (FAILED) -->
+          <ellipse cx="0" cy="100" rx="45" ry="11" stroke="#ff4757" stroke-width="4" opacity="0.7"/>
+
+          <!-- Jackscrew failure indicator -->
+          <g transform="translate(0, 100)">
+            <!-- Failure zone -->
+            <circle cx="0" cy="0" r="30" stroke="#ff4757" stroke-width="5" fill="none" opacity="0.6"/>
+            <circle cx="0" cy="0" r="45" stroke="#ff4757" stroke-width="4" fill="none" opacity="0.4"/>
+            <circle cx="0" cy="0" r="60" stroke="#fbbf24" stroke-width="3" fill="none" opacity="0.3"/>
+
+            <!-- Stripped threads indicator -->
+            <line x1="-20" y1="-20" x2="20" y2="20" stroke="#ff4757" stroke-width="4" opacity="0.7"/>
+            <line x1="20" y1="-20" x2="-20" y2="20" stroke="#ff4757" stroke-width="4" opacity="0.7"/>
+
+            <!-- Thread wear lines -->
+            <path d="M -15,-8 L 15,-8 M -15,0 L 15,0 M -15,8 L 15,8" stroke="#fbbf24" stroke-width="2" opacity="0.6" stroke-dasharray="3,3"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- Rear-mounted engines (2 - MD-83 configuration) -->
+      <ellipse cx="-22" cy="85" rx="11" ry="20" fill="#00d4aa" opacity="0.4"/>
+      <ellipse cx="22" cy="85" rx="11" ry="20" fill="#00d4aa" opacity="0.4"/>
+    </g>
+
+    <!-- Inverted position indicator (ghost outline) -->
+    <g opacity="0.3" transform="rotate(180)" stroke="#fbbf24" stroke-width="2" stroke-dasharray="8,6" fill="none">
+      <ellipse cx="0" cy="0" rx="32" ry="125"/>
+      <ellipse cx="0" cy="-5" rx="160" ry="40"/>
+      <text x="0" y="10" font-family="monospace" font-size="16" fill="#fbbf24" text-anchor="middle" opacity="0.8" transform="rotate(180)">INVERTED</text>
+    </g>
+  </g>
+
+  <!-- Top identifier -->
+  <g font-family="monospace" text-anchor="middle">
+    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">ASA261</text>
+    <text x="960" y="165" font-size="22" fill="#94a3b8">31 JAN 2000</text>
+    <text x="960" y="195" font-size="22" fill="#94a3b8">PACIFIC OCEAN, OFF CALIFORNIA</text>
+  </g>
+
+  <!-- Failure callout -->
+  <g font-family="monospace" fill="#ff4757">
+    <line x1="1050" y1="480" x2="1220" y2="380" stroke="#ff4757" stroke-width="2.5" filter="url(#failure-glow)"/>
+    <text x="1230" y="375" font-size="20" font-weight="bold">JACKSCREW FAILURE</text>
+    <text x="1230" y="400" font-size="16" fill="#94a3b8">Inadequate maintenance</text>
+    <text x="1230" y="425" font-size="16" fill="#94a3b8">Stripped acme nut threads</text>
+  </g>
+
+  <!-- Flight sequence -->
+  <g font-family="monospace" opacity="0.6">
+    <text x="100" y="400" font-size="18" fill="#fbbf24">16:19 - Stabilizer jams</text>
+    <text x="100" y="425" font-size="18" fill="#ff4757">16:21 - Catastrophic failure</text>
+    <text x="100" y="450" font-size="18" fill="#94a3b8">Attempted inverted flight</text>
+    <text x="100" y="475" font-size="18" fill="#64748b">Unrecoverable dive</text>
+  </g>
+
+  <!-- Bottom info -->
+  <g>
+    <rect x="0" y="1000" width="1920" height="80" fill="#1e293b" opacity="0.8"/>
+    <text x="100" y="1050" font-family="monospace" font-size="32" fill="#ff4757" font-weight="bold">88 FATALITIES</text>
+    <text x="1820" y="1050" font-family="monospace" font-size="20" fill="#64748b" text-anchor="end">MCDONNELL DOUGLAS MD-83 / N963AS</text>
+  </g>
+</svg>
