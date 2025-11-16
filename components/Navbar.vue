@@ -222,14 +222,14 @@ const titleClasses = computed(() => {
 /* Navbar collapse animation */
 nav {
   transition-property: all;
-  transition-duration: 0.4s;
+  transition-duration: 0.25s;
   /* Premium spring-like easing (inspired by iOS) */
   transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* When navbar is appearing (not menu open), add delay */
 nav:not(.scale-0) {
-  transition-delay: 0.35s;
+  transition-delay: 0.25s;
   /* Bouncy entrance when expanding */
   transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
 }

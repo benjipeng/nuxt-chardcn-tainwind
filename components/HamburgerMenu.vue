@@ -176,12 +176,12 @@ onUnmounted(() => {
 
 /* Fade transition for backdrop */
 .fade-enter-active {
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  transition-delay: 0.4s; /* Sync with menu panel entrance */
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.25s; /* Sync with menu panel entrance */
 }
 
 .fade-leave-active {
-  transition: opacity 0.3s cubic-bezier(0.4, 0, 1, 1);
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 1, 1);
   /* No delay on exit - fast fade out */
 }
 
@@ -193,13 +193,13 @@ onUnmounted(() => {
 /* Slide transition for menu panel */
 .slide-enter-active {
   /* Elastic spring entrance - overshoots slightly then settles */
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transition-delay: 0.4s; /* Delay entrance until navbar collapses */
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: 0.25s; /* Delay entrance until navbar collapses */
 }
 
 .slide-leave-active {
   /* Quick, smooth exit */
-  transition: transform 0.3s cubic-bezier(0.4, 0, 1, 1);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 1, 1);
   /* No delay on exit, menu leaves immediately */
 }
 
