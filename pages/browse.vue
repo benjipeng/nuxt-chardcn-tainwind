@@ -22,9 +22,7 @@ interface Disaster {
 
 // Fetch all disasters from content
 const { data: disasters } = await useAsyncData('disasters', () =>
-  queryContent<Disaster>('disasters')
-    .only(['slug', 'title', 'date', 'fatalities', 'aircraft', 'categories', 'location', 'images', 'summary', '_path'])
-    .find()
+  queryCollection('disasters').all()
 )
 
 // Filters and sort
