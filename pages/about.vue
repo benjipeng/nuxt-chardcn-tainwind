@@ -1,61 +1,74 @@
 <template>
   <div class="min-h-screen bg-bg-primary">
-    <!-- Dynamic Gradient Backdrop -->
-    <div class="fixed inset-0 bg-gradient-to-br from-radar-cyan/5 via-cockpit-green/3 to-transparent pointer-events-none" />
+    <!-- Parallax Gradient Backdrop -->
+    <Motion
+      :style="{ y: backdropY }"
+      class="fixed inset-0 bg-gradient-to-br from-radar-cyan/5 via-cockpit-green/3 to-transparent pointer-events-none"
+    />
 
     <!-- Content -->
     <div class="container mx-auto px-4 py-20 relative">
-      <!-- Hero Section with Animated Icon -->
-      <Motion
-        :initial="{ opacity: 0, y: -40, scale: 0.9 }"
-        :animate="{ opacity: 1, y: 0, scale: 1 }"
-        :transition="{
-          duration: 0.8,
-          ease: [0.16, 1, 0.3, 1],
-          type: 'spring',
-          stiffness: 100,
-          damping: 15
-        }"
-        class="mb-16 text-center"
-      >
+      <!-- Hero Section with Floating Plane -->
+      <div class="mb-16 text-center">
         <Motion
-          :initial="{ rotate: -10, scale: 0.8 }"
-          :animate="{ rotate: 0, scale: 1 }"
+          :animate="{
+            y: [0, -12, 0],
+            rotate: [-2, 2, -2]
+          }"
           :transition="{
-            duration: 1.2,
-            ease: [0.34, 1.56, 0.64, 1],
-            type: 'spring',
-            stiffness: 80
+            duration: 4,
+            repeat: Infinity,
+            ease: 'easeInOut'
           }"
           class="flex items-center justify-center gap-3 mb-6"
         >
           <div class="relative">
-            <div class="absolute inset-0 bg-cockpit-green/20 blur-2xl rounded-full" />
+            <Motion
+              :animate="{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3]
+              }"
+              :transition="{
+                duration: 3,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }"
+              class="absolute inset-0 bg-cockpit-green/20 blur-2xl rounded-full"
+            />
             <Icon
               name="lucide:plane"
-              class="w-16 h-16 text-cockpit-green relative transform hover:scale-110 hover:rotate-12 transition-all duration-500 ease-out"
+              class="w-16 h-16 text-cockpit-green relative"
             />
           </div>
         </Motion>
-        <h1 class="font-display text-4xl md:text-6xl font-bold text-text-primary mb-6 tracking-tight">
-          About Mayday Archive
-        </h1>
-        <p class="text-xl md:text-2xl text-text-secondary font-body max-w-3xl mx-auto leading-relaxed">
-          Documenting aviation's most significant accidents and the safety lessons that made flying the safest form of transportation
-        </p>
-      </Motion>
 
-      <!-- Mission Statement Cards -->
+        <Motion
+          :initial="{ opacity: 0, y: 20 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :viewport="{ once: true, margin: '-100px' }"
+          :transition="{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }"
+        >
+          <h1 class="font-display text-4xl md:text-6xl font-bold text-text-primary mb-6 tracking-tight">
+            About Mayday Archive
+          </h1>
+          <p class="text-xl md:text-2xl text-text-secondary font-body max-w-3xl mx-auto leading-relaxed">
+            Documenting aviation's most significant accidents and the safety lessons that made flying the safest form of transportation
+          </p>
+        </Motion>
+      </div>
+
+      <!-- Mission Statement Cards with Scroll Trigger -->
       <div class="max-w-6xl mx-auto mb-16">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Motion
             v-for="(card, index) in missionCards"
             :key="index"
-            :initial="{ opacity: 0, y: 30, scale: 0.95 }"
-            :animate="{ opacity: 1, y: 0, scale: 1 }"
+            :initial="{ opacity: 0, y: 60, scale: 0.9 }"
+            :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            :viewport="{ once: true, margin: '-50px' }"
             :transition="{
-              duration: 0.6,
-              delay: 0.15 * (index + 1),
+              duration: 0.7,
+              delay: 0.1 * index,
               ease: [0.16, 1, 0.3, 1],
               type: 'spring',
               stiffness: 100
@@ -64,22 +77,28 @@
             <Card
               :class="[
                 'group cursor-pointer transition-all duration-500 h-full',
-                'hover:-translate-y-3 hover:scale-105',
                 card.glowClass
               ]"
+              @mouseenter="handleCardHover(index)"
             >
               <CardHeader>
                 <div class="flex items-center gap-3 mb-3">
-                  <div :class="[
-                    'p-3 rounded-lg transition-all duration-500',
-                    'group-hover:scale-110 group-hover:rotate-6',
-                    card.iconBg
-                  ]">
+                  <Motion
+                    :animate="hoveredCard === index ? {
+                      rotate: [0, -10, 10, -10, 0],
+                      scale: [1, 1.2, 1]
+                    } : {}"
+                    :transition="{ duration: 0.5 }"
+                    :class="[
+                      'p-3 rounded-lg transition-all duration-500',
+                      card.iconBg
+                    ]"
+                  >
                     <Icon
                       :name="card.icon"
                       :class="['w-6 h-6', card.iconColor]"
                     />
-                  </div>
+                  </Motion>
                 </div>
                 <CardTitle class="text-xl group-hover:text-cockpit-green-text transition-colors duration-300">
                   {{ card.title }}
@@ -95,33 +114,43 @@
         </div>
       </div>
 
-      <!-- Main Content Section -->
+      <!-- Main Content Sections with Parallax -->
       <div class="max-w-4xl mx-auto space-y-8 mb-16">
         <Motion
           v-for="(section, index) in contentSections"
           :key="index"
-          :initial="{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }"
-          :animate="{ opacity: 1, x: 0 }"
+          :initial="{ opacity: 0, x: index % 2 === 0 ? -80 : 80, rotateY: index % 2 === 0 ? -15 : 15 }"
+          :whileInView="{ opacity: 1, x: 0, rotateY: 0 }"
+          :viewport="{ once: false, margin: '-100px', amount: 0.3 }"
           :transition="{
-            duration: 0.7,
-            delay: 0.6 + 0.15 * index,
-            ease: [0.16, 1, 0.3, 1]
+            duration: 0.9,
+            ease: [0.16, 1, 0.3, 1],
+            type: 'spring',
+            stiffness: 80
           }"
+          :style="{ perspective: '1000px' }"
         >
           <Card
             :class="[
-              'transition-all duration-500 overflow-hidden',
-              'hover:shadow-2xl',
+              'transition-all duration-500 overflow-hidden hover:-translate-y-2',
               section.glowClass,
               section.borderClass
             ]"
           >
             <CardHeader>
               <CardTitle class="flex items-center gap-3 text-2xl">
-                <Icon
-                  :name="section.icon"
-                  :class="['w-7 h-7 transition-transform duration-500 hover:scale-125 hover:rotate-12', section.iconColor]"
-                />
+                <Motion
+                  :whileHover="{
+                    rotate: 360,
+                    scale: 1.3
+                  }"
+                  :transition="{ duration: 0.6, ease: 'easeOut' }"
+                >
+                  <Icon
+                    :name="section.icon"
+                    :class="['w-7 h-7', section.iconColor]"
+                  />
+                </Motion>
                 {{ section.title }}
               </CardTitle>
             </CardHeader>
@@ -132,13 +161,13 @@
         </Motion>
       </div>
 
-      <!-- Tech Stack Section -->
+      <!-- Tech Stack Section with Stagger on Scroll -->
       <Motion
-        :initial="{ opacity: 0, y: 40 }"
-        :animate="{ opacity: 1, y: 0 }"
+        :initial="{ opacity: 0, y: 80, scale: 0.95 }"
+        :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+        :viewport="{ once: true, margin: '-80px' }"
         :transition="{
           duration: 0.8,
-          delay: 1.2,
           ease: [0.16, 1, 0.3, 1]
         }"
         class="max-w-4xl mx-auto mb-16"
@@ -158,16 +187,18 @@
               <Motion
                 v-for="(tech, index) in techStack"
                 :key="index"
-                :initial="{ opacity: 0, scale: 0.8 }"
-                :animate="{ opacity: 1, scale: 1 }"
+                :initial="{ opacity: 0, scale: 0.5, rotate: -10 }"
+                :whileInView="{ opacity: 1, scale: 1, rotate: 0 }"
+                :viewport="{ once: true, amount: 0.8 }"
                 :transition="{
                   duration: 0.5,
-                  delay: 1.4 + 0.1 * index,
+                  delay: 0.1 * index,
                   type: 'spring',
-                  stiffness: 150
+                  stiffness: 200,
+                  damping: 15
                 }"
-                :whileHover="{ scale: 1.1, y: -5 }"
-                class="flex items-center gap-2 p-3 bg-bg-primary/50 rounded-lg border border-border-subtle hover:border-cockpit-green transition-all duration-300"
+                :whileHover="{ scale: 1.15, y: -8, rotate: 3 }"
+                class="flex items-center gap-2 p-3 bg-bg-primary/50 rounded-lg border border-border-subtle hover:border-cockpit-green transition-all duration-300 cursor-pointer"
               >
                 <Icon
                   :name="tech.icon"
@@ -180,14 +211,16 @@
         </Card>
       </Motion>
 
-      <!-- Call to Action -->
+      <!-- Call to Action with Scale on Scroll -->
       <Motion
-        :initial="{ opacity: 0, scale: 0.9 }"
-        :animate="{ opacity: 1, scale: 1 }"
+        :initial="{ opacity: 0, scale: 0.8, y: 60 }"
+        :whileInView="{ opacity: 1, scale: 1, y: 0 }"
+        :viewport="{ once: true, margin: '-100px' }"
         :transition="{
-          duration: 0.8,
-          delay: 1.6,
-          ease: [0.16, 1, 0.3, 1]
+          duration: 0.9,
+          ease: [0.34, 1.56, 0.64, 1],
+          type: 'spring',
+          stiffness: 80
         }"
         class="max-w-2xl mx-auto text-center"
       >
@@ -202,28 +235,40 @@
               This project is open source and built in public. Code, content, and design choices are all transparent.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="https://github.com/benjipeng/mayday-archive"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group inline-flex items-center gap-2 px-6 py-3 bg-cockpit-green text-white font-display font-bold rounded-lg hover:bg-cockpit-green/90 hover:scale-105 hover:shadow-glow-green transition-all duration-300"
+              <Motion
+                :whileHover="{ scale: 1.1, y: -4 }"
+                :whileTap="{ scale: 0.95 }"
+                :transition="{ type: 'spring', stiffness: 400, damping: 17 }"
               >
-                <Icon
-                  name="lucide:github"
-                  class="w-5 h-5 group-hover:rotate-12 transition-transform duration-300"
-                />
-                View on GitHub
-              </a>
-              <NuxtLink
-                to="/browse"
-                class="inline-flex items-center gap-2 px-6 py-3 border-2 border-radar-cyan text-radar-cyan font-display font-bold rounded-lg hover:bg-radar-cyan/10 hover:scale-105 transition-all duration-300"
+                <a
+                  href="https://github.com/benjipeng/mayday-archive"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group inline-flex items-center gap-2 px-6 py-3 bg-cockpit-green text-white font-display font-bold rounded-lg hover:shadow-glow-green transition-all duration-300"
+                >
+                  <Icon
+                    name="lucide:github"
+                    class="w-5 h-5 group-hover:rotate-12 transition-transform duration-300"
+                  />
+                  View on GitHub
+                </a>
+              </Motion>
+              <Motion
+                :whileHover="{ scale: 1.1, y: -4 }"
+                :whileTap="{ scale: 0.95 }"
+                :transition="{ type: 'spring', stiffness: 400, damping: 17 }"
               >
-                <Icon
-                  name="lucide:database"
-                  class="w-5 h-5"
-                />
-                Explore Disasters
-              </NuxtLink>
+                <NuxtLink
+                  to="/browse"
+                  class="inline-flex items-center gap-2 px-6 py-3 border-2 border-radar-cyan text-radar-cyan font-display font-bold rounded-lg hover:bg-radar-cyan/10 transition-all duration-300"
+                >
+                  <Icon
+                    name="lucide:database"
+                    class="w-5 h-5"
+                  />
+                  Explore Disasters
+                </NuxtLink>
+              </Motion>
             </div>
           </CardContent>
         </Card>
@@ -233,13 +278,29 @@
 </template>
 
 <script setup lang="ts">
-import { h } from 'vue'
-import { Motion } from '@oku-ui/motion'
+import { h, ref } from 'vue'
+import { Motion, useScroll, useTransform } from '@oku-ui/motion'
 
 useSeoMeta({
   title: 'About - Mayday Archive',
   description: 'About Mayday Archive, an educational platform documenting aviation disasters and the safety improvements they inspired.',
 })
+
+// Parallax scroll effect for backdrop
+const { scrollY } = useScroll()
+const backdropY = useTransform(scrollY, [0, 1000], [0, -200])
+
+// Track hovered card for icon animation
+const hoveredCard = ref<number | null>(null)
+
+const handleCardHover = (index: number) => {
+  hoveredCard.value = index
+  setTimeout(() => {
+    if (hoveredCard.value === index) {
+      hoveredCard.value = null
+    }
+  }, 500)
+}
 
 const missionCards = [
   {
