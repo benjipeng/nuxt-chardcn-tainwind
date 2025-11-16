@@ -37,8 +37,9 @@
           v-for="(card, index) in cards"
           :key="index"
           v-motion
-          :initial="{ y: 60, scale: 0.95 }"
+          :initial="{ opacity: 0, y: 60, scale: 0.95 }"
           :visibleOnce="{
+            opacity: 1,
             y: 0,
             scale: 1,
             transition: {
