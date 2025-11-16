@@ -12,7 +12,6 @@ location:
   country: India
 images:
   hero: /images/disasters/charkhi-dadri-1996/hero.jpg
-  thumbnail: /images/disasters/charkhi-dadri-1996/thumb.jpg
 summary: Two aircraft collided in mid-air near Delhi when a Kazakhstan Airlines flight descended into the path of a climbing Saudi Arabian Airlines 747, killing all 349 people aboard both planes.
 ---
 

@@ -11,7 +11,6 @@ location:
   country: Spain
 images:
   hero: /images/disasters/tenerife-1977/hero.jpg
-  thumbnail: /images/disasters/tenerife-1977/thumb.jpg
 summary: Two Boeing 747 jumbo jets collided on a foggy runway at Los Rodeos Airport, killing 583 people in the deadliest aviation accident in history.
 ---
 
