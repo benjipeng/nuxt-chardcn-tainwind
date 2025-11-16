@@ -14,18 +14,10 @@
             v-motion
             :initial="{ opacity: 0, scale: 0.8 }"
             :enter="{ opacity: 1, scale: 1, transition: { delay: 200, duration: 500, ease: [0.16, 1, 0.3, 1] } }"
-            class="font-display text-4xl md:text-5xl font-bold text-text-primary mb-4"
+            class="font-display text-4xl md:text-5xl font-bold text-text-primary"
           >
             Terms of Use
           </h1>
-          <p
-            v-motion
-            :initial="{ opacity: 0 }"
-            :enter="{ opacity: 1, transition: { delay: 400, duration: 500 } }"
-            class="text-lg text-text-secondary font-body"
-          >
-            Last Updated: {{ lastUpdated }}
-          </p>
         </div>
       </div>
     </section>
@@ -107,24 +99,23 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Terms of use for Mayday Archive - a personal educational project about aviation safety.'
+      content: 'Terms of use for Mayday Archive - an educational resource about aviation safety.'
     }
   ]
 })
 
-const lastUpdated = 'November 16, 2025'
-
 const cards = [
   {
-    title: 'What This Site Is',
+    title: 'Purpose and Scope',
     glowClass: 'hover:shadow-glow-green',
     content: () => h('div', { class: 'space-y-4 text-text-secondary font-body' }, [
-      h('p', null, 'I built Mayday Archive to document significant aviation disasters and the safety improvements that came from them.'),
-      h('p', null, 'Use it free for education, research, and learning.')
+      h('p', null, 'This website is provided as an educational resource documenting significant aviation accidents and the safety improvements derived from their investigation.'),
+      h('p', null, 'The content is offered freely for educational, research, and informational purposes.'),
+      h('p', null, 'By accessing and using this site, the following terms and conditions are accepted.')
     ])
   },
   {
-    title: 'Important Disclaimers',
+    title: 'Disclaimers and Limitations',
     borderClass: 'border-l-4 border-alert-red',
     glowClass: 'hover:shadow-glow-red',
     titleClass: 'flex items-center gap-2',
@@ -133,61 +124,62 @@ const cards = [
       class: 'w-5 h-5 text-alert-red'
     }),
     content: () => h('div', { class: 'space-y-4 text-text-secondary font-body' }, [
-      h('ul', { class: 'list-disc list-inside space-y-3' }, [
-        h('li', null, [h('strong', null, 'Not professional advice:'), ' This is a hobby project. Don\'t use it for professional aviation decisions.']),
-        h('li', null, [h('strong', null, 'Accuracy:'), ' I cite official sources but I\'m not infallible. Verify important info with official investigation reports.']),
-        h('li', null, [h('strong', null, 'Not affiliated:'), ' I have no affiliation with airlines, manufacturers, aviation authorities, or investigation agencies.']),
-        h('li', null, [h('strong', null, 'Use at your own risk:'), ' I provide the site "as is" without warranties.'])
+      h('ul', { class: 'list-disc list-inside space-y-3 ml-4' }, [
+        h('li', null, [h('strong', null, 'Educational Purpose Only:'), ' This site is not intended to provide professional aviation advice or guidance. Content should not be relied upon for operational or safety-critical decisions.']),
+        h('li', null, [h('strong', null, 'Accuracy:'), ' While official sources are referenced, accuracy cannot be guaranteed. Important information should be verified against original investigation reports and official documentation.']),
+        h('li', null, [h('strong', null, 'No Affiliation:'), ' This site maintains no affiliation with airlines, aircraft manufacturers, aviation authorities, or accident investigation agencies.']),
+        h('li', null, [h('strong', null, 'No Warranty:'), ' Content is provided "as is" without warranties of any kind, either express or implied. Use of this site is at the visitor\'s own risk.'])
       ])
     ])
   },
   {
-    title: 'What You Can Do',
+    title: 'Permitted Use',
     glowClass: 'hover:shadow-glow-cyan',
     content: () => h('div', { class: 'space-y-4 text-text-secondary font-body' }, [
-      h('p', null, 'Feel free to:'),
-      h('ul', { class: 'list-disc list-inside space-y-2' }, [
-        h('li', null, 'Read and learn from the content'),
-        h('li', null, 'Link to pages'),
-        h('li', null, 'Use it for educational purposes'),
-        h('li', null, 'Share it with attribution')
+      h('p', null, 'The following uses are permitted:'),
+      h('ul', { class: 'list-disc list-inside space-y-2 ml-4' }, [
+        h('li', null, 'Reading and learning from site content'),
+        h('li', null, 'Linking to pages for reference purposes'),
+        h('li', null, 'Educational and non-commercial research use'),
+        h('li', null, 'Sharing content with proper attribution')
       ])
     ])
   },
   {
-    title: 'What You Can\'t Do',
+    title: 'Prohibited Activities',
     glowClass: 'hover:shadow-glow-amber',
     content: () => h('div', { class: 'space-y-4 text-text-secondary font-body' }, [
-      h('p', null, 'Don\'t:'),
-      h('ul', { class: 'list-disc list-inside space-y-2' }, [
-        h('li', null, 'Scrape or republish large portions of content'),
-        h('li', null, 'Remove attribution or claim it as your own'),
-        h('li', null, 'Use it commercially without permission'),
-        h('li', null, 'Try to hack or break the site')
+      h('p', null, 'The following activities are prohibited:'),
+      h('ul', { class: 'list-disc list-inside space-y-2 ml-4' }, [
+        h('li', null, 'Automated scraping or mass reproduction of content'),
+        h('li', null, 'Removal of attribution or misrepresentation of authorship'),
+        h('li', null, 'Commercial use without prior written permission'),
+        h('li', null, 'Attempts to compromise site security or functionality')
       ])
     ])
   },
   {
-    title: 'Content & Copyright',
+    title: 'Content and Intellectual Property',
     glowClass: 'hover:shadow-glow-cyan',
     content: () => h('div', { class: 'space-y-4 text-text-secondary font-body' }, [
-      h('p', null, 'I wrote the original content. Historical images and investigation reports come from public domain sources or I cite them properly.'),
-      h('p', null, 'Want to use substantial portions? Just ask.')
+      h('p', null, 'Original written content is authored specifically for this site. Historical images and official reports are sourced from public domain materials or are properly attributed to their respective owners.'),
+      h('p', null, 'Substantial use of site content beyond the scope outlined in "Permitted Use" requires prior authorization.'),
+      h('p', null, 'Requests for extended use may be submitted through the project repository.')
     ])
   },
   {
-    title: 'Questions or Issues?',
+    title: 'Contact and Inquiries',
     borderClass: 'border-l-4 border-cockpit-green',
     glowClass: 'hover:shadow-glow-green',
     content: () => h('p', { class: 'text-text-secondary font-body' }, [
-      'Open an issue on the ',
+      'Questions, concerns, or permission requests regarding these terms may be submitted through the ',
       h('a', {
         href: 'https://github.com/benjipeng/mayday-archive',
         target: '_blank',
         rel: 'noopener noreferrer',
         class: 'text-cockpit-green-text hover:underline transition-all duration-200 hover:text-cockpit-green'
-      }, 'GitHub repo'),
-      '.'
+      }, 'project repository'),
+      ' on GitHub.'
     ])
   }
 ]

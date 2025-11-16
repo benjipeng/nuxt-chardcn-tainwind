@@ -37,20 +37,23 @@
           v-for="(card, index) in cards"
           :key="index"
           v-motion
-          :initial="{ y: 60, scale: 0.95 }"
+          :initial="{ opacity: 0, y: 100, scale: 0.85, rotateX: 15 }"
           :visibleOnce="{
+            opacity: 1,
             y: 0,
             scale: 1,
+            rotateX: 0,
             transition: {
-              duration: 600,
-              delay: 120 * index,
-              ease: [0.16, 1, 0.3, 1]
+              duration: 800,
+              delay: 150 * index,
+              ease: [0.34, 1.56, 0.64, 1]
             }
           }"
           :hovered="{
-            y: -6,
-            scale: 1.02,
-            transition: { duration: 300, ease: [0.16, 1, 0.3, 1] }
+            y: -8,
+            scale: 1.03,
+            rotateX: -2,
+            transition: { duration: 300, ease: [0.34, 1.56, 0.64, 1] }
           }"
           :class="[
             'transition-all duration-300 backdrop-blur-sm mb-8',
@@ -116,56 +119,58 @@ const lastUpdated = 'November 16, 2025'
 
 const cards = [
   {
-    title: 'The Simple Truth',
+    title: 'Overview',
     glowClass: 'hover:shadow-glow-green',
     content: () => h('div', { class: 'space-y-4 text-text-secondary font-body' }, [
-      h('p', { class: 'text-lg' }, 'This is a static educational website. I don\'t collect your personal data.'),
-      h('p', null, 'No sign-ups, no tracking, no analytics, no cookies (except maybe one for dark mode preference), no mailing lists, no nothing.')
+      h('p', { class: 'text-lg' }, 'This is a static educational website. No personal information is collected, stored, or processed.'),
+      h('p', null, 'The site operates without user accounts, tracking systems, analytics tools, or mailing lists. No cookies are used except for storing theme preference (dark mode).'),
+      h('p', null, 'All content is delivered as pre-generated static pages. No user data is transmitted to or retained by this website.')
     ])
   },
   {
-    title: 'What Gets Logged',
+    title: 'Server Logs',
     glowClass: 'hover:shadow-glow-cyan',
     content: () => h('div', { class: 'space-y-4 text-text-secondary font-body' }, [
-      h('p', null, 'GitHub Pages hosts this site. GitHub\'s servers log standard stuff:'),
-      h('ul', { class: 'list-disc list-inside space-y-2 mt-3' }, [
-        h('li', null, 'IP address'),
-        h('li', null, 'Browser type'),
-        h('li', null, 'Pages you visit'),
-        h('li', null, 'Time of visit')
+      h('p', null, 'This site is hosted on GitHub Pages. Standard web server information is automatically logged by GitHub\'s infrastructure:'),
+      h('ul', { class: 'list-disc list-inside space-y-2 mt-3 ml-4' }, [
+        h('li', null, 'IP addresses'),
+        h('li', null, 'Browser user agents'),
+        h('li', null, 'Requested pages'),
+        h('li', null, 'Access timestamps')
       ]),
       h('p', { class: 'mt-4' }, [
-        'I don\'t see this data, don\'t use it, don\'t care about it. Check ',
+        'These server logs are not accessed or analyzed by this site. For information about how GitHub handles this data, ',
         h('a', {
           href: 'https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection',
           target: '_blank',
           rel: 'noopener noreferrer',
           class: 'text-cockpit-green-text hover:underline transition-colors duration-200'
         }, 'GitHub\'s privacy policy'),
-        ' for details.'
+        ' should be consulted.'
       ])
     ])
   },
   {
-    title: 'External Links',
+    title: 'Third-Party Sites',
     glowClass: 'hover:shadow-glow-amber',
-    content: () => h('p', { class: 'text-text-secondary font-body' },
-      'I link to official investigation reports, news sources, and other external sites. Their privacy policies apply when you visit them.'
-    )
+    content: () => h('div', { class: 'space-y-4 text-text-secondary font-body' }, [
+      h('p', null, 'External links are provided to official accident investigation reports, news archives, and educational resources.'),
+      h('p', null, 'When these external sites are visited, their respective privacy policies and data practices become applicable. This site has no control over or responsibility for third-party privacy practices.')
+    ])
   },
   {
-    title: 'Questions?',
+    title: 'Contact',
     borderClass: 'border-l-4 border-cockpit-green',
     glowClass: 'hover:shadow-glow-green',
     content: () => h('p', { class: 'text-text-secondary font-body' }, [
-      'Open an issue on the ',
+      'Questions or concerns regarding this privacy notice may be submitted through the ',
       h('a', {
         href: 'https://github.com/benjipeng/mayday-archive',
         target: '_blank',
         rel: 'noopener noreferrer',
         class: 'text-cockpit-green-text hover:underline transition-all duration-200 hover:text-cockpit-green'
-      }, 'GitHub repo'),
-      '.'
+      }, 'project repository'),
+      ' on GitHub.'
     ])
   }
 ]
