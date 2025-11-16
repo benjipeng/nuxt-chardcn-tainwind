@@ -4,7 +4,7 @@
     <div class="fixed inset-0 bg-gradient-to-br from-radar-cyan/5 via-transparent to-transparent pointer-events-none" />
 
     <!-- Content -->
-    <div class="container mx-auto px-4 py-20 relative">
+    <div class="container mx-auto px-4 pt-32 pb-12 relative">
       <!-- Hero -->
       <div
         v-motion

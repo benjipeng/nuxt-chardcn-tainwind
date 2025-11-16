@@ -8,7 +8,7 @@
       class="relative bg-bg-secondary border-b border-border-subtle overflow-hidden"
     >
       <div class="absolute inset-0 bg-gradient-to-br from-cockpit-green/5 to-transparent pointer-events-none" />
-      <div class="container mx-auto px-4 py-16 md:py-24 relative">
+      <div class="container mx-auto px-4 pt-32 pb-12 relative">
         <div class="max-w-3xl mx-auto text-center">
           <h1
             v-motion
