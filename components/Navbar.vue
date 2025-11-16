@@ -1,9 +1,9 @@
 <template>
   <nav
     :class="[
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out',
+      'fixed top-2 left-3 right-3 z-50 transition-all duration-300 ease-out',
       'bg-bg-secondary/95 backdrop-blur-sm',
-      'border-b border-border-subtle',
+      'border border-border-subtle rounded-xl',
       navbarClasses
     ]"
   >
@@ -67,26 +67,15 @@
             navbarState === 'minimal' ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'
           ]"
         >
-          <NuxtLink
-            to="/browse"
-            class="nav-link"
-          >
-            BROWSE
-          </NuxtLink>
-          <span class="text-text-tertiary">|</span>
-          <NuxtLink
-            to="/timeline"
-            class="nav-link"
-          >
-            TIMELINE
-          </NuxtLink>
-          <span class="text-text-tertiary">|</span>
-          <NuxtLink
-            to="/about"
-            class="nav-link"
-          >
-            ABOUT
-          </NuxtLink>
+          <template v-for="(item, index) in navItems" :key="item.to">
+            <span v-if="index > 0" class="text-text-tertiary">|</span>
+            <NuxtLink
+              :to="item.to"
+              class="nav-link"
+            >
+              {{ item.label }}
+            </NuxtLink>
+          </template>
         </div>
 
         <!-- Right Side Actions -->
@@ -126,7 +115,7 @@
             :class="[
               'p-2 hover:bg-cockpit-green/10 rounded-md transition-all duration-300',
               // Always visible on mobile, visible on desktop only when navbar is minimal
-              navbarState === 'minimal' ? 'block' : 'hidden md:hidden'
+              navbarState === 'minimal' ? 'block' : 'block md:hidden'
             ]"
             @click="toggleMenu"
             aria-label="Menu"
@@ -157,6 +146,7 @@
 <script setup lang="ts">
 const { navbarState } = useNavbarScroll()
 const { isDarkMode, toggleDarkMode } = useDarkMode()
+const { navItems } = useNavigation()
 
 const isMenuOpen = ref(false)
 const isMobile = ref(false)
