@@ -1,5 +1,5 @@
 <template>
-  <div :class="cn('rounded-lg border border-border-subtle bg-card text-card-foreground shadow-sm', props.class)">
+  <div :class="cn('rounded-lg border border-border-subtle bg-bg-secondary text-text-primary shadow-sm', props.class)">
     <slot />
   </div>
 </template>
