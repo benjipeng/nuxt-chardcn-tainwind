@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxt/content": "^3.8.2",
+    "@nuxt/image": "^2.0.0",
     "@oku-ui/motion": "^0.4.3",
     "better-sqlite3": "^12.4.1",
     "class-variance-authority": "^0.7.1",

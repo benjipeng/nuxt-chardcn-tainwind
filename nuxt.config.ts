@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@nuxt/fonts',
     '@nuxt/icon',
+    '@nuxt/image',
     '@nuxt/content'
   ],
 
@@ -27,6 +28,11 @@ export default defineNuxtConfig({
     serverBundle: {
       collections: ['lucide']
     }
+  },
+
+  // Image configuration
+  image: {
+    dir: 'public'
   },
 
   // SSG mode enabled (ssr: true is default)
