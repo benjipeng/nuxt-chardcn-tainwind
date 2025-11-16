@@ -1,6 +1,144 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
-  <rect width="1920" height="1080" fill="#1a1a2e"/>
-  <text x="960" y="480" font-family="Arial, sans-serif" font-size="72" fill="#00d9ff" text-anchor="middle" font-weight="bold">Japan Airlines Flight 123</text>
-  <text x="960" y="560" font-family="Arial, sans-serif" font-size="48" fill="#ffffff" text-anchor="middle">August 12, 1985</text>
-  <text x="960" y="640" font-family="Arial, sans-serif" font-size="36" fill="#cccccc" text-anchor="middle">520 Fatalities</text>
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#0f172a"/>
+
+  <!-- Grid pattern (subtle technical background) -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+
+    <!-- Glow effect for important elements -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+
+  <!-- Altitude graph in background (descent path) -->
+  <g opacity="0.15" stroke="#00d4aa" stroke-width="2" fill="none">
+    <path d="M 200,300 L 600,320 L 900,400 L 1200,550 L 1500,750 L 1700,900"/>
+    <text x="220" y="290" font-family="monospace" font-size="16" fill="#00d4aa">FL350</text>
+    <text x="1720" y="910" font-family="monospace" font-size="16" fill="#00d4aa">IMPACT</text>
+  </g>
+
+  <!-- Boeing 747 - Side Profile (Technical Line Art) -->
+  <g transform="translate(400, 400)" stroke="#00d4aa" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Fuselage main body -->
+    <path d="M 100,60 L 100,40 Q 100,20 120,20 L 800,20 Q 850,20 880,35 L 880,85 Q 850,100 800,100 L 120,100 Q 100,100 100,80 Z"/>
+
+    <!-- Upper deck (747 distinctive hump) -->
+    <path d="M 120,40 L 120,0 L 340,0 L 360,20 L 360,40"/>
+
+    <!-- Cockpit windows -->
+    <circle cx="870" cy="45" r="8"/>
+    <circle cx="855" cy="50" r="7"/>
+    <circle cx="840" cy="55" r="6"/>
+
+    <!-- Passenger windows (simplified) -->
+    <g opacity="0.6" stroke-width="1.5">
+      <line x1="180" y1="35" x2="180" y2="45"/>
+      <line x1="210" y1="35" x2="210" y2="45"/>
+      <line x1="240" y1="35" x2="240" y2="45"/>
+      <line x1="270" y1="35" x2="270" y2="45"/>
+      <line x1="300" y1="35" x2="300" y2="45"/>
+      <line x1="330" y1="35" x2="330" y2="45"/>
+
+      <line x1="420" y1="35" x2="420" y2="45"/>
+      <line x1="450" y1="35" x2="450" y2="45"/>
+      <line x1="480" y1="35" x2="480" y2="45"/>
+      <line x1="510" y1="35" x2="510" y2="45"/>
+      <line x1="540" y1="35" x2="540" y2="45"/>
+      <line x1="570" y1="35" x2="570" y2="45"/>
+      <line x1="600" y1="35" x2="600" y2="45"/>
+      <line x1="630" y1="35" x2="630" y2="45"/>
+      <line x1="660" y1="35" x2="660" y2="45"/>
+      <line x1="690" y1="35" x2="690" y2="45"/>
+      <line x1="720" y1="35" x2="720" y2="45"/>
+      <line x1="750" y1="35" x2="750" y2="45"/>
+      <line x1="780" y1="35" x2="780" y2="45"/>
+    </g>
+
+    <!-- Wings -->
+    <path d="M 400,100 L 300,200 L 320,210 L 650,210 L 680,200 L 580,100"/>
+
+    <!-- Wing details -->
+    <line x1="400" y1="100" x2="400" y2="210"/>
+    <line x1="500" y1="100" x2="470" y2="210"/>
+    <line x1="600" y1="100" x2="540" y2="210"/>
+
+    <!-- Engines (4) -->
+    <ellipse cx="340" cy="220" rx="18" ry="35" stroke-width="2.5"/>
+    <ellipse cx="440" cy="220" rx="18" ry="35" stroke-width="2.5"/>
+    <ellipse cx="540" cy="220" rx="18" ry="35" stroke-width="2.5"/>
+    <ellipse cx="620" cy="220" rx="18" ry="35" stroke-width="2.5"/>
+
+    <!-- Engine details (fan blades indication) -->
+    <circle cx="340" cy="220" r="12" opacity="0.4"/>
+    <circle cx="440" cy="220" r="12" opacity="0.4"/>
+    <circle cx="540" cy="220" r="12" opacity="0.4"/>
+    <circle cx="620" cy="220" r="12" opacity="0.4"/>
+
+    <!-- Vertical Stabilizer (Tail) -->
+    <path d="M 110,60 L 60,60 L 30,-80 L 60,-80 L 70,-40 L 110,40"/>
+
+    <!-- Horizontal Stabilizer -->
+    <path d="M 80,60 L 0,60 L -10,70 L 40,70 Z"/>
+    <path d="M 80,60 L 0,40 L -10,40 L 40,50 Z"/>
+
+    <!-- CRITICAL: Tail failure zone (in red with glow) -->
+    <g stroke="#ff4757" stroke-width="3" filter="url(#glow)">
+      <path d="M 100,60 L 80,60" stroke-dasharray="5,5"/>
+      <circle cx="90" cy="60" r="45" fill="none" opacity="0.3"/>
+      <circle cx="90" cy="60" r="55" fill="none" opacity="0.2"/>
+
+      <!-- Stress fracture lines -->
+      <line x1="85" y1="30" x2="95" y2="90" opacity="0.7"/>
+      <line x1="70" y1="50" x2="110" y2="70" opacity="0.7"/>
+      <line x1="75" y1="70" x2="105" y2="50" opacity="0.7"/>
+    </g>
+  </g>
+
+  <!-- Technical annotations -->
+  <g font-family="monospace" fill="#64748b" font-size="18">
+    <text x="750" y="550">BOEING 747SR-46</text>
+    <text x="750" y="580">REG: JA8119</text>
+  </g>
+
+  <!-- Failure callout -->
+  <g font-family="monospace" fill="#ff4757" font-size="20" filter="url(#glow)">
+    <line x1="490" y1="460" x2="550" y2="380" stroke="#ff4757" stroke-width="2"/>
+    <text x="560" y="370">STRUCTURAL FAILURE</text>
+    <text x="560" y="395" font-size="16">Aft Pressure Bulkhead</text>
+  </g>
+
+  <!-- Title and date -->
+  <g font-family="system-ui, sans-serif">
+    <text x="960" y="150" font-size="84" font-weight="bold" fill="#00d4aa" text-anchor="middle" letter-spacing="2">
+      JAPAN AIRLINES FLIGHT 123
+    </text>
+    <text x="960" y="210" font-size="42" fill="#94a3b8" text-anchor="middle" font-family="monospace">
+      12 AUG 1985 / TOKYO - OSAKA
+    </text>
+  </g>
+
+  <!-- Bottom info bar -->
+  <g>
+    <rect x="0" y="1000" width="1920" height="80" fill="#1e293b" opacity="0.8"/>
+    <text x="100" y="1045" font-family="monospace" font-size="24" fill="#ff4757" font-weight="bold">
+      520 FATALITIES
+    </text>
+    <text x="960" y="1045" font-family="monospace" font-size="20" fill="#64748b" text-anchor="middle">
+      MECHANICAL FAILURE / HUMAN ERROR
+    </text>
+    <text x="1820" y="1045" font-family="monospace" font-size="20" fill="#00d4aa" text-anchor="end">
+      MOUNT TAKAMAGAHARA
+    </text>
+  </g>
 </svg>
