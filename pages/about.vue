@@ -4,7 +4,7 @@
     <div class="fixed inset-0 bg-gradient-to-br from-radar-cyan/5 via-cockpit-green/3 to-transparent pointer-events-none" />
 
     <!-- Content -->
-    <div class="container mx-auto px-4 py-20 relative">
+    <div class="container mx-auto px-4 pt-32 pb-12 relative">
       <!-- Hero Section with Floating Plane -->
       <div class="mb-16 text-center">
         <div
