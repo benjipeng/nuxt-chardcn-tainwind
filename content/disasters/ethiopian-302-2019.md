@@ -11,7 +11,7 @@ location:
   city: Bishoftu
   country: Ethiopia
 images:
-  hero: /images/disasters/ethiopian-302-2019/hero.jpg
+  hero: /images/disasters/ethiopian-302-2019/hero.svg
 summary: A faulty angle-of-attack sensor triggered the MCAS system on a Boeing 737 MAX 8, leading to loss of control and crash six minutes after takeoff, killing all 157 aboard and grounding the entire MAX fleet worldwide.
 ---
 
