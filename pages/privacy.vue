@@ -41,17 +41,17 @@
           <CardContent>
             <div class="space-y-4 text-text-secondary font-body">
               <p>
-                This site is hosted on GitHub Pages. GitHub's servers automatically log:
+                GitHub Pages hosts this site. GitHub's servers log standard stuff:
               </p>
               <ul class="list-disc list-inside space-y-2 mt-3">
-                <li>Your IP address</li>
+                <li>IP address</li>
                 <li>Browser type</li>
                 <li>Pages you visit</li>
-                <li>When you visit</li>
+                <li>Time of visit</li>
               </ul>
               <p class="mt-4">
-                That's standard web server stuff. I don't see it, I don't use it, I don't care about it.
-                Check <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection" target="_blank" rel="noopener noreferrer" class="text-cockpit-green-text hover:underline">GitHub's privacy policy</a> if you want details.
+                I don't see this data, don't use it, don't care about it.
+                Check <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection" target="_blank" rel="noopener noreferrer" class="text-cockpit-green-text hover:underline">GitHub's privacy policy</a> for details.
               </p>
             </div>
           </CardContent>
@@ -63,8 +63,8 @@
           </CardHeader>
           <CardContent>
             <p class="text-text-secondary font-body">
-              This site links to official investigation reports, news sources, and other external websites.
-              When you click those links, you're subject to their privacy policies, not mine.
+              I link to official investigation reports, news sources, and other external sites.
+              Their privacy policies apply when you visit them.
             </p>
           </CardContent>
         </Card>

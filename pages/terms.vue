@@ -25,11 +25,11 @@
           <CardContent>
             <div class="space-y-4 text-text-secondary font-body">
               <p>
-                Mayday Archive is a personal educational project documenting significant aviation disasters
-                and the safety improvements that resulted from them.
+                I built Mayday Archive to document significant aviation disasters
+                and the safety improvements that came from them.
               </p>
               <p>
-                It's free to use for educational purposes, research, and general learning.
+                Use it free for education, research, and learning.
               </p>
             </div>
           </CardContent>
@@ -49,13 +49,13 @@
                   <strong>Not professional advice:</strong> This is a hobby project. Don't use it for professional aviation decisions.
                 </li>
                 <li>
-                  <strong>Accuracy:</strong> I try to be accurate and cite official sources, but I'm not infallible. Always verify important information with official investigation reports.
+                  <strong>Accuracy:</strong> I cite official sources but I'm not infallible. Verify important info with official investigation reports.
                 </li>
                 <li>
-                  <strong>Not affiliated:</strong> This site is not affiliated with any airline, aircraft manufacturer, aviation authority, or investigation agency.
+                  <strong>Not affiliated:</strong> I have no affiliation with airlines, manufacturers, aviation authorities, or investigation agencies.
                 </li>
                 <li>
-                  <strong>Use at your own risk:</strong> The site is provided "as is" without warranties.
+                  <strong>Use at your own risk:</strong> I provide the site "as is" without warranties.
                 </li>
               </ul>
             </div>
@@ -103,11 +103,10 @@
           <CardContent>
             <div class="space-y-4 text-text-secondary font-body">
               <p>
-                Original content on this site is my work. Historical images and investigation reports
-                are either public domain or cited with attribution to their sources.
+                I wrote the original content. Historical images and investigation reports come from public domain sources or I cite them properly.
               </p>
               <p>
-                If you want to use substantial portions of content, just ask.
+                Want to use substantial portions? Just ask.
               </p>
             </div>
           </CardContent>
