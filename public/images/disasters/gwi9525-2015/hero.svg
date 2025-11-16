@@ -54,10 +54,14 @@
       <path d="M -23,-105 Q 0,-125 23,-105" fill="#00d4aa" opacity="0.3"/>
 
       <!-- Cockpit door - LOCKED -->
-      <g transform="translate(0, -35)" filter="url(#warning-glow)">
-        <rect x="-18" y="0" width="36" height="3" fill="#ff4757" opacity="0.7"/>
-        <circle cx="-22" cy="1.5" r="8" stroke="#ff4757" stroke-width="3" fill="none" opacity="0.6"/>
-        <path d="M -22,-3 L -22,6" stroke="#ff4757" stroke-width="3" opacity="0.7"/>
+      <g transform="translate(0, -35)">
+        <!-- Door graphics (with glow) -->
+        <g filter="url(#warning-glow)">
+          <rect x="-18" y="0" width="36" height="3" fill="#ff4757" opacity="0.7"/>
+          <circle cx="-22" cy="1.5" r="8" stroke="#ff4757" stroke-width="3" fill="none" opacity="0.6"/>
+          <path d="M -22,-3 L -22,6" stroke="#ff4757" stroke-width="3" opacity="0.7"/>
+        </g>
+        <!-- Label (NO blur) -->
         <text x="28" y="5" font-family="monospace" font-size="12" fill="#ff4757" opacity="0.9">LOCKED</text>
       </g>
 

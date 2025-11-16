@@ -113,32 +113,33 @@
   </g>
 
   <!-- Fuel indicators -->
-  <g font-family="monospace" filter="url(#warning-glow)">
+  <g font-family="monospace">
     <g transform="translate(1350, 350)">
-      <text x="0" y="0" font-size="20" fill="#ff4757" font-weight="bold">FUEL EXHAUSTION</text>
-
-      <!-- Fuel gauges -->
-      <g transform="translate(0, 30)">
+      <!-- Fuel gauges (shapes only get glow) -->
+      <g transform="translate(0, 30)" filter="url(#warning-glow)">
         <!-- Tank 1 -->
         <rect x="0" y="0" width="120" height="25" stroke="#64748b" stroke-width="2" fill="#1e293b"/>
         <rect x="2" y="2" width="5" height="21" fill="#ff4757" opacity="0.8"/>
-        <text x="130" y="17" font-size="14" fill="#ff4757">TANK 1: EMPTY</text>
 
         <!-- Tank 2 -->
         <rect x="0" y="35" width="120" height="25" stroke="#64748b" stroke-width="2" fill="#1e293b"/>
         <rect x="2" y="37" width="5" height="21" fill="#ff4757" opacity="0.8"/>
-        <text x="130" y="52" font-size="14" fill="#ff4757">TANK 2: EMPTY</text>
 
         <!-- Tank 3 -->
         <rect x="0" y="70" width="120" height="25" stroke="#64748b" stroke-width="2" fill="#1e293b"/>
         <rect x="2" y="72" width="5" height="21" fill="#ff4757" opacity="0.8"/>
-        <text x="130" y="87" font-size="14" fill="#ff4757">TANK 3: EMPTY</text>
 
         <!-- Tank 4 -->
         <rect x="0" y="105" width="120" height="25" stroke="#64748b" stroke-width="2" fill="#1e293b"/>
         <rect x="2" y="107" width="5" height="21" fill="#ff4757" opacity="0.8"/>
-        <text x="130" y="122" font-size="14" fill="#ff4757">TANK 4: EMPTY</text>
       </g>
+
+      <!-- Text labels (NO blur) -->
+      <text x="0" y="0" font-size="20" fill="#ff4757" font-weight="bold">FUEL EXHAUSTION</text>
+      <text x="130" y="47" font-size="14" fill="#ff4757">TANK 1: EMPTY</text>
+      <text x="130" y="82" font-size="14" fill="#ff4757">TANK 2: EMPTY</text>
+      <text x="130" y="117" font-size="14" fill="#ff4757">TANK 3: EMPTY</text>
+      <text x="130" y="152" font-size="14" fill="#ff4757">TANK 4: EMPTY</text>
     </g>
   </g>
 

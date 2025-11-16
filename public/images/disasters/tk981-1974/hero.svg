@@ -74,10 +74,14 @@
   </g>
 
   <!-- CARGO DOOR (blown off, shown separated) -->
-  <g transform="translate(700, 650) rotate(45)" stroke="#ff4757" stroke-width="3" filter="url(#failure-glow)">
-    <rect x="0" y="0" width="50" height="70" fill="#ff4757" opacity="0.2" stroke-dasharray="5,3"/>
-    <line x1="5" y1="5" x2="45" y2="65" opacity="0.6" stroke-width="2"/>
-    <line x1="45" y1="5" x2="5" y2="65" opacity="0.6" stroke-width="2"/>
+  <g transform="translate(700, 650) rotate(45)">
+    <!-- Door graphics (with glow) -->
+    <g stroke="#ff4757" stroke-width="3" filter="url(#failure-glow)">
+      <rect x="0" y="0" width="50" height="70" fill="#ff4757" opacity="0.2" stroke-dasharray="5,3"/>
+      <line x1="5" y1="5" x2="45" y2="65" opacity="0.6" stroke-width="2"/>
+      <line x1="45" y1="5" x2="5" y2="65" opacity="0.6" stroke-width="2"/>
+    </g>
+    <!-- Label (NO blur) -->
     <text x="25" y="90" font-family="monospace" font-size="14" fill="#ff4757" text-anchor="middle">DOOR</text>
   </g>
 

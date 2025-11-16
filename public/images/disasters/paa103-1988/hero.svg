@@ -77,29 +77,32 @@
       <ellipse cx="160" cy="0" rx="14" ry="28" stroke="#00d4aa" stroke-width="3" fill="#00d4aa" opacity="0.4"/>
 
       <!-- FORWARD CARGO HOLD EXPLOSION -->
-      <g transform="translate(0, -50)" filter="url(#explosion-glow)">
-        <!-- Explosion epicenter -->
-        <circle cx="0" cy="0" r="70" fill="#ff4757" opacity="0.4"/>
-        <circle cx="0" cy="0" r="50" fill="#fbbf24" opacity="0.5"/>
-        <circle cx="0" cy="0" r="30" fill="#ff4757" opacity="0.6"/>
+      <g transform="translate(0, -50)">
+        <!-- Explosion graphics (with glow) -->
+        <g filter="url(#explosion-glow)">
+          <!-- Explosion epicenter -->
+          <circle cx="0" cy="0" r="70" fill="#ff4757" opacity="0.4"/>
+          <circle cx="0" cy="0" r="50" fill="#fbbf24" opacity="0.5"/>
+          <circle cx="0" cy="0" r="30" fill="#ff4757" opacity="0.6"/>
 
-        <!-- Blast rings -->
-        <circle cx="0" cy="0" r="90" stroke="#ff4757" stroke-width="7" fill="none" opacity="0.7"/>
-        <circle cx="0" cy="0" r="115" stroke="#fbbf24" stroke-width="6" fill="none" opacity="0.5"/>
-        <circle cx="0" cy="0" r="140" stroke="#ff4757" stroke-width="5" fill="none" opacity="0.4"/>
-        <circle cx="0" cy="0" r="165" stroke="#fbbf24" stroke-width="4" fill="none" opacity="0.3"/>
+          <!-- Blast rings -->
+          <circle cx="0" cy="0" r="90" stroke="#ff4757" stroke-width="7" fill="none" opacity="0.7"/>
+          <circle cx="0" cy="0" r="115" stroke="#fbbf24" stroke-width="6" fill="none" opacity="0.5"/>
+          <circle cx="0" cy="0" r="140" stroke="#ff4757" stroke-width="5" fill="none" opacity="0.4"/>
+          <circle cx="0" cy="0" r="165" stroke="#fbbf24" stroke-width="4" fill="none" opacity="0.3"/>
 
-        <!-- Blast lines radiating outward -->
-        <line x1="0" y1="-80" x2="0" y2="-130" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
-        <line x1="0" y1="80" x2="0" y2="130" stroke="#ff4757" stroke-width="5" opacity="0.6"/>
-        <line x1="-80" y1="0" x2="-130" y2="0" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
-        <line x1="80" y1="0" x2="130" y2="0" stroke="#ff4757" stroke-width="5" opacity="0.6"/>
-        <line x1="-60" y1="-60" x2="-100" y2="-100" stroke="#fbbf24" stroke-width="4" opacity="0.5"/>
-        <line x1="60" y1="-60" x2="100" y2="-100" stroke="#ff4757" stroke-width="4" opacity="0.5"/>
-        <line x1="-60" y1="60" x2="-100" y2="100" stroke="#fbbf24" stroke-width="4" opacity="0.5"/>
-        <line x1="60" y1="60" x2="100" y2="100" stroke="#ff4757" stroke-width="4" opacity="0.5"/>
+          <!-- Blast lines radiating outward -->
+          <line x1="0" y1="-80" x2="0" y2="-130" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
+          <line x1="0" y1="80" x2="0" y2="130" stroke="#ff4757" stroke-width="5" opacity="0.6"/>
+          <line x1="-80" y1="0" x2="-130" y2="0" stroke="#fbbf24" stroke-width="5" opacity="0.6"/>
+          <line x1="80" y1="0" x2="130" y2="0" stroke="#ff4757" stroke-width="5" opacity="0.6"/>
+          <line x1="-60" y1="-60" x2="-100" y2="-100" stroke="#fbbf24" stroke-width="4" opacity="0.5"/>
+          <line x1="60" y1="-60" x2="100" y2="-100" stroke="#ff4757" stroke-width="4" opacity="0.5"/>
+          <line x1="-60" y1="60" x2="-100" y2="100" stroke="#fbbf24" stroke-width="4" opacity="0.5"/>
+          <line x1="60" y1="60" x2="100" y2="100" stroke="#ff4757" stroke-width="4" opacity="0.5"/>
+        </g>
 
-        <!-- Structural failure indicator -->
+        <!-- Structural failure indicator (NO blur) -->
         <text x="0" y="-180" font-family="monospace" font-size="16" fill="#ff4757" text-anchor="middle" opacity="0.9">CARGO HOLD</text>
       </g>
 
