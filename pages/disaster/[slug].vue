@@ -48,8 +48,6 @@ useHead({
 
 <template>
   <div v-if="disaster" class="min-h-screen bg-bg-primary">
-    <Navbar />
-
     <!-- Hero Image -->
     <div class="relative w-full h-[50vh] md:h-[60vh] bg-bg-tertiary">
       <NuxtImg
@@ -176,8 +174,6 @@ useHead({
         </div>
       </div>
     </div>
-
-    <Footer />
   </div>
 </template>
 
