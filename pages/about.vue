@@ -60,8 +60,8 @@
           <Motion
             v-for="(card, index) in missionCards"
             :key="index"
-            :initial="{ opacity: 0, y: 60, scale: 0.9 }"
-            :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+            :initial="{ y: 60, scale: 0.95 }"
+            :whileInView="{ y: 0, scale: 1 }"
             :viewport="{ once: true, margin: '-50px' }"
             :transition="{
               duration: 0.7,
@@ -71,44 +71,44 @@
               stiffness: 100
             }"
           >
-            <Card
-              :class="[
-                'group cursor-pointer transition-all duration-500 h-full',
-                card.glowClass
-              ]"
-              @mouseenter="handleCardHover(index)"
-            >
-              <CardHeader>
-                <div class="flex items-center gap-3 mb-3">
-                  <Motion
-                    :animate="hoveredCard === index ? {
-                      rotate: [0, -10, 10, -10, 0],
-                      scale: [1, 1.2, 1]
-                    } : {}"
-                    :transition="{ duration: 0.5 }"
-                    :class="[
-                      'p-3 rounded-lg transition-all duration-500',
-                      card.iconBg
-                    ]"
-                  >
-                    <Icon
-                      :name="card.icon"
-                      :class="['w-6 h-6', card.iconColor]"
-                    />
-                  </Motion>
-                </div>
-                <CardTitle class="text-xl group-hover:text-cockpit-green-text transition-colors duration-300">
-                  {{ card.title }}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p class="text-text-secondary font-body leading-relaxed">
-                  {{ card.description }}
-                </p>
-              </CardContent>
-            </Card>
-          </Motion>
-        </div>
+              <Card
+                :class="[
+                  'group cursor-pointer transition-all duration-500 h-full',
+                  card.glowClass
+                ]"
+                @mouseenter="handleCardHover(index)"
+              >
+                <CardHeader>
+                  <div class="flex items-center gap-3 mb-3">
+                    <Motion
+                      :animate="hoveredCard === index ? {
+                        rotate: [0, -10, 10, -10, 0],
+                        scale: [1, 1.2, 1]
+                      } : {}"
+                      :transition="{ duration: 0.5 }"
+                      :class="[
+                        'p-3 rounded-lg transition-all duration-500',
+                        card.iconBg
+                      ]"
+                    >
+                      <Icon
+                        :name="card.icon"
+                        :class="['w-6 h-6', card.iconColor]"
+                      />
+                    </Motion>
+                  </div>
+                  <CardTitle class="text-xl group-hover:text-cockpit-green-text transition-colors duration-300">
+                    {{ card.title }}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p class="text-text-secondary font-body leading-relaxed">
+                    {{ card.description }}
+                  </p>
+                </CardContent>
+              </Card>
+            </Motion>
+          </div>
       </div>
 
       <!-- Main Content Sections with Parallax -->

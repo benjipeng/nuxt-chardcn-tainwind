@@ -39,8 +39,8 @@
         <Motion
           v-for="(card, index) in cards"
           :key="index"
-          :initial="{ opacity: 0, y: 60, scale: 0.9 }"
-          :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+          :initial="{ y: 60, scale: 0.95 }"
+          :whileInView="{ y: 0, scale: 1 }"
           :viewport="{ once: true, margin: '-50px' }"
           :transition="{
             duration: 0.6,
@@ -54,22 +54,22 @@
           }"
           class="mb-8"
         >
-          <Card :class="[
-            'transition-all duration-300 backdrop-blur-sm',
-            'border-border-subtle',
-            card.borderClass,
-            card.glowClass
-          ]">
-            <CardHeader>
-              <CardTitle :class="card.titleClass">
-                <component :is="card.icon" v-if="card.icon" />
-                {{ card.title }}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <component :is="card.content" />
-            </CardContent>
-          </Card>
+            <Card :class="[
+              'transition-all duration-300 backdrop-blur-sm',
+              'border-border-subtle',
+              card.borderClass,
+              card.glowClass
+            ]">
+              <CardHeader>
+                <CardTitle :class="card.titleClass">
+                  <component :is="card.icon" v-if="card.icon" />
+                  {{ card.title }}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <component :is="card.content" />
+              </CardContent>
+            </Card>
         </Motion>
 
         <!-- Bottom Navigation -->
