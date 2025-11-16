@@ -136,13 +136,15 @@
         </div>
       </div>
     </div>
+  </nav>
 
-    <!-- Hamburger Menu Overlay -->
+  <!-- Hamburger Menu Overlay - Teleported to body -->
+  <Teleport to="body">
     <HamburgerMenu
       :is-open="isMenuOpen"
       @close="isMenuOpen = false"
     />
-  </nav>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
