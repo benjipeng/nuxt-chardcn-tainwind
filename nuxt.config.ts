@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@oku-ui/motion/nuxt'
   ],
 
   shadcn: {
