@@ -7,6 +7,14 @@ const { data: disaster } = await useAsyncData(`disaster-${slug}`, () =>
   queryCollection('disasters').where('slug', '=', slug).first()
 )
 
+// Handle 404 - now that queryCollection works, we can safely throw errors
+if (!disaster.value) {
+  throw createError({
+    statusCode: 404,
+    message: 'Disaster not found',
+  })
+}
+
 // Get category color classes
 function getCategoryColor(category: string): string {
   switch (category) {
