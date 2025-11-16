@@ -2,18 +2,16 @@
 const route = useRoute()
 const slug = route.params.slug as string
 
-// Fetch the disaster content using _path
-const { data: disaster } = await useAsyncData(`disaster-${slug}`, () =>
-  queryContent(`/disasters/${slug}`).findOne()
+// Fetch all disasters and filter by slug
+// Using .find() instead of .findOne() for SSG compatibility
+const { data: disasters } = await useAsyncData(`disaster-${slug}`, () =>
+  queryContent('/disasters').find()
 )
 
-// Handle 404
-if (!disaster.value) {
-  throw createError({
-    statusCode: 404,
-    message: 'Disaster not found',
-  })
-}
+// Filter to get the matching disaster by slug
+const disaster = computed(() =>
+  disasters.value?.find((d: any) => d.slug === slug)
+)
 
 // Get category color classes
 function getCategoryColor(category: string): string {
