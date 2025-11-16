@@ -108,7 +108,7 @@
 
   <!-- Top identifier -->
   <g font-family="monospace" text-anchor="middle">
-    <text x="960" y="120" font-size="56" fill="#fbbf24" font-weight="bold">SV763 & KZ1907</text>
+    <text x="960" y="120" font-size="56" fill="#fbbf24" font-weight="bold">SV763 &amp; KZ1907</text>
     <text x="960" y="165" font-size="22" fill="#94a3b8">12 NOV 1996</text>
     <text x="960" y="195" font-size="22" fill="#94a3b8">NEAR NEW DELHI, INDIA</text>
   </g>

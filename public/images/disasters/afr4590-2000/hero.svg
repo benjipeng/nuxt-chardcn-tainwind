@@ -124,7 +124,7 @@
     <line x1="770" y1="590" x2="600" y2="480" stroke="#ff4757" stroke-width="2.5" filter="url(#fire-glow)"/>
     <text x="590" y="475" font-size="20" font-weight="bold" text-anchor="end">TIRE BURST → FUEL TANK</text>
     <text x="590" y="500" font-size="16" fill="#94a3b8" text-anchor="end">Shockwave rupture</text>
-    <text x="590" y="525" font-size="16" fill="#94a3b8" text-anchor="end">Engines 1 & 2 failure</text>
+    <text x="590" y="525" font-size="16" fill="#94a3b8" text-anchor="end">Engines 1 &amp; 2 failure</text>
   </g>
 
   <!-- Sequence -->
