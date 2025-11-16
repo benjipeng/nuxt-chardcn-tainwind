@@ -119,30 +119,30 @@ const cards = [
     title: 'The Simple Truth',
     glowClass: 'hover:shadow-glow-green',
     content: () => h('div', { class: 'space-y-4 text-text-secondary font-body' }, [
-      h('p', { class: 'text-lg' }, 'This is a static educational website. I don\'t collect your personal data.'),
-      h('p', null, 'No sign-ups, no tracking, no analytics, no cookies (except maybe one for dark mode preference), no mailing lists, no nothing.')
+      h('p', { class: 'text-lg' }, 'This is a static educational website. No personal data is collected.'),
+      h('p', null, 'No sign-ups are required, no tracking is performed, no analytics are used, no cookies are set (except possibly one for dark mode preference), no mailing lists are maintained.')
     ])
   },
   {
     title: 'What Gets Logged',
     glowClass: 'hover:shadow-glow-cyan',
     content: () => h('div', { class: 'space-y-4 text-text-secondary font-body' }, [
-      h('p', null, 'GitHub Pages hosts this site. GitHub\'s servers log standard stuff:'),
+      h('p', null, 'This site is hosted on GitHub Pages. Standard information is logged by GitHub\'s servers:'),
       h('ul', { class: 'list-disc list-inside space-y-2 mt-3' }, [
         h('li', null, 'IP address'),
         h('li', null, 'Browser type'),
-        h('li', null, 'Pages you visit'),
+        h('li', null, 'Pages visited'),
         h('li', null, 'Time of visit')
       ]),
       h('p', { class: 'mt-4' }, [
-        'I don\'t see this data, don\'t use it, don\'t care about it. Check ',
+        'This data is not accessed, used, or monitored by this site. ',
         h('a', {
           href: 'https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#data-collection',
           target: '_blank',
           rel: 'noopener noreferrer',
           class: 'text-cockpit-green-text hover:underline transition-colors duration-200'
         }, 'GitHub\'s privacy policy'),
-        ' for details.'
+        ' may be consulted for details.'
       ])
     ])
   },
@@ -150,7 +150,7 @@ const cards = [
     title: 'External Links',
     glowClass: 'hover:shadow-glow-amber',
     content: () => h('p', { class: 'text-text-secondary font-body' },
-      'I link to official investigation reports, news sources, and other external sites. Their privacy policies apply when you visit them.'
+      'Links are provided to official investigation reports, news sources, and other external sites. Their privacy policies are applicable when those sites are visited.'
     )
   },
   {
@@ -158,7 +158,7 @@ const cards = [
     borderClass: 'border-l-4 border-cockpit-green',
     glowClass: 'hover:shadow-glow-green',
     content: () => h('p', { class: 'text-text-secondary font-body' }, [
-      'Open an issue on the ',
+      'Issues may be opened on the ',
       h('a', {
         href: 'https://github.com/benjipeng/mayday-archive',
         target: '_blank',
