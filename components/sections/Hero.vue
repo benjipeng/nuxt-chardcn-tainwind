@@ -1,5 +1,5 @@
 <template>
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-40">
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-40 md:pt-56">
     <!-- Background Grid Pattern -->
     <div class="absolute inset-0 bg-grid-pattern opacity-5" />
 
