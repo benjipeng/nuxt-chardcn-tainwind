@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-bg-secondary border-t border-border-subtle py-12 px-4">
     <div class="container mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         <!-- Brand -->
         <div class="md:col-span-1">
           <div class="flex items-center gap-3 mb-4">
@@ -19,26 +19,14 @@
           </p>
           <div class="flex items-center gap-3">
             <a
-              href="https://github.com"
+              href="https://github.com/benjipeng/mayday-archive"
               target="_blank"
               rel="noopener noreferrer"
               class="p-2 hover:bg-cockpit-green/10 rounded-md transition-colors"
-              aria-label="GitHub"
+              aria-label="GitHub Repository"
             >
               <Icon
                 name="lucide:github"
-                class="w-5 h-5 text-text-secondary hover:text-cockpit-green transition-colors"
-              />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="p-2 hover:bg-cockpit-green/10 rounded-md transition-colors"
-              aria-label="Twitter"
-            >
-              <Icon
-                name="lucide:twitter"
                 class="w-5 h-5 text-text-secondary hover:text-cockpit-green transition-colors"
               />
             </a>
@@ -63,22 +51,6 @@
                 class="footer-link"
               >
                 Timeline
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink
-                to="/browse?category=human-error"
-                class="footer-link"
-              >
-                Human Error
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink
-                to="/browse?category=mechanical"
-                class="footer-link"
-              >
-                Mechanical Failure
               </NuxtLink>
             </li>
           </ul>
@@ -114,49 +86,10 @@
             </li>
             <li>
               <NuxtLink
-                to="/sources"
-                class="footer-link"
-              >
-                Sources & Credits
-              </NuxtLink>
-            </li>
-          </ul>
-        </div>
-
-        <!-- About -->
-        <div>
-          <h3 class="font-display font-bold text-text-primary mb-4">About</h3>
-          <ul class="space-y-2">
-            <li>
-              <NuxtLink
                 to="/about"
                 class="footer-link"
               >
-                About This Project
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink
-                to="/methodology"
-                class="footer-link"
-              >
-                Methodology
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink
-                to="/contribute"
-                class="footer-link"
-              >
-                Contribute
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink
-                to="/contact"
-                class="footer-link"
-              >
-                Contact
+                About
               </NuxtLink>
             </li>
           </ul>
