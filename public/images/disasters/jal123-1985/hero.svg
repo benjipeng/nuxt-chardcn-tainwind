@@ -28,10 +28,6 @@
   <!-- Flight path - descent trajectory -->
   <g stroke="#00d4aa" stroke-width="3" fill="none" opacity="0.3" stroke-dasharray="15,10">
     <path d="M 300,350 Q 600,400 900,500 Q 1200,600 1400,750"/>
-    <!-- Altitude markers -->
-    <text x="300" y="330" font-family="monospace" font-size="16" fill="#00d4aa" opacity="0.5">FL350</text>
-    <text x="900" y="480" font-family="monospace" font-size="16" fill="#00d4aa" opacity="0.5">FL180</text>
-    <text x="1400" y="730" font-family="monospace" font-size="16" fill="#00d4aa" opacity="0.5">IMPACT</text>
   </g>
 
   <!-- Boeing 747 - Abstract top-down view -->
@@ -63,7 +59,7 @@
       <path d="M -20,130 L 0,165 L 20,130" fill="#00d4aa" opacity="0.6"/>
       <rect x="-12" y="130" width="24" height="40" fill="#00d4aa" opacity="0.5"/>
 
-      <!-- CRITICAL: Tail failure indicator -->
+      <!-- CRITICAL: Tail failure indicator (ONLY graphics get glow) -->
       <g stroke="#ff4757" stroke-width="4" filter="url(#failure-glow)">
         <!-- Separation line -->
         <line x1="-30" y1="130" x2="30" y2="130" stroke-dasharray="8,4"/>
@@ -81,46 +77,26 @@
 
     <!-- Horizontal stabilizers -->
     <ellipse cx="0" cy="135" rx="60" ry="15" opacity="0.7"/>
-
-    <!-- Aircraft label -->
-    <text x="0" y="210" font-family="monospace" font-size="22" fill="#00d4aa" text-anchor="middle" font-weight="bold">JA8119</text>
   </g>
 
-  <!-- Technical annotations -->
-  <g font-family="monospace">
-    <text x="650" y="760" font-size="18" fill="#64748b">BOEING 747SR-46</text>
-    <text x="650" y="790" font-size="16" fill="#64748b">TOKYO → OSAKA</text>
+  <!-- Top identifier (NO BLUR) -->
+  <g font-family="monospace" text-anchor="middle">
+    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">JAL123</text>
+    <text x="960" y="165" font-size="22" fill="#94a3b8">12 AUG 1985</text>
+    <text x="960" y="195" font-size="22" fill="#94a3b8">MOUNT TAKAMAGAHARA, JAPAN</text>
   </g>
 
-  <!-- Failure callout -->
-  <g font-family="monospace" fill="#ff4757" filter="url(#failure-glow)">
-    <line x1="1050" y1="680" x2="1200" y2="600" stroke="#ff4757" stroke-width="2.5"/>
-    <text x="1210" y="595" font-size="22" font-weight="bold">AFT PRESSURE BULKHEAD</text>
-    <text x="1210" y="620" font-size="17" fill="#94a3b8">Structural failure</text>
-    <text x="1210" y="642" font-size="17" fill="#94a3b8">Vertical stabilizer lost</text>
+  <!-- Failure callout (NO BLUR on text) -->
+  <g font-family="monospace" fill="#ff4757">
+    <line x1="1050" y1="680" x2="1200" y2="760" stroke="#ff4757" stroke-width="2.5" filter="url(#failure-glow)"/>
+    <text x="1210" y="765" font-size="20" font-weight="bold">TAIL FAILURE</text>
+    <text x="1210" y="790" font-size="16" fill="#94a3b8">Bulkhead rupture</text>
   </g>
 
-  <!-- Title and date -->
-  <g font-family="system-ui, sans-serif">
-    <text x="960" y="130" font-size="84" font-weight="bold" fill="#00d4aa" text-anchor="middle" letter-spacing="2">
-      JAPAN AIRLINES FLIGHT 123
-    </text>
-    <text x="960" y="190" font-size="42" fill="#94a3b8" text-anchor="middle" font-family="monospace">
-      12 AUG 1985 / MOUNT TAKAMAGAHARA
-    </text>
-  </g>
-
-  <!-- Bottom info bar -->
+  <!-- Bottom info -->
   <g>
-    <rect x="0" y="980" width="1920" height="100" fill="#1e293b" opacity="0.8"/>
-    <text x="100" y="1035" font-family="monospace" font-size="28" fill="#ff4757" font-weight="bold">
-      520 FATALITIES
-    </text>
-    <text x="960" y="1035" font-family="monospace" font-size="22" fill="#64748b" text-anchor="middle">
-      MECHANICAL FAILURE / IMPROPER REPAIR
-    </text>
-    <text x="1820" y="1035" font-family="monospace" font-size="22" fill="#00d4aa" text-anchor="end">
-      JAPAN
-    </text>
+    <rect x="0" y="1000" width="1920" height="80" fill="#1e293b" opacity="0.8"/>
+    <text x="100" y="1050" font-family="monospace" font-size="32" fill="#ff4757" font-weight="bold">520 FATALITIES</text>
+    <text x="1820" y="1050" font-family="monospace" font-size="20" fill="#64748b" text-anchor="end">BOEING 747SR-46 / JA8119</text>
   </g>
 </svg>

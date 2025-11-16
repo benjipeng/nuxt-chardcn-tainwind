@@ -1,6 +1,116 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
-  <rect width="1920" height="1080" fill="#1a1a2e"/>
-  <text x="960" y="480" font-family="Arial, sans-serif" font-size="72" fill="#00d9ff" text-anchor="middle" font-weight="bold">Air France Flight 447</text>
-  <text x="960" y="560" font-family="Arial, sans-serif" font-size="48" fill="#ffffff" text-anchor="middle">June 1, 2009</text>
-  <text x="960" y="640" font-family="Arial, sans-serif" font-size="36" fill="#cccccc" text-anchor="middle">228 Fatalities</text>
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#0f172a"/>
+
+  <!-- Definitions -->
+  <defs>
+    <!-- Radar grid pattern -->
+    <pattern id="radar-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="40" cy="40" r="40" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="40" cy="40" r="20" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <line x1="40" y1="0" x2="40" y2="80" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+      <line x1="0" y1="40" x2="80" y2="40" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+
+    <!-- Wave pattern for ocean -->
+    <pattern id="waves" width="100" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 0,10 Q 25,5 50,10 T 100,10" stroke="#38bdf8" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <path d="M 0,15 Q 25,10 50,15 T 100,15" stroke="#38bdf8" stroke-width="1" fill="none" opacity="0.2"/>
+    </pattern>
+
+    <!-- Storm clouds -->
+    <filter id="storm-glow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Radar background -->
+  <rect width="1920" height="1080" fill="url(#radar-grid)"/>
+
+  <!-- Ocean surface -->
+  <g>
+    <rect x="0" y="850" width="1920" height="230" fill="#0a1628"/>
+    <rect x="0" y="850" width="1920" height="230" fill="url(#waves)"/>
+    <line x1="0" y1="850" x2="1920" y2="850" stroke="#38bdf8" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <!-- Storm clouds (abstract) -->
+  <g opacity="0.3" filter="url(#storm-glow)">
+    <ellipse cx="600" cy="350" rx="200" ry="80" fill="#cbd5e1" opacity="0.2"/>
+    <ellipse cx="800" cy="320" rx="250" ry="100" fill="#cbd5e1" opacity="0.25"/>
+    <ellipse cx="1100" cy="340" rx="220" ry="90" fill="#cbd5e1" opacity="0.2"/>
+    <ellipse cx="1350" cy="310" rx="200" ry="85" fill="#cbd5e1" opacity="0.22"/>
+  </g>
+
+  <!-- Descent path -->
+  <g stroke="#ff4757" stroke-width="3" fill="none" opacity="0.4" stroke-dasharray="15,10">
+    <path d="M 500,280 Q 700,400 850,600 Q 950,750 1020,850"/>
+    <text x="500" y="270" font-family="monospace" font-size="16" fill="#ff4757">FL350</text>
+    <text x="1020" y="840" font-family="monospace" font-size="16" fill="#ff4757">IMPACT</text>
+  </g>
+
+  <!-- Airbus A330 - Abstract top-down view (in stall) -->
+  <g transform="translate(960, 540) rotate(-20)" stroke="#00d4aa" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Fuselage -->
+    <ellipse cx="0" cy="0" rx="42" ry="150"/>
+
+    <!-- Cockpit nose -->
+    <path d="M -32,-135 Q 0,-155 32,-135" fill="#00d4aa" opacity="0.3"/>
+
+    <!-- Wings -->
+    <ellipse cx="0" cy="-15" rx="190" ry="48"/>
+
+    <!-- Wing structural lines -->
+    <line x1="-190" y1="-15" x2="-42" y2="-15" stroke-width="2.5"/>
+    <line x1="190" y1="-15" x2="42" y2="-15" stroke-width="2.5"/>
+    <line x1="-110" y1="-30" x2="-110" y2="0" stroke-width="2" opacity="0.6"/>
+    <line x1="110" y1="-30" x2="110" y2="0" stroke-width="2" opacity="0.6"/>
+
+    <!-- Engines (2 - A330 is twin-engine) -->
+    <ellipse cx="-120" cy="-15" rx="16" ry="30" fill="#00d4aa" opacity="0.4"/>
+    <ellipse cx="120" cy="-15" rx="16" ry="30" fill="#00d4aa" opacity="0.4"/>
+
+    <!-- Pitot tubes / sensor failure indicators -->
+    <g stroke="#ff4757" stroke-width="4" filter="url(#storm-glow)">
+      <!-- Nose sensors -->
+      <circle cx="0" cy="-140" r="35" fill="none" opacity="0.5"/>
+      <circle cx="0" cy="-140" r="50" fill="none" opacity="0.3"/>
+
+      <!-- Warning lines -->
+      <line x1="-15" y1="-155" x2="15" y2="-125" opacity="0.6" stroke-width="3"/>
+      <line x1="15" y1="-155" x2="-15" y2="-125" opacity="0.6" stroke-width="3"/>
+    </g>
+
+    <!-- Tail -->
+    <path d="M -18,125 L 0,160 L 18,125" fill="#00d4aa" opacity="0.6"/>
+    <rect x="-10" y="125" width="20" height="40" fill="#00d4aa" opacity="0.5"/>
+
+    <!-- Horizontal stabilizers -->
+    <ellipse cx="0" cy="130" rx="55" ry="14" opacity="0.7"/>
+  </g>
+
+  <!-- Top identifier -->
+  <g font-family="monospace" text-anchor="middle">
+    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">AFR447</text>
+    <text x="960" y="165" font-size="22" fill="#94a3b8">01 JUN 2009</text>
+    <text x="960" y="195" font-size="22" fill="#94a3b8">ATLANTIC OCEAN</text>
+  </g>
+
+  <!-- Failure callout -->
+  <g font-family="monospace" fill="#ff4757">
+    <line x1="1030" y1="450" x2="1200" y2="350" stroke="#ff4757" stroke-width="2.5" filter="url(#storm-glow)"/>
+    <text x="1210" y="345" font-size="20" font-weight="bold">PITOT ICE / STALL</text>
+    <text x="1210" y="370" font-size="16" fill="#94a3b8">3.5 min descent</text>
+  </g>
+
+  <!-- Bottom info -->
+  <g>
+    <rect x="0" y="1000" width="1920" height="80" fill="#1e293b" opacity="0.8"/>
+    <text x="100" y="1050" font-family="monospace" font-size="32" fill="#ff4757" font-weight="bold">228 FATALITIES</text>
+    <text x="1820" y="1050" font-family="monospace" font-size="20" fill="#64748b" text-anchor="end">AIRBUS A330-203 / F-GZCP</text>
+  </g>
 </svg>
