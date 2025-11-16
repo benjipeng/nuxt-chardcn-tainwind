@@ -41,6 +41,7 @@
 const featuredDisasters = [
   {
     id: 1,
+    slug: 'tenerife-1977',
     name: 'Tenerife Airport Collision',
     date: 'March 27, 1977',
     location: 'Canary Islands, Spain',
@@ -51,6 +52,7 @@ const featuredDisasters = [
   },
   {
     id: 2,
+    slug: 'jal123-1985',
     name: 'Japan Airlines Flight 123',
     date: 'August 12, 1985',
     location: 'Mt. Takamagahara, Japan',
@@ -61,6 +63,7 @@ const featuredDisasters = [
   },
   {
     id: 3,
+    slug: 'charkhi-dadri-1996',
     name: 'Charkhi Dadri Mid-Air Collision',
     date: 'November 12, 1996',
     location: 'New Delhi, India',
@@ -71,6 +74,7 @@ const featuredDisasters = [
   },
   {
     id: 4,
+    slug: 'ethiopian-302-2019',
     name: 'Ethiopian Airlines Flight 302',
     date: 'March 10, 2019',
     location: 'Near Bishoftu, Ethiopia',
@@ -81,6 +85,7 @@ const featuredDisasters = [
   },
   {
     id: 5,
+    slug: 'af447-2009',
     name: 'Air France Flight 447',
     date: 'June 1, 2009',
     location: 'Atlantic Ocean',
@@ -91,6 +96,7 @@ const featuredDisasters = [
   },
   {
     id: 6,
+    slug: 'aa191-1979',
     name: 'American Airlines Flight 191',
     date: 'May 25, 1979',
     location: 'Chicago O\'Hare',

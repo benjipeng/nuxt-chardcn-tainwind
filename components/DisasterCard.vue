@@ -1,5 +1,6 @@
 <template>
-  <div
+  <NuxtLink
+    :to="`/disaster/${disaster.slug}`"
     class="disaster-card group"
   >
     <!-- Card Header -->
@@ -68,13 +69,14 @@
         class="w-4 h-4"
       />
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">
 defineProps<{
   disaster: {
     id: number
+    slug: string
     name: string
     date: string
     location: string
@@ -102,11 +104,12 @@ const categoryClass = (category: string) => {
 
 <style scoped>
 .disaster-card {
-  @apply p-6 rounded-lg;
+  @apply block p-6 rounded-lg;
   @apply bg-bg-secondary border border-border-subtle;
   @apply transition-all duration-300;
   @apply hover:border-cockpit-green/50 hover:shadow-glow-green;
   @apply hover:transform hover:-translate-y-1;
   @apply cursor-pointer;
+  @apply no-underline;
 }
 </style>
