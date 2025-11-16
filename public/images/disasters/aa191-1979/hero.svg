@@ -1,6 +1,103 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
-  <rect width="1920" height="1080" fill="#1a1a2e"/>
-  <text x="960" y="480" font-family="Arial, sans-serif" font-size="72" fill="#00d9ff" text-anchor="middle" font-weight="bold">American Airlines Flight 191</text>
-  <text x="960" y="560" font-family="Arial, sans-serif" font-size="48" fill="#ffffff" text-anchor="middle">May 25, 1979</text>
-  <text x="960" y="640" font-family="Arial, sans-serif" font-size="36" fill="#cccccc" text-anchor="middle">273 Fatalities</text>
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#0f172a"/>
+
+  <!-- Definitions -->
+  <defs>
+    <!-- Radar grid pattern -->
+    <pattern id="radar-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="40" cy="40" r="40" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="40" cy="40" r="20" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <line x1="40" y1="0" x2="40" y2="80" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+      <line x1="0" y1="40" x2="80" y2="40" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+
+    <!-- Glow for failure point -->
+    <filter id="failure-glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Radar background -->
+  <rect width="1920" height="1080" fill="url(#radar-grid)"/>
+
+  <!-- Runway indicator (takeoff) -->
+  <g opacity="0.4">
+    <rect x="700" y="800" width="520" height="180" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+    <line x1="960" y1="800" x2="960" y2="980" stroke="#fbbf24" stroke-width="3" stroke-dasharray="30,20"/>
+    <text x="960" y="910" font-family="monospace" font-size="48" fill="#fbbf24" text-anchor="middle" font-weight="bold" opacity="0.5">32R</text>
+  </g>
+
+  <!-- DC-10 - Abstract top-down view (just after liftoff, banking left) -->
+  <g transform="translate(960, 500) rotate(-15)" stroke="#00d4aa" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Fuselage -->
+    <ellipse cx="0" cy="0" rx="40" ry="140"/>
+
+    <!-- Cockpit nose -->
+    <path d="M -30,-125 Q 0,-145 30,-125" fill="#00d4aa" opacity="0.3"/>
+
+    <!-- Wings -->
+    <ellipse cx="0" cy="-10" rx="180" ry="45"/>
+
+    <!-- Wing structural lines -->
+    <line x1="-180" y1="-10" x2="-40" y2="-10" stroke-width="2.5"/>
+    <line x1="180" y1="-10" x2="40" y2="-10" stroke-width="2.5"/>
+
+    <!-- Right wing engine (intact) -->
+    <ellipse cx="110" cy="-10" rx="14" ry="26" fill="#00d4aa" opacity="0.4"/>
+
+    <!-- LEFT WING ENGINE - SEPARATED (shown falling away) -->
+    <g transform="translate(-180, 80) rotate(45)" filter="url(#failure-glow)">
+      <ellipse cx="0" cy="0" rx="14" ry="26" stroke="#ff4757" stroke-width="3" fill="#ff4757" opacity="0.3"/>
+      <line x1="-5" y1="-30" x2="5" y2="30" stroke="#ff4757" stroke-width="2" opacity="0.6"/>
+      <line x1="5" y1="-30" x2="-5" y2="30" stroke="#ff4757" stroke-width="2" opacity="0.6"/>
+    </g>
+
+    <!-- Left wing damage zone -->
+    <g stroke="#ff4757" stroke-width="4" filter="url(#failure-glow)">
+      <circle cx="-110" cy="-10" r="40" fill="none" opacity="0.4"/>
+      <circle cx="-110" cy="-10" r="55" fill="none" opacity="0.3"/>
+      <circle cx="-110" cy="-10" r="70" fill="none" opacity="0.2"/>
+      <!-- Structural damage lines -->
+      <line x1="-140" y1="-30" x2="-80" y2="10" opacity="0.7" stroke-width="3"/>
+      <line x1="-80" y1="-30" x2="-140" y2="10" opacity="0.7" stroke-width="3"/>
+    </g>
+
+    <!-- Tail engine (DC-10 distinctive feature) -->
+    <g transform="translate(0, 120)">
+      <ellipse cx="0" cy="0" rx="10" ry="18" fill="#00d4aa" opacity="0.4"/>
+    </g>
+
+    <!-- Vertical stabilizer -->
+    <path d="M -15,110 L 0,145 L 15,110" fill="#00d4aa" opacity="0.6"/>
+    <rect x="-8" y="110" width="16" height="40" fill="#00d4aa" opacity="0.5"/>
+
+    <!-- Horizontal stabilizers -->
+    <ellipse cx="0" cy="115" rx="50" ry="12" opacity="0.7"/>
+  </g>
+
+  <!-- Top identifier -->
+  <g font-family="monospace" text-anchor="middle">
+    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">AAL191</text>
+    <text x="960" y="165" font-size="22" fill="#94a3b8">25 MAY 1979</text>
+    <text x="960" y="195" font-size="22" fill="#94a3b8">CHICAGO O'HARE, USA</text>
+  </g>
+
+  <!-- Failure callout -->
+  <g font-family="monospace" fill="#ff4757">
+    <line x1="700" y1="480" x2="550" y2="380" stroke="#ff4757" stroke-width="2.5" filter="url(#failure-glow)"/>
+    <text x="540" y="375" font-size="20" font-weight="bold" text-anchor="end">ENGINE SEPARATION</text>
+    <text x="540" y="400" font-size="16" fill="#94a3b8" text-anchor="end">Pylon failure</text>
+  </g>
+
+  <!-- Bottom info -->
+  <g>
+    <rect x="0" y="1000" width="1920" height="80" fill="#1e293b" opacity="0.8"/>
+    <text x="100" y="1050" font-family="monospace" font-size="32" fill="#ff4757" font-weight="bold">273 FATALITIES</text>
+    <text x="1820" y="1050" font-family="monospace" font-size="20" fill="#64748b" text-anchor="end">McDONNELL DOUGLAS DC-10 / N110AA</text>
+  </g>
 </svg>

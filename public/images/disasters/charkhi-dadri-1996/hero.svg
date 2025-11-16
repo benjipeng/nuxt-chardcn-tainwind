@@ -1,6 +1,129 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
-  <rect width="1920" height="1080" fill="#1a1a2e"/>
-  <text x="960" y="450" font-family="Arial, sans-serif" font-size="64" fill="#00d9ff" text-anchor="middle" font-weight="bold">Charkhi Dadri Mid-Air Collision</text>
-  <text x="960" y="560" font-family="Arial, sans-serif" font-size="48" fill="#ffffff" text-anchor="middle">November 12, 1996</text>
-  <text x="960" y="640" font-family="Arial, sans-serif" font-size="36" fill="#cccccc" text-anchor="middle">349 Fatalities</text>
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#0f172a"/>
+
+  <!-- Definitions -->
+  <defs>
+    <!-- Radar grid pattern -->
+    <pattern id="radar-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="40" cy="40" r="40" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="40" cy="40" r="20" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <line x1="40" y1="0" x2="40" y2="80" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+      <line x1="0" y1="40" x2="80" y2="40" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+
+    <!-- Glow for collision point -->
+    <filter id="collision-glow">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Radar background -->
+  <rect width="1920" height="1080" fill="url(#radar-grid)"/>
+
+  <!-- Altitude indicators -->
+  <g font-family="monospace" fill="#64748b" opacity="0.4">
+    <line x1="200" y1="350" x2="400" y2="350" stroke="#00d4aa" stroke-width="2" stroke-dasharray="10,5"/>
+    <text x="410" y="355" font-size="18">FL150 (ASSIGNED)</text>
+
+    <line x1="200" y1="500" x2="400" y2="500" stroke="#38bdf8" stroke-width="2" stroke-dasharray="10,5"/>
+    <text x="410" y="505" font-size="18">FL140</text>
+  </g>
+
+  <!-- Boeing 747 (Saudi) - Climbing -->
+  <g transform="translate(900, 520) rotate(30)" stroke="#00d4aa" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Fuselage -->
+    <ellipse cx="0" cy="0" rx="38" ry="130"/>
+
+    <!-- Cockpit -->
+    <path d="M -28,-115 Q 0,-135 28,-115" fill="#00d4aa" opacity="0.3"/>
+
+    <!-- Wings -->
+    <ellipse cx="0" cy="-10" rx="170" ry="45"/>
+
+    <!-- Wing details -->
+    <line x1="-170" y1="-10" x2="-38" y2="-10" stroke-width="2.5"/>
+    <line x1="170" y1="-10" x2="38" y2="-10" stroke-width="2.5"/>
+
+    <!-- Engines (4) -->
+    <ellipse cx="-120" cy="-10" rx="13" ry="24" fill="#00d4aa" opacity="0.4"/>
+    <ellipse cx="-75" cy="-10" rx="13" ry="24" fill="#00d4aa" opacity="0.4"/>
+    <ellipse cx="75" cy="-10" rx="13" ry="24" fill="#00d4aa" opacity="0.4"/>
+    <ellipse cx="120" cy="-10" rx="13" ry="24" fill="#00d4aa" opacity="0.4"/>
+
+    <!-- Tail -->
+    <path d="M -15,105 L 0,135 L 15,105" fill="#00d4aa" opacity="0.6"/>
+    <rect x="-8" y="105" width="16" height="35" fill="#00d4aa" opacity="0.5"/>
+
+    <!-- Label -->
+    <text x="0" y="175" font-family="monospace" font-size="18" fill="#00d4aa" text-anchor="middle" font-weight="bold">SVA763</text>
+  </g>
+
+  <!-- Ilyushin Il-76 (Kazakhstan) - Descending -->
+  <g transform="translate(1020, 480) rotate(-150)" stroke="#38bdf8" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Fuselage (cargo aircraft - wider) -->
+    <ellipse cx="0" cy="0" rx="45" ry="115"/>
+
+    <!-- Cockpit -->
+    <path d="M -32,-105 Q 0,-120 32,-105" fill="#38bdf8" opacity="0.3"/>
+
+    <!-- Wings (high wing configuration) -->
+    <ellipse cx="0" cy="-20" rx="160" ry="42"/>
+
+    <!-- Wing details -->
+    <line x1="-160" y1="-20" x2="-45" y2="-20" stroke-width="2.5"/>
+    <line x1="160" y1="-20" x2="45" y2="-20" stroke-width="2.5"/>
+
+    <!-- Engines (4 - Il-76 has 4 engines) -->
+    <ellipse cx="-110" cy="-20" rx="12" ry="22" fill="#38bdf8" opacity="0.4"/>
+    <ellipse cx="-65" cy="-20" rx="12" ry="22" fill="#38bdf8" opacity="0.4"/>
+    <ellipse cx="65" cy="-20" rx="12" ry="22" fill="#38bdf8" opacity="0.4"/>
+    <ellipse cx="110" cy="-20" rx="12" ry="22" fill="#38bdf8" opacity="0.4"/>
+
+    <!-- Tail -->
+    <path d="M -14,100 L 0,125 L 14,100" fill="#38bdf8" opacity="0.6"/>
+    <rect x="-7" y="100" width="14" height="30" fill="#38bdf8" opacity="0.5"/>
+
+    <!-- Label -->
+    <text x="0" y="165" font-family="monospace" font-size="18" fill="#38bdf8" text-anchor="middle" font-weight="bold">KZA1907</text>
+  </g>
+
+  <!-- Collision point indicator -->
+  <g filter="url(#collision-glow)">
+    <circle cx="960" cy="500" r="70" fill="none" stroke="#ff4757" stroke-width="5" opacity="0.7"/>
+    <circle cx="960" cy="500" r="95" fill="none" stroke="#ff4757" stroke-width="4" opacity="0.5"/>
+    <circle cx="960" cy="500" r="120" fill="none" stroke="#ff4757" stroke-width="3" opacity="0.3"/>
+
+    <!-- Collision flash -->
+    <circle cx="960" cy="500" r="25" fill="#ff4757" opacity="0.6"/>
+
+    <!-- Impact lines -->
+    <line x1="930" y1="470" x2="990" y2="530" stroke="#ff4757" stroke-width="4" opacity="0.7"/>
+    <line x1="990" y1="470" x2="930" y2="530" stroke="#ff4757" stroke-width="4" opacity="0.7"/>
+  </g>
+
+  <!-- Top identifier -->
+  <g font-family="monospace" text-anchor="middle">
+    <text x="960" y="120" font-size="56" fill="#fbbf24" font-weight="bold">CHARKHI DADRI</text>
+    <text x="960" y="165" font-size="22" fill="#94a3b8">12 NOV 1996</text>
+    <text x="960" y="195" font-size="22" fill="#94a3b8">NEAR NEW DELHI, INDIA</text>
+  </g>
+
+  <!-- Collision callout -->
+  <g font-family="monospace" fill="#ff4757">
+    <line x1="1030" y1="500" x2="1200" y2="400" stroke="#ff4757" stroke-width="2.5" filter="url(#collision-glow)"/>
+    <text x="1210" y="395" font-size="20" font-weight="bold">MID-AIR COLLISION</text>
+    <text x="1210" y="420" font-size="16" fill="#94a3b8">FL140 / Altitude deviation</text>
+  </g>
+
+  <!-- Bottom info -->
+  <g>
+    <rect x="0" y="1000" width="1920" height="80" fill="#1e293b" opacity="0.8"/>
+    <text x="100" y="1050" font-family="monospace" font-size="32" fill="#ff4757" font-weight="bold">349 FATALITIES</text>
+    <text x="1820" y="1050" font-family="monospace" font-size="20" fill="#64748b" text-anchor="end">B747 + IL-76</text>
+  </g>
 </svg>
