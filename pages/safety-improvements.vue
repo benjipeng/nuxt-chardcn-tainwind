@@ -6,10 +6,10 @@
     <!-- Content -->
     <div class="container mx-auto px-4 py-20 relative">
       <!-- Hero -->
-      <Motion
+      <div
+        v-motion
         :initial="{ opacity: 0, y: -30, scale: 0.95 }"
-        :animate="{ opacity: 1, y: 0, scale: 1 }"
-        :transition="{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }"
+        :enter="{ opacity: 1, y: 0, scale: 1, transition: { duration: 600, ease: [0.16, 1, 0.3, 1] } }"
         class="mb-12 text-center"
       >
         <div class="flex items-center justify-center gap-3 mb-6">
@@ -24,38 +24,43 @@
         <p class="text-lg text-text-secondary font-body max-w-2xl mx-auto">
           How aviation disasters led to concrete safety changes
         </p>
-      </Motion>
+      </div>
 
       <!-- Main Content -->
       <div class="max-w-4xl mx-auto space-y-6">
-        <Motion
+        <Card
           v-for="(improvement, index) in improvements"
           :key="index"
+          v-motion
           :initial="{ opacity: 0, y: 20 }"
-          :animate="{ opacity: 1, y: 0 }"
-          :transition="{ duration: 0.5, delay: 0.1 * (index + 1), ease: [0.16, 1, 0.3, 1] }"
+          :enter="{
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 500,
+              delay: 100 * (index + 1),
+              ease: [0.16, 1, 0.3, 1]
+            }
+          }"
+          :class="[
+            'transition-all duration-300 hover:-translate-y-2',
+            improvement.glowClass,
+            improvement.borderClass
+          ]"
         >
-          <Card
-            :class="[
-              'transition-all duration-300 hover:-translate-y-2',
-              improvement.glowClass,
-              improvement.borderClass
-            ]"
-          >
-            <CardHeader>
-              <CardTitle :class="improvement.titleClass">
-                <component
-                  :is="improvement.icon"
-                  v-if="improvement.icon"
-                />
-                {{ improvement.title }}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <component :is="improvement.content" />
-            </CardContent>
-          </Card>
-        </Motion>
+          <CardHeader>
+            <CardTitle :class="improvement.titleClass">
+              <component
+                :is="improvement.icon"
+                v-if="improvement.icon"
+              />
+              {{ improvement.title }}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <component :is="improvement.content" />
+          </CardContent>
+        </Card>
       </div>
     </div>
   </div>
@@ -63,7 +68,6 @@
 
 <script setup lang="ts">
 import { h } from 'vue'
-import { Motion } from '@oku-ui/motion'
 
 useSeoMeta({
   title: 'Safety Improvements - Mayday Archive',

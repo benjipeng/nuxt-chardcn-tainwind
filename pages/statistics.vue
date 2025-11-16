@@ -6,10 +6,10 @@
     <!-- Content -->
     <div class="container mx-auto px-4 py-20 relative">
       <!-- Hero -->
-      <Motion
+      <div
+        v-motion
         :initial="{ opacity: 0, y: -30, scale: 0.95 }"
-        :animate="{ opacity: 1, y: 0, scale: 1 }"
-        :transition="{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }"
+        :enter="{ opacity: 1, y: 0, scale: 1, transition: { duration: 600, ease: [0.16, 1, 0.3, 1] } }"
         class="mb-12 text-center"
       >
         <div class="flex items-center justify-center gap-3 mb-6">
@@ -24,61 +24,75 @@
         <p class="text-lg text-text-secondary font-body max-w-2xl mx-auto">
           Data insights from documented aviation accidents
         </p>
-      </Motion>
+      </div>
 
       <!-- Stats Grid -->
       <div class="max-w-6xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <Motion
+          <Card
             v-for="(stat, index) in topStats"
             :key="index"
+            v-motion
             :initial="{ opacity: 0, y: 20 }"
-            :animate="{ opacity: 1, y: 0 }"
-            :transition="{ duration: 0.5, delay: 0.1 * (index + 1), ease: [0.16, 1, 0.3, 1] }"
+            :enter="{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 500,
+                delay: 100 * (index + 1),
+                ease: [0.16, 1, 0.3, 1]
+              }
+            }"
+            class="transition-all duration-300 hover:shadow-glow-amber hover:-translate-y-2"
           >
-            <Card class="transition-all duration-300 hover:shadow-glow-amber hover:-translate-y-2">
-              <CardHeader>
-                <div class="flex items-center gap-3 mb-2">
-                  <component
-                    :is="stat.icon"
-                    class="transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <CardTitle class="text-xl">{{ stat.title }}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div class="text-4xl font-display font-bold text-text-primary mb-2">
-                  {{ stat.value }}
-                </div>
-                <p class="text-sm text-text-tertiary font-body">
-                  {{ stat.description }}
-                </p>
-              </CardContent>
-            </Card>
-          </Motion>
+            <CardHeader>
+              <div class="flex items-center gap-3 mb-2">
+                <component
+                  :is="stat.icon"
+                  class="transition-transform duration-300 group-hover:scale-110"
+                />
+                <CardTitle class="text-xl">{{ stat.title }}</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div class="text-4xl font-display font-bold text-text-primary mb-2">
+                {{ stat.value }}
+              </div>
+              <p class="text-sm text-text-tertiary font-body">
+                {{ stat.description }}
+              </p>
+            </CardContent>
+          </Card>
         </div>
 
         <!-- Detailed Sections -->
         <div class="space-y-6">
-          <Motion
+          <Card
             v-for="(section, index) in sections"
             :key="index"
+            v-motion
             :initial="{ opacity: 0, y: 20 }"
-            :animate="{ opacity: 1, y: 0 }"
-            :transition="{ duration: 0.5, delay: 0.5 + 0.1 * index, ease: [0.16, 1, 0.3, 1] }"
+            :enter="{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 500,
+                delay: 500 + 100 * index,
+                ease: [0.16, 1, 0.3, 1]
+              }
+            }"
+            :class="['transition-all duration-300', section.glowClass]"
           >
-            <Card :class="['transition-all duration-300', section.glowClass]">
-              <CardHeader>
-                <CardTitle class="flex items-center gap-2">
-                  <component :is="section.icon" />
-                  {{ section.title }}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <component :is="section.content" />
-              </CardContent>
-            </Card>
-          </Motion>
+            <CardHeader>
+              <CardTitle class="flex items-center gap-2">
+                <component :is="section.icon" />
+                {{ section.title }}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <component :is="section.content" />
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
@@ -87,7 +101,6 @@
 
 <script setup lang="ts">
 import { h } from 'vue'
-import { Motion } from '@oku-ui/motion'
 
 useSeoMeta({
   title: 'Statistics - Mayday Archive',
