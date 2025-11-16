@@ -15,7 +15,7 @@
   <Transition name="slide">
     <div
       v-if="isOpen"
-      class="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-bg-secondary/95 backdrop-blur-sm z-[60] shadow-2xl flex flex-col"
+      class="fixed top-2 right-3 h-[calc(100vh-1rem)] w-80 max-w-[85vw] bg-bg-secondary/95 backdrop-blur-sm z-[60] shadow-2xl flex flex-col rounded-l-xl"
       @click.stop
     >
       <!-- Header -->
@@ -49,39 +49,20 @@
         <!-- Navigation Links -->
         <nav class="flex flex-col gap-1 p-4 pb-32">
           <NuxtLink
-            to="/browse"
+            v-for="item in navItems"
+            :key="item.to"
+            :to="item.to"
             class="menu-item group"
             @click="$emit('close')"
           >
             <Icon
-              name="lucide:layers"
-              class="w-5 h-5 text-cockpit-green group-hover:text-cockpit-green-text transition-colors"
+              :name="item.icon"
+              :class="[
+                'w-5 h-5 transition-colors',
+                item.iconColor
+              ]"
             />
-            <span>Browse Disasters</span>
-          </NuxtLink>
-
-          <NuxtLink
-            to="/timeline"
-            class="menu-item group"
-            @click="$emit('close')"
-          >
-            <Icon
-              name="lucide:calendar"
-              class="w-5 h-5 text-radar-cyan group-hover:text-radar-cyan transition-colors"
-            />
-            <span>Timeline</span>
-          </NuxtLink>
-
-          <NuxtLink
-            to="/about"
-            class="menu-item group"
-            @click="$emit('close')"
-          >
-            <Icon
-              name="lucide:info"
-              class="w-5 h-5 text-nav-magenta group-hover:text-nav-magenta transition-colors"
-            />
-            <span>About</span>
+            <span>{{ item.mobileLabel }}</span>
           </NuxtLink>
 
           <div class="h-px bg-border-default my-2" />
@@ -155,6 +136,7 @@ defineEmits<{
 }>()
 
 const { isDarkMode, toggleDarkMode } = useDarkMode()
+const { navItems } = useNavigation()
 
 const handleSearch = () => {
   // TODO: Implement search modal

@@ -67,26 +67,15 @@
             navbarState === 'minimal' ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'
           ]"
         >
-          <NuxtLink
-            to="/browse"
-            class="nav-link"
-          >
-            BROWSE
-          </NuxtLink>
-          <span class="text-text-tertiary">|</span>
-          <NuxtLink
-            to="/timeline"
-            class="nav-link"
-          >
-            TIMELINE
-          </NuxtLink>
-          <span class="text-text-tertiary">|</span>
-          <NuxtLink
-            to="/about"
-            class="nav-link"
-          >
-            ABOUT
-          </NuxtLink>
+          <template v-for="(item, index) in navItems" :key="item.to">
+            <span v-if="index > 0" class="text-text-tertiary">|</span>
+            <NuxtLink
+              :to="item.to"
+              class="nav-link"
+            >
+              {{ item.label }}
+            </NuxtLink>
+          </template>
         </div>
 
         <!-- Right Side Actions -->
@@ -157,6 +146,7 @@
 <script setup lang="ts">
 const { navbarState } = useNavbarScroll()
 const { isDarkMode, toggleDarkMode } = useDarkMode()
+const { navItems } = useNavigation()
 
 const isMenuOpen = ref(false)
 const isMobile = ref(false)
