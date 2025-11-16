@@ -27,7 +27,7 @@
               :class="[
                 'font-display font-bold text-cockpit-green',
                 'transition-all duration-300',
-                navbarState === 'full' ? 'text-xl' : navbarState === 'compact' ? 'text-lg' : 'text-base'
+                navbarState === 'full' ? 'text-lg' : navbarState === 'compact' ? 'text-base' : 'text-sm'
               ]"
             >
               MA
@@ -179,39 +179,39 @@ onUnmounted(() => {
 const navbarClasses = computed(() => {
   switch (navbarState.value) {
     case 'full':
-      return 'h-20 md:h-24'
-    case 'compact':
       return 'h-16 md:h-20'
-    case 'minimal':
+    case 'compact':
       return 'h-14 md:h-16'
+    case 'minimal':
+      return 'h-12 md:h-14'
     default:
-      return 'h-20 md:h-24'
+      return 'h-16 md:h-20'
   }
 })
 
 const logoClasses = computed(() => {
   switch (navbarState.value) {
     case 'full':
-      return 'w-12 h-12 md:w-14 md:h-14'
+      return 'w-10 h-10 md:w-12 md:h-12'
     case 'compact':
-      return 'w-10 h-10 md:w-11 md:h-11'
+      return 'w-8 h-8 md:w-10 md:h-10'
     case 'minimal':
-      return 'w-8 h-8 md:w-9 md:h-9'
+      return 'w-7 h-7 md:w-8 md:h-8'
     default:
-      return 'w-12 h-12 md:w-14 md:h-14'
+      return 'w-10 h-10 md:w-12 md:h-12'
   }
 })
 
 const titleClasses = computed(() => {
   switch (navbarState.value) {
     case 'full':
-      return 'text-lg md:text-xl'
-    case 'compact':
       return 'text-base md:text-lg'
-    case 'minimal':
+    case 'compact':
       return 'text-sm md:text-base'
+    case 'minimal':
+      return 'text-xs md:text-sm'
     default:
-      return 'text-lg md:text-xl'
+      return 'text-base md:text-lg'
   }
 })
 </script>
