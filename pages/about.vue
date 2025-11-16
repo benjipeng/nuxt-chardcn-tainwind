@@ -56,22 +56,21 @@
 
       <!-- Mission Statement Cards with Scroll Trigger -->
       <div class="max-w-6xl mx-auto mb-16">
-        <ClientOnly>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Motion
-              v-for="(card, index) in missionCards"
-              :key="index"
-              :initial="{ opacity: 0, y: 60, scale: 0.9 }"
-              :whileInView="{ opacity: 1, y: 0, scale: 1 }"
-              :viewport="{ once: true, margin: '-50px' }"
-              :transition="{
-                duration: 0.7,
-                delay: 0.1 * index,
-                ease: [0.16, 1, 0.3, 1],
-                type: 'spring',
-                stiffness: 100
-              }"
-            >
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Motion
+            v-for="(card, index) in missionCards"
+            :key="index"
+            :initial="{ y: 60, scale: 0.95 }"
+            :whileInView="{ y: 0, scale: 1 }"
+            :viewport="{ once: true, margin: '-50px' }"
+            :transition="{
+              duration: 0.7,
+              delay: 0.1 * index,
+              ease: [0.16, 1, 0.3, 1],
+              type: 'spring',
+              stiffness: 100
+            }"
+          >
               <Card
                 :class="[
                   'group cursor-pointer transition-all duration-500 h-full',
@@ -110,41 +109,6 @@
               </Card>
             </Motion>
           </div>
-          <template #fallback>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Card
-                v-for="(card, index) in missionCards"
-                :key="index"
-                :class="[
-                  'group cursor-pointer transition-all duration-500 h-full',
-                  card.glowClass
-                ]"
-              >
-                <CardHeader>
-                  <div class="flex items-center gap-3 mb-3">
-                    <div :class="[
-                      'p-3 rounded-lg transition-all duration-500',
-                      card.iconBg
-                    ]">
-                      <Icon
-                        :name="card.icon"
-                        :class="['w-6 h-6', card.iconColor]"
-                      />
-                    </div>
-                  </div>
-                  <CardTitle class="text-xl group-hover:text-cockpit-green-text transition-colors duration-300">
-                    {{ card.title }}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p class="text-text-secondary font-body leading-relaxed">
-                    {{ card.description }}
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </template>
-        </ClientOnly>
       </div>
 
       <!-- Main Content Sections with Parallax -->
