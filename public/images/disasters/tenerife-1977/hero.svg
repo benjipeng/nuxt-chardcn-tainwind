@@ -133,45 +133,24 @@
   <circle cx="700" cy="400" r="350" fill="url(#fog)"/>
   <circle cx="1200" cy="650" r="380" fill="url(#fog)"/>
 
-  <!-- Weather indicator -->
-  <g opacity="0.4">
-    <text x="1400" y="350" font-family="monospace" font-size="20" fill="#94a3b8">
-      VISIBILITY: 300m
-    </text>
-    <text x="1400" y="380" font-family="monospace" font-size="20" fill="#94a3b8">
-      FOG / MIST
-    </text>
+  <!-- Top identifier -->
+  <g font-family="monospace" text-anchor="middle">
+    <text x="960" y="120" font-size="56" fill="#fbbf24" font-weight="bold">TENERIFE 1977</text>
+    <text x="960" y="165" font-size="22" fill="#94a3b8">27 MARCH 1977</text>
+    <text x="960" y="195" font-size="22" fill="#94a3b8">LOS RODEOS AIRPORT, SPAIN</text>
   </g>
 
-  <!-- Title and date -->
-  <g font-family="system-ui, sans-serif">
-    <text x="960" y="130" font-size="84" font-weight="bold" fill="#fbbf24" text-anchor="middle" letter-spacing="2">
-      TENERIFE AIRPORT DISASTER
-    </text>
-    <text x="960" y="190" font-size="42" fill="#94a3b8" text-anchor="middle" font-family="monospace">
-      27 MAR 1977 / LOS RODEOS AIRPORT (TFN)
-    </text>
+  <!-- Collision callout -->
+  <g font-family="monospace" fill="#ff4757">
+    <line x1="920" y1="660" x2="1100" y2="780" stroke="#ff4757" stroke-width="2.5"/>
+    <text x="1110" y="785" font-size="20" font-weight="bold">RUNWAY COLLISION</text>
+    <text x="1110" y="810" font-size="16" fill="#94a3b8">Low visibility fog</text>
   </g>
 
-  <!-- Bottom info bar -->
+  <!-- Bottom info -->
   <g>
-    <rect x="0" y="980" width="1920" height="100" fill="#1e293b" opacity="0.8"/>
-    <text x="100" y="1035" font-family="monospace" font-size="28" fill="#ff4757" font-weight="bold">
-      583 FATALITIES
-    </text>
-    <text x="960" y="1035" font-family="monospace" font-size="22" fill="#64748b" text-anchor="middle">
-      HUMAN ERROR / WEATHER / COMMUNICATION FAILURE
-    </text>
-    <text x="1820" y="1035" font-family="monospace" font-size="22" fill="#fbbf24" text-anchor="end">
-      TENERIFE, SPAIN
-    </text>
-  </g>
-
-  <!-- Technical annotation -->
-  <g font-family="monospace" fill="#fbbf24" font-size="18">
-    <line x1="920" y1="660" x2="1100" y2="760" stroke="#fbbf24" stroke-width="2"/>
-    <text x="1110" y="760">COLLISION ON RUNWAY</text>
-    <text x="1110" y="785" font-size="15" fill="#94a3b8">KLM commenced takeoff</text>
-    <text x="1110" y="805" font-size="15" fill="#94a3b8">Pan Am still on runway</text>
+    <rect x="0" y="1000" width="1920" height="80" fill="#1e293b" opacity="0.8"/>
+    <text x="100" y="1050" font-family="monospace" font-size="32" fill="#ff4757" font-weight="bold">583 FATALITIES</text>
+    <text x="1820" y="1050" font-family="monospace" font-size="20" fill="#64748b" text-anchor="end">BOEING 747 (×2)</text>
   </g>
 </svg>
