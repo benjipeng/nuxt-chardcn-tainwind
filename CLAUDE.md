@@ -27,9 +27,81 @@ Educational webapp documenting aviation's most significant accidents and safety 
   useDarkMode.ts      # Theme toggle
 /pages
   index.vue           # Landing page
+  browse.vue          # Browse/filter disasters
+  timeline.vue        # Timeline visualization
+  disaster/[slug].vue # Disaster detail pages
+/content
+  /disasters          # Markdown files (one per disaster)
+/public/images
+  /disasters          # Disaster images organized by slug
 /assets/css
   tailwind.css        # Color palette (CSS variables)
 ```
+
+## Content Management
+
+**Content is managed via Markdown files** using @nuxt/content module.
+
+### Adding a Disaster
+
+1. Create `/content/disasters/[slug].md` (slug = `tenerife-1977`, `jal123-1985`, etc.)
+2. Add frontmatter (YAML) at top with required fields
+3. Write article content in markdown below frontmatter
+4. Add images to `/public/images/disasters/[slug]/`
+
+### Frontmatter Structure
+
+**All fields are required unless marked optional.**
+
+```yaml
+---
+slug: tenerife-1977
+title: Tenerife Airport Disaster
+date: 1977-03-27
+fatalities: 583
+aircraft: Boeing 747
+categories:
+  - Human Error
+location:
+  city: Tenerife
+  country: Spain
+images:
+  hero: /images/disasters/tenerife-1977/hero.svg
+summary: Two Boeing 747s collided on a foggy runway, killing 583 in aviation's deadliest accident.
+---
+
+# Article content starts here...
+```
+
+### Field Reference
+
+| Field | Type | Example | Notes |
+|-------|------|---------|-------|
+| `slug` | string | `tenerife-1977` | Unique identifier (lowercase, hyphenated) |
+| `title` | string | `Tenerife Airport Disaster` | Display name |
+| `date` | ISO date | `1977-03-27` | YYYY-MM-DD format |
+| `fatalities` | number | `583` | Do not quote numbers |
+| `aircraft` | string | `Boeing 747` | Aircraft type |
+| `categories` | array | See below | 1-2 values max |
+| `location.city` | string | `Tenerife` | City or location |
+| `location.country` | string | `Spain` | Country |
+| `images.hero` | path | `/images/disasters/.../hero.svg` | Detail page header (Nuxt Image resizes automatically) |
+| `summary` | string | `Brief description...` | 1-2 sentences for cards |
+
+### Category Values
+
+Use **exactly** these values (1-2 per disaster):
+- `Human Error`
+- `Mechanical`
+- `Weather`
+- `Other`
+
+### How It Works
+
+- **Browse/Timeline pages** automatically query ALL .md files in `/content/disasters/`
+- **Detail pages** automatically generated for each .md file at `/disaster/[slug]`
+- **No code changes** needed when adding new disasters
+- **SSG** generates static HTML at build time
 
 ## Project Status
 
@@ -143,25 +215,3 @@ Always push to `claude/*` branches.
 4. NEVER nest lifecycle hooks
 5. ALWAYS validate WCAG contrast
 6. ALWAYS use `process.client` for browser-only code
-
-## Aviation Data
-
-**Featured Disasters:**
-- Tenerife (1977) - 583 deaths
-- JAL 123 (1985) - 520 deaths
-- Charkhi Dadri (1996) - 349 deaths
-- Ethiopian 302 (2019) - 157 deaths
-- Air France 447 (2009) - 228 deaths
-- AA 191 (1979) - 273 deaths
-
-**Categories:**
-- Human Error (~166) - `aviation-amber`
-- Mechanical (~43) - `alert-red`
-- Weather (~23) - `radar-cyan`
-- Other (~18) - `nav-magenta`
-
-**Statistics:**
-- 207+ major accidents (100+ fatalities)
-- 400× safer than 1959
-- 0.1 per million flights (2024)
-- 0 CFIT incidents (2024)

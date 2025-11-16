@@ -39,10 +39,10 @@
                 class="w-6 h-6 text-aviation-amber"
               />
             </div>
-            <span class="text-sm font-body text-text-tertiary">Safety Rate</span>
+            <span class="text-sm font-body text-text-tertiary">Accident Rate</span>
           </div>
           <div class="text-4xl font-display font-bold text-aviation-amber mb-1">
-            0.1
+            1.13
           </div>
           <div class="text-sm text-text-tertiary font-body">
             Per million flights (2024)
@@ -89,7 +89,7 @@
       <!-- Timeline Comparison -->
       <div class="max-w-4xl mx-auto bg-bg-secondary rounded-lg p-8 border border-border-subtle">
         <h3 class="text-2xl font-display font-bold text-text-primary mb-6 text-center">
-          Historical Safety Improvements
+          Fatal Accident Rate Improvement
         </h3>
 
         <div class="space-y-6">
@@ -100,7 +100,7 @@
             </div>
             <div class="flex-1">
               <div class="h-12 bg-alert-red/20 rounded-lg flex items-center px-4 border border-alert-red/30">
-                <span class="text-alert-red-text font-body font-semibold">40 accidents per million</span>
+                <span class="text-alert-red-text font-body font-semibold">40 fatal per million</span>
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@
             </div>
             <div class="flex-1">
               <div class="h-12 bg-aviation-amber/20 rounded-lg flex items-center px-4 border border-aviation-amber/30" style="width: 50%;">
-                <span class="text-aviation-amber-text font-body font-semibold">&lt;2 accidents per million</span>
+                <span class="text-aviation-amber-text font-body font-semibold">&lt;2 fatal per million</span>
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@
             </div>
             <div class="flex-1">
               <div class="h-12 bg-cockpit-green/20 rounded-lg flex items-center px-4 border border-cockpit-green/30" style="width: 10%;">
-                <span class="text-cockpit-green-text font-body font-semibold whitespace-nowrap">0.1 per million</span>
+                <span class="text-cockpit-green-text font-body font-semibold whitespace-nowrap">~0.1 fatal per million</span>
               </div>
             </div>
           </div>

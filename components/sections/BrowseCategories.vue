@@ -88,7 +88,7 @@ const categories = [
     description: 'Pilot mistakes, ATC errors, and communication failures',
     icon: 'lucide:user-x',
     color: 'aviation-amber',
-    count: '~166',
+    count: '~110',
     link: '/browse?category=human-error'
   },
   {
@@ -115,7 +115,7 @@ const categories = [
     description: 'Terrorism, sabotage, bird strikes, and mid-air collisions',
     icon: 'lucide:alert-circle',
     color: 'nav-magenta',
-    count: '~18',
+    count: '~31',
     link: '/browse?category=other'
   }
 ]
