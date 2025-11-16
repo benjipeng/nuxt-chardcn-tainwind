@@ -66,8 +66,7 @@ location:
   city: Tenerife
   country: Spain
 images:
-  hero: /images/disasters/tenerife-1977/hero.jpg
-  thumbnail: /images/disasters/tenerife-1977/thumb.jpg
+  hero: /images/disasters/tenerife-1977/hero.svg
 summary: Two Boeing 747s collided on a foggy runway, killing 583 in aviation's deadliest accident.
 ---
 
@@ -86,8 +85,7 @@ summary: Two Boeing 747s collided on a foggy runway, killing 583 in aviation's d
 | `categories` | array | See below | 1-2 values max |
 | `location.city` | string | `Tenerife` | City or location |
 | `location.country` | string | `Spain` | Country |
-| `images.hero` | path | `/images/disasters/.../hero.jpg` | Detail page header |
-| `images.thumbnail` | path | `/images/disasters/.../thumb.jpg` | Browse/timeline cards |
+| `images.hero` | path | `/images/disasters/.../hero.svg` | Detail page header (Nuxt Image resizes automatically) |
 | `summary` | string | `Brief description...` | 1-2 sentences for cards |
 
 ### Category Values
