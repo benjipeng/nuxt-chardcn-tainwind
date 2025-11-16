@@ -1,6 +1,175 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
-  <rect width="1920" height="1080" fill="#1a1a2e"/>
-  <text x="960" y="480" font-family="Arial, sans-serif" font-size="72" fill="#00d9ff" text-anchor="middle" font-weight="bold">Tenerife Airport Disaster</text>
-  <text x="960" y="560" font-family="Arial, sans-serif" font-size="48" fill="#ffffff" text-anchor="middle">March 27, 1977</text>
-  <text x="960" y="640" font-family="Arial, sans-serif" font-size="36" fill="#cccccc" text-anchor="middle">583 Fatalities</text>
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#0f172a"/>
+
+  <!-- Definitions -->
+  <defs>
+    <!-- Radar grid pattern -->
+    <pattern id="radar-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="40" cy="40" r="40" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="40" cy="40" r="20" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <line x1="40" y1="0" x2="40" y2="80" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+      <line x1="0" y1="40" x2="80" y2="40" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+
+    <!-- Fog effect -->
+    <radialGradient id="fog">
+      <stop offset="0%" stop-color="#cbd5e1" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#cbd5e1" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#cbd5e1" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Glow for collision point -->
+    <filter id="collision-glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Radar background -->
+  <rect width="1920" height="1080" fill="url(#radar-grid)"/>
+
+  <!-- Runway (top-down view) -->
+  <g opacity="0.6">
+    <!-- Main runway -->
+    <rect x="760" y="200" width="400" height="700" fill="#1e293b" stroke="#475569" stroke-width="3"/>
+
+    <!-- Center line -->
+    <line x1="960" y1="200" x2="960" y2="900" stroke="#fbbf24" stroke-width="4" stroke-dasharray="40,30" opacity="0.8"/>
+
+    <!-- Runway edge markings -->
+    <line x1="770" y1="200" x2="770" y2="900" stroke="#fbbf24" stroke-width="2"/>
+    <line x1="1150" y1="200" x2="1150" y2="900" stroke="#fbbf24" stroke-width="2"/>
+
+    <!-- Runway numbers -->
+    <text x="960" y="280" font-family="monospace" font-size="72" fill="#fbbf24" text-anchor="middle" font-weight="bold" opacity="0.6">12</text>
+    <text x="960" y="870" font-family="monospace" font-size="72" fill="#fbbf24" text-anchor="middle" font-weight="bold" opacity="0.6" transform="rotate(180 960 850)">30</text>
+  </g>
+
+  <!-- Boeing 747 #1 (KLM) - Top-down view, on runway -->
+  <g transform="translate(960, 520) rotate(0)" stroke="#00d4aa" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Fuselage -->
+    <ellipse cx="0" cy="0" rx="35" ry="120"/>
+
+    <!-- Cockpit -->
+    <path d="M -25,-110 Q 0,-125 25,-110" fill="#00d4aa" opacity="0.3"/>
+
+    <!-- Wings -->
+    <ellipse cx="0" cy="-10" rx="150" ry="40"/>
+
+    <!-- Wing details -->
+    <line x1="-150" y1="-10" x2="-35" y2="-10" stroke-width="2"/>
+    <line x1="150" y1="-10" x2="35" y2="-10" stroke-width="2"/>
+
+    <!-- Engines -->
+    <ellipse cx="-110" cy="-10" rx="12" ry="22" fill="#00d4aa" opacity="0.4"/>
+    <ellipse cx="-70" cy="-10" rx="12" ry="22" fill="#00d4aa" opacity="0.4"/>
+    <ellipse cx="70" cy="-10" rx="12" ry="22" fill="#00d4aa" opacity="0.4"/>
+    <ellipse cx="110" cy="-10" rx="12" ry="22" fill="#00d4aa" opacity="0.4"/>
+
+    <!-- Vertical stabilizer -->
+    <ellipse cx="0" cy="120" rx="20" ry="15"/>
+
+    <!-- Aircraft label -->
+    <text x="0" y="160" font-family="monospace" font-size="18" fill="#00d4aa" text-anchor="middle" font-weight="bold">KLM 4805</text>
+  </g>
+
+  <!-- Boeing 747 #2 (Pan Am) - Top-down view, entering runway -->
+  <g transform="translate(860, 620) rotate(-30)" stroke="#38bdf8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Fuselage -->
+    <ellipse cx="0" cy="0" rx="35" ry="120"/>
+
+    <!-- Cockpit -->
+    <path d="M -25,-110 Q 0,-125 25,-110" fill="#38bdf8" opacity="0.3"/>
+
+    <!-- Wings -->
+    <ellipse cx="0" cy="-10" rx="150" ry="40"/>
+
+    <!-- Wing details -->
+    <line x1="-150" y1="-10" x2="-35" y2="-10" stroke-width="2"/>
+    <line x1="150" y1="-10" x2="35" y2="-10" stroke-width="2"/>
+
+    <!-- Engines -->
+    <ellipse cx="-110" cy="-10" rx="12" ry="22" fill="#38bdf8" opacity="0.4"/>
+    <ellipse cx="-70" cy="-10" rx="12" ry="22" fill="#38bdf8" opacity="0.4"/>
+    <ellipse cx="70" cy="-10" rx="12" ry="22" fill="#38bdf8" opacity="0.4"/>
+    <ellipse cx="110" cy="-10" rx="12" ry="22" fill="#38bdf8" opacity="0.4"/>
+
+    <!-- Vertical stabilizer -->
+    <ellipse cx="0" cy="120" rx="20" ry="15"/>
+
+    <!-- Aircraft label -->
+    <text x="0" y="160" font-family="monospace" font-size="18" fill="#38bdf8" text-anchor="middle" font-weight="bold">PAA 1736</text>
+  </g>
+
+  <!-- Collision point indicator -->
+  <g filter="url(#collision-glow)">
+    <circle cx="920" cy="560" r="60" fill="none" stroke="#ff4757" stroke-width="4" opacity="0.6"/>
+    <circle cx="920" cy="560" r="80" fill="none" stroke="#ff4757" stroke-width="3" opacity="0.4"/>
+    <circle cx="920" cy="560" r="100" fill="none" stroke="#ff4757" stroke-width="2" opacity="0.2"/>
+
+    <!-- Collision flash -->
+    <circle cx="920" cy="560" r="20" fill="#ff4757" opacity="0.5"/>
+  </g>
+
+  <!-- Flight paths (showing movement) -->
+  <g stroke-width="2" stroke-dasharray="10,5" opacity="0.5">
+    <!-- KLM takeoff path -->
+    <path d="M 960,900 L 960,520" stroke="#00d4aa" fill="none"/>
+    <polygon points="960,520 955,535 965,535" fill="#00d4aa"/>
+
+    <!-- Pan Am taxi path -->
+    <path d="M 600,720 L 860,620" stroke="#38bdf8" fill="none"/>
+    <polygon points="860,620 850,625 855,635" fill="#38bdf8" transform="rotate(-30 860 620)"/>
+  </g>
+
+  <!-- Fog overlay -->
+  <circle cx="960" cy="540" r="400" fill="url(#fog)"/>
+  <circle cx="700" cy="400" r="350" fill="url(#fog)"/>
+  <circle cx="1200" cy="650" r="380" fill="url(#fog)"/>
+
+  <!-- Weather indicator -->
+  <g opacity="0.4">
+    <text x="1400" y="350" font-family="monospace" font-size="20" fill="#94a3b8">
+      VISIBILITY: 300m
+    </text>
+    <text x="1400" y="380" font-family="monospace" font-size="20" fill="#94a3b8">
+      FOG / MIST
+    </text>
+  </g>
+
+  <!-- Title and date -->
+  <g font-family="system-ui, sans-serif">
+    <text x="960" y="130" font-size="84" font-weight="bold" fill="#fbbf24" text-anchor="middle" letter-spacing="2">
+      TENERIFE AIRPORT DISASTER
+    </text>
+    <text x="960" y="190" font-size="42" fill="#94a3b8" text-anchor="middle" font-family="monospace">
+      27 MAR 1977 / LOS RODEOS AIRPORT (TFN)
+    </text>
+  </g>
+
+  <!-- Bottom info bar -->
+  <g>
+    <rect x="0" y="980" width="1920" height="100" fill="#1e293b" opacity="0.8"/>
+    <text x="100" y="1035" font-family="monospace" font-size="28" fill="#ff4757" font-weight="bold">
+      583 FATALITIES
+    </text>
+    <text x="960" y="1035" font-family="monospace" font-size="22" fill="#64748b" text-anchor="middle">
+      HUMAN ERROR / WEATHER / COMMUNICATION FAILURE
+    </text>
+    <text x="1820" y="1035" font-family="monospace" font-size="22" fill="#fbbf24" text-anchor="end">
+      TENERIFE, SPAIN
+    </text>
+  </g>
+
+  <!-- Technical annotation -->
+  <g font-family="monospace" fill="#fbbf24" font-size="18">
+    <line x1="920" y1="660" x2="1100" y2="760" stroke="#fbbf24" stroke-width="2"/>
+    <text x="1110" y="760">COLLISION ON RUNWAY</text>
+    <text x="1110" y="785" font-size="15" fill="#94a3b8">KLM commenced takeoff</text>
+    <text x="1110" y="805" font-size="15" fill="#94a3b8">Pan Am still on runway</text>
+  </g>
 </svg>
