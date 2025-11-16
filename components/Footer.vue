@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-bg-secondary border-t border-border-subtle py-12 px-4">
     <div class="container mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <!-- Brand -->
         <div class="md:col-span-1">
           <div class="flex items-center gap-3 mb-4">
@@ -57,9 +57,9 @@
         </div>
 
         <!-- Resources -->
-        <div>
+        <div class="md:col-span-2">
           <h3 class="font-display font-bold text-text-primary mb-4">Resources</h3>
-          <ul class="space-y-2">
+          <ul class="space-y-2 md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-2">
             <li>
               <NuxtLink
                 to="/statistics"

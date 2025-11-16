@@ -1,10 +1,7 @@
 <template>
   <div class="min-h-screen bg-bg-primary">
-    <!-- Parallax Gradient Backdrop -->
-    <Motion
-      :style="{ y: backdropY }"
-      class="fixed inset-0 bg-gradient-to-br from-radar-cyan/5 via-cockpit-green/3 to-transparent pointer-events-none"
-    />
+    <!-- Gradient Backdrop -->
+    <div class="fixed inset-0 bg-gradient-to-br from-radar-cyan/5 via-cockpit-green/3 to-transparent pointer-events-none" />
 
     <!-- Content -->
     <div class="container mx-auto px-4 py-20 relative">
@@ -279,16 +276,12 @@
 
 <script setup lang="ts">
 import { h, ref } from 'vue'
-import { Motion, useScroll, useTransform } from '@oku-ui/motion'
+import { Motion } from '@oku-ui/motion'
 
 useSeoMeta({
   title: 'About - Mayday Archive',
   description: 'About Mayday Archive, an educational platform documenting aviation disasters and the safety improvements they inspired.',
 })
-
-// Parallax scroll effect for backdrop
-const { scrollY } = useScroll()
-const backdropY = useTransform(scrollY, [0, 1000], [0, -200])
 
 // Track hovered card for icon animation
 const hoveredCard = ref<number | null>(null)
