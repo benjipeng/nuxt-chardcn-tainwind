@@ -86,7 +86,7 @@
 
   <!-- Top identifier -->
   <g font-family="monospace" text-anchor="middle">
-    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">GWI9525</text>
+    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">4U9525</text>
     <text x="960" y="165" font-size="22" fill="#94a3b8">24 MAR 2015</text>
     <text x="960" y="195" font-size="22" fill="#94a3b8">FRENCH ALPS, FRANCE</text>
   </g>

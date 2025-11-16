@@ -114,7 +114,7 @@
 
   <!-- Top identifier -->
   <g font-family="monospace" text-anchor="middle">
-    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">AFR4590</text>
+    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">AF4590</text>
     <text x="960" y="165" font-size="22" fill="#94a3b8">25 JUL 2000</text>
     <text x="960" y="195" font-size="22" fill="#94a3b8">GONESSE, FRANCE</text>
   </g>
