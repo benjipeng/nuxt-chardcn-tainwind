@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#0f172a"/>
+
+  <!-- Definitions -->
+  <defs>
+    <!-- Radar grid pattern -->
+    <pattern id="radar-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="40" cy="40" r="40" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="40" cy="40" r="20" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+      <line x1="40" y1="0" x2="40" y2="80" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+      <line x1="0" y1="40" x2="80" y2="40" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+
+    <!-- Warning glow -->
+    <filter id="warning-glow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Radar background -->
+  <rect width="1920" height="1080" fill="url(#radar-grid)"/>
+
+  <!-- Holding pattern path -->
+  <g opacity="0.4" stroke="#00d4aa" stroke-width="3" fill="none" stroke-dasharray="15,12">
+    <ellipse cx="960" cy="500" rx="280" ry="180"/>
+    <text x="650" y="350" font-family="monospace" font-size="18" fill="#64748b">HOLDING PATTERN</text>
+    <text x="650" y="375" font-family="monospace" font-size="16" fill="#64748b">58 minutes</text>
+  </g>
+
+  <!-- Portland airport indicator -->
+  <g opacity="0.5">
+    <circle cx="450" cy="750" r="60" stroke="#fbbf24" stroke-width="3" fill="none"/>
+    <line x1="420" y1="750" x2="480" y2="750" stroke="#fbbf24" stroke-width="3"/>
+    <line x1="450" y1="720" x2="450" y2="780" stroke="#fbbf24" stroke-width="3"/>
+    <text x="450" y="830" font-family="monospace" font-size="16" fill="#fbbf24" text-anchor="middle">PDX</text>
+    <text x="450" y="850" font-family="monospace" font-size="14" fill="#64748b" text-anchor="middle">6 miles</text>
+  </g>
+
+  <!-- Crash site indicator -->
+  <g opacity="0.6">
+    <circle cx="750" cy="750" r="40" stroke="#ff4757" stroke-width="2" fill="none" stroke-dasharray="8,6"/>
+    <circle cx="750" cy="750" r="25" stroke="#ff4757" stroke-width="2" fill="none" stroke-dasharray="8,6"/>
+    <text x="750" y="810" font-family="monospace" font-size="14" fill="#ff4757" text-anchor="middle">CRASH SITE</text>
+    <text x="750" y="828" font-family="monospace" font-size="12" fill="#64748b" text-anchor="middle">Suburban Portland</text>
+  </g>
+
+  <!-- DC-8 - In holding pattern, engines failing -->
+  <g transform="translate(960, 480) rotate(25)">
+    <g stroke="#00d4aa" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Fuselage (stretched DC-8-61) -->
+      <ellipse cx="0" cy="0" rx="35" ry="160"/>
+
+      <!-- Cockpit nose -->
+      <path d="M -25,-145 Q 0,-165 25,-145" fill="#00d4aa" opacity="0.3"/>
+
+      <!-- Wings -->
+      <ellipse cx="0" cy="0" rx="180" ry="45"/>
+
+      <!-- Wing structural lines -->
+      <line x1="-180" y1="0" x2="-35" y2="0" stroke-width="2.5"/>
+      <line x1="180" y1="0" x2="35" y2="0" stroke-width="2.5"/>
+
+      <!-- Four engines (DC-8 configuration) -->
+      <g>
+        <!-- Engine 1 (outer left) -->
+        <ellipse cx="-135" cy="0" rx="13" ry="26" fill="#00d4aa" opacity="0.4"/>
+
+        <!-- Engine 2 (inner left) - FLAMED OUT -->
+        <g filter="url(#warning-glow)">
+          <ellipse cx="-85" cy="0" rx="13" ry="26" stroke="#ff4757" stroke-width="4" fill="none" opacity="0.7"/>
+          <circle cx="-85" cy="0" r="35" stroke="#ff4757" stroke-width="3" fill="none" opacity="0.5"/>
+          <line x1="-95" y1="-10" x2="-75" y2="10" stroke="#ff4757" stroke-width="3" opacity="0.7"/>
+          <line x1="-75" y1="-10" x2="-95" y2="10" stroke="#ff4757" stroke-width="3" opacity="0.7"/>
+        </g>
+
+        <!-- Engine 3 (inner right) - FLAMED OUT -->
+        <g filter="url(#warning-glow)">
+          <ellipse cx="85" cy="0" rx="13" ry="26" stroke="#ff4757" stroke-width="4" fill="none" opacity="0.7"/>
+          <circle cx="85" cy="0" r="35" stroke="#ff4757" stroke-width="3" fill="none" opacity="0.5"/>
+          <line x1="75" y1="-10" x2="95" y2="10" stroke="#ff4757" stroke-width="3" opacity="0.7"/>
+          <line x1="95" y1="-10" x2="75" y2="10" stroke="#ff4757" stroke-width="3" opacity="0.7"/>
+        </g>
+
+        <!-- Engine 4 (outer right) - FLAMED OUT -->
+        <g filter="url(#warning-glow)">
+          <ellipse cx="135" cy="0" rx="13" ry="26" stroke="#fbbf24" stroke-width="3.5" fill="none" opacity="0.6"/>
+          <circle cx="135" cy="0" r="30" stroke="#fbbf24" stroke-width="2.5" fill="none" opacity="0.4"/>
+          <line x1="125" y1="-10" x2="145" y2="10" stroke="#fbbf24" stroke-width="2.5" opacity="0.6"/>
+          <line x1="145" y1="-10" x2="125" y2="10" stroke="#fbbf24" stroke-width="2.5" opacity="0.6"/>
+        </g>
+      </g>
+
+      <!-- Landing gear (extended) -->
+      <g stroke="#fbbf24" stroke-width="2.5" opacity="0.6">
+        <line x1="0" y1="-140" x2="0" y2="-165"/>
+        <circle cx="0" cy="-167" r="5" fill="#fbbf24" opacity="0.5"/>
+        <line x1="-40" y1="10" x2="-40" y2="35"/>
+        <circle cx="-40" cy="37" r="5" fill="#fbbf24" opacity="0.5"/>
+        <line x1="40" y1="10" x2="40" y2="35"/>
+        <circle cx="40" cy="37" r="5" fill="#fbbf24" opacity="0.5"/>
+      </g>
+
+      <!-- Tail -->
+      <path d="M -14,140 L 0,170 L 14,140" fill="#00d4aa" opacity="0.6"/>
+      <rect x="-8" y="140" width="16" height="35" fill="#00d4aa" opacity="0.5"/>
+      <ellipse cx="0" cy="145" rx="48" ry="12" opacity="0.7"/>
+    </g>
+  </g>
+
+  <!-- Fuel indicators -->
+  <g font-family="monospace">
+    <g transform="translate(1350, 350)">
+      <!-- Fuel gauges (shapes only get glow) -->
+      <g transform="translate(0, 30)" filter="url(#warning-glow)">
+        <!-- Tank 1 -->
+        <rect x="0" y="0" width="120" height="25" stroke="#64748b" stroke-width="2" fill="#1e293b"/>
+        <rect x="2" y="2" width="5" height="21" fill="#ff4757" opacity="0.8"/>
+
+        <!-- Tank 2 -->
+        <rect x="0" y="35" width="120" height="25" stroke="#64748b" stroke-width="2" fill="#1e293b"/>
+        <rect x="2" y="37" width="5" height="21" fill="#ff4757" opacity="0.8"/>
+
+        <!-- Tank 3 -->
+        <rect x="0" y="70" width="120" height="25" stroke="#64748b" stroke-width="2" fill="#1e293b"/>
+        <rect x="2" y="72" width="5" height="21" fill="#ff4757" opacity="0.8"/>
+
+        <!-- Tank 4 -->
+        <rect x="0" y="105" width="120" height="25" stroke="#64748b" stroke-width="2" fill="#1e293b"/>
+        <rect x="2" y="107" width="5" height="21" fill="#ff4757" opacity="0.8"/>
+      </g>
+
+      <!-- Text labels (NO blur) -->
+      <text x="0" y="0" font-size="20" fill="#ff4757" font-weight="bold">FUEL EXHAUSTION</text>
+      <text x="130" y="47" font-size="14" fill="#ff4757">TANK 1: EMPTY</text>
+      <text x="130" y="82" font-size="14" fill="#ff4757">TANK 2: EMPTY</text>
+      <text x="130" y="117" font-size="14" fill="#ff4757">TANK 3: EMPTY</text>
+      <text x="130" y="152" font-size="14" fill="#ff4757">TANK 4: EMPTY</text>
+    </g>
+  </g>
+
+  <!-- Top identifier -->
+  <g font-family="monospace" text-anchor="middle">
+    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">UA173</text>
+    <text x="960" y="165" font-size="22" fill="#94a3b8">28 DEC 1978</text>
+    <text x="960" y="195" font-size="22" fill="#94a3b8">PORTLAND, OREGON</text>
+  </g>
+
+  <!-- Issue callout -->
+  <g font-family="monospace" fill="#fbbf24">
+    <line x1="850" y1="420" x2="680" y2="330" stroke="#fbbf24" stroke-width="2.5" filter="url(#warning-glow)"/>
+    <text x="670" y="325" font-size="20" font-weight="bold" text-anchor="end">CAPTAIN FIXATION</text>
+    <text x="670" y="350" font-size="16" fill="#94a3b8" text-anchor="end">Landing gear troubleshooting</text>
+    <text x="670" y="375" font-size="16" fill="#ff4757" text-anchor="end">Crew failed to assert</text>
+  </g>
+
+  <!-- Timeline -->
+  <g font-family="monospace" opacity="0.6">
+    <text x="100" y="400" font-size="18" fill="#94a3b8">17:06 - Gear anomaly</text>
+    <text x="100" y="425" font-size="18" fill="#fbbf24">17:08 - Enter hold</text>
+    <text x="100" y="450" font-size="18" fill="#ff4757">18:06 - Still holding</text>
+    <text x="100" y="475" font-size="18" fill="#ff4757">18:13 - Engines flame out</text>
+    <text x="100" y="500" font-size="16" fill="#64748b">No post-crash fire (no fuel)</text>
+  </g>
+
+  <!-- CRM legacy -->
+  <g font-family="monospace" opacity="0.7">
+    <text x="1820" y="900" font-size="18" fill="#00d4aa" text-anchor="end" font-weight="bold">BIRTHED CRM</text>
+    <text x="1820" y="925" font-size="16" fill="#94a3b8" text-anchor="end">Crew Resource Management</text>
+    <text x="1820" y="950" font-size="14" fill="#64748b" text-anchor="end">Revolutionized aviation safety</text>
+  </g>
+
+  <!-- Bottom info -->
+  <g>
+    <rect x="0" y="1000" width="1920" height="80" fill="#1e293b" opacity="0.8"/>
+    <text x="100" y="1050" font-family="monospace" font-size="32" fill="#fbbf24" font-weight="bold">10 FATALITIES / 179 SURVIVORS</text>
+    <text x="1820" y="1050" font-family="monospace" font-size="20" fill="#64748b" text-anchor="end">MCDONNELL DOUGLAS DC-8-61 / N8082U</text>
+  </g>
+</svg>

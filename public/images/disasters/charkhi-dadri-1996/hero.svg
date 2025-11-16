@@ -60,7 +60,7 @@
     <rect x="-8" y="105" width="16" height="35" fill="#00d4aa" opacity="0.5"/>
 
     <!-- Label -->
-    <text x="0" y="175" font-family="monospace" font-size="18" fill="#00d4aa" text-anchor="middle" font-weight="bold">SVA763</text>
+    <text x="0" y="175" font-family="monospace" font-size="18" fill="#00d4aa" text-anchor="middle" font-weight="bold">SV763</text>
   </g>
 
   <!-- Ilyushin Il-76 (Kazakhstan) - Descending -->
@@ -89,7 +89,7 @@
     <rect x="-7" y="100" width="14" height="30" fill="#38bdf8" opacity="0.5"/>
 
     <!-- Label -->
-    <text x="0" y="165" font-family="monospace" font-size="18" fill="#38bdf8" text-anchor="middle" font-weight="bold">KZA1907</text>
+    <text x="0" y="165" font-family="monospace" font-size="18" fill="#38bdf8" text-anchor="middle" font-weight="bold">KZ1907</text>
   </g>
 
   <!-- Collision point indicator -->
@@ -108,7 +108,7 @@
 
   <!-- Top identifier -->
   <g font-family="monospace" text-anchor="middle">
-    <text x="960" y="120" font-size="56" fill="#fbbf24" font-weight="bold">CHARKHI DADRI</text>
+    <text x="960" y="120" font-size="56" fill="#fbbf24" font-weight="bold">SV763 & KZ1907</text>
     <text x="960" y="165" font-size="22" fill="#94a3b8">12 NOV 1996</text>
     <text x="960" y="195" font-size="22" fill="#94a3b8">NEAR NEW DELHI, INDIA</text>
   </g>

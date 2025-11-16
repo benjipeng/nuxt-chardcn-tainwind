@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#0f172a"/>
+
+  <!-- Definitions -->
+  <defs>
+    <!-- Radar grid pattern -->
+    <pattern id="radar-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="40" cy="40" r="40" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="40" cy="40" r="20" fill="none" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+      <line x1="40" y1="0" x2="40" y2="80" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+      <line x1="0" y1="40" x2="80" y2="40" stroke="#1e293b" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+
+    <!-- Fire glow -->
+    <filter id="fire-glow">
+      <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Radar background -->
+  <rect width="1920" height="1080" fill="url(#radar-grid)"/>
+
+  <!-- Runway -->
+  <g opacity="0.5">
+    <rect x="200" y="700" width="1000" height="300" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+    <line x1="700" y1="700" x2="700" y2="1000" stroke="#fbbf24" stroke-width="3" stroke-dasharray="30,20"/>
+    <text x="220" y="750" font-family="monospace" font-size="18" fill="#64748b">RWY 26R</text>
+
+    <!-- Titanium strip on runway -->
+    <g opacity="0.8">
+      <rect x="650" y="835" width="30" height="3" fill="#94a3b8" stroke="#ff4757" stroke-width="1"/>
+      <circle cx="665" cy="836.5" r="15" stroke="#ff4757" stroke-width="2" fill="none" opacity="0.6"/>
+      <line x1="590" y1="870" x2="650" y2="837" stroke="#ff4757" stroke-width="2" opacity="0.7" stroke-dasharray="5,5"/>
+      <text x="580" y="885" font-family="monospace" font-size="14" fill="#ff4757" text-anchor="end">DC-10 DEBRIS</text>
+    </g>
+  </g>
+
+  <!-- Concorde - Just airborne, trailing fire -->
+  <g transform="translate(900, 580) rotate(8)">
+    <!-- CONCORDE distinctive delta wing shape -->
+    <g stroke="#00d4aa" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Fuselage (very narrow, needle-like) -->
+      <ellipse cx="0" cy="0" rx="28" ry="150"/>
+
+      <!-- Distinctive needle nose (drooped) -->
+      <path d="M -20,-140 Q 0,-165 20,-140" fill="#00d4aa" opacity="0.3"/>
+      <line x1="0" y1="-165" x2="0" y2="-140" stroke="#00d4aa" stroke-width="3"/>
+
+      <!-- DELTA WING (Concorde's distinctive ogival delta) -->
+      <path d="M -28,-30 Q -120,-20 -180,10 Q -200,25 -210,50 L -28,50 Z" fill="#00d4aa" opacity="0.2" stroke-width="3"/>
+      <path d="M 28,-30 Q 120,-20 180,10 Q 200,25 210,50 L 28,50 Z" fill="#00d4aa" opacity="0.2" stroke-width="3"/>
+
+      <!-- Wing leading edges -->
+      <path d="M -28,-30 Q -120,-20 -180,10 Q -200,25 -210,50" stroke-width="3.5"/>
+      <path d="M 28,-30 Q 120,-20 180,10 Q 200,25 210,50" stroke-width="3.5"/>
+
+      <!-- Wing trailing edges -->
+      <line x1="-210" y1="50" x2="-28" y2="50" stroke-width="2.5"/>
+      <line x1="210" y1="50" x2="28" y2="50" stroke-width="2.5"/>
+
+      <!-- Four engines (Olympus 593, paired under wing) -->
+      <ellipse cx="-120" cy="15" rx="12" ry="24" fill="#00d4aa" opacity="0.4"/>
+      <ellipse cx="-80" cy="15" rx="12" ry="24" fill="#00d4aa" opacity="0.4"/>
+      <ellipse cx="80" cy="15" rx="12" ry="24" fill="#00d4aa" opacity="0.4"/>
+      <ellipse cx="120" cy="15" rx="12" ry="24" fill="#00d4aa" opacity="0.4"/>
+
+      <!-- ENGINE 1 & 2 FAILURE (left side) -->
+      <g filter="url(#fire-glow)">
+        <!-- Engine 1 (outer left) - FAILED -->
+        <ellipse cx="-120" cy="15" rx="16" ry="28" stroke="#ff4757" stroke-width="4" fill="none" opacity="0.7"/>
+        <circle cx="-120" cy="15" r="35" stroke="#ff4757" stroke-width="3" fill="none" opacity="0.5"/>
+
+        <!-- Engine 2 (inner left) - DAMAGED -->
+        <ellipse cx="-80" cy="15" rx="16" ry="28" stroke="#fbbf24" stroke-width="3.5" fill="none" opacity="0.6"/>
+        <circle cx="-80" cy="15" r="30" stroke="#fbbf24" stroke-width="2.5" fill="none" opacity="0.4"/>
+      </g>
+
+      <!-- Vertical fin -->
+      <path d="M -11,120 L 0,160 L 11,120" fill="#00d4aa" opacity="0.6"/>
+      <rect x="-6" y="120" width="12" height="45" fill="#00d4aa" opacity="0.5"/>
+
+      <!-- Landing gear (extended - won't retract) -->
+      <g stroke="#fbbf24" stroke-width="2.5" opacity="0.7">
+        <line x1="-50" y1="40" x2="-50" y2="70"/>
+        <line x1="50" y1="40" x2="50" y2="70"/>
+        <circle cx="-50" cy="72" r="6" fill="#fbbf24" opacity="0.5"/>
+        <circle cx="50" cy="72" r="6" fill="#fbbf24" opacity="0.5"/>
+      </g>
+    </g>
+
+    <!-- MASSIVE FIRE TRAIL under left wing -->
+    <g filter="url(#fire-glow)">
+      <!-- Fuel leak and fire zone -->
+      <ellipse cx="-90" cy="55" rx="70" ry="45" fill="#ff4757" opacity="0.5"/>
+      <ellipse cx="-110" cy="50" rx="85" ry="55" fill="#fbbf24" opacity="0.4"/>
+
+      <!-- Fire trail extending behind -->
+      <ellipse cx="-150" cy="90" rx="60" ry="35" fill="#ff4757" opacity="0.4"/>
+      <ellipse cx="-180" cy="120" rx="50" ry="30" fill="#fbbf24" opacity="0.35"/>
+      <ellipse cx="-210" cy="145" rx="40" ry="25" fill="#ff4757" opacity="0.3"/>
+      <ellipse cx="-240" cy="165" rx="30" ry="20" fill="#fbbf24" opacity="0.25"/>
+
+      <!-- Fire indicator flames -->
+      <path d="M -90,40 Q -95,20 -90,10" stroke="#fbbf24" stroke-width="4" opacity="0.6" fill="none"/>
+      <path d="M -110,45 Q -115,30 -110,15" stroke="#ff4757" stroke-width="4" opacity="0.6" fill="none"/>
+      <path d="M -130,50 Q -135,35 -130,20" stroke="#fbbf24" stroke-width="3.5" opacity="0.5" fill="none"/>
+    </g>
+  </g>
+
+  <!-- Top identifier -->
+  <g font-family="monospace" text-anchor="middle">
+    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">AF4590</text>
+    <text x="960" y="165" font-size="22" fill="#94a3b8">25 JUL 2000</text>
+    <text x="960" y="195" font-size="22" fill="#94a3b8">GONESSE, FRANCE</text>
+  </g>
+
+  <!-- Failure callout -->
+  <g font-family="monospace" fill="#ff4757">
+    <line x1="770" y1="590" x2="600" y2="480" stroke="#ff4757" stroke-width="2.5" filter="url(#fire-glow)"/>
+    <text x="590" y="475" font-size="20" font-weight="bold" text-anchor="end">TIRE BURST → FUEL TANK</text>
+    <text x="590" y="500" font-size="16" fill="#94a3b8" text-anchor="end">Shockwave rupture</text>
+    <text x="590" y="525" font-size="16" fill="#94a3b8" text-anchor="end">Engines 1 & 2 failure</text>
+  </g>
+
+  <!-- Sequence -->
+  <g font-family="monospace" opacity="0.6">
+    <text x="1300" y="400" font-size="18" fill="#94a3b8">Tire hits titanium strip</text>
+    <text x="1300" y="425" font-size="18" fill="#fbbf24">10 lb rubber hits Tank 5</text>
+    <text x="1300" y="450" font-size="18" fill="#ff4757">Fuel leak ignites</text>
+    <text x="1300" y="475" font-size="16" fill="#64748b">Gear won't retract</text>
+    <text x="1300" y="500" font-size="16" fill="#64748b">92 seconds to crash</text>
+  </g>
+
+  <!-- Bottom info -->
+  <g>
+    <rect x="0" y="1000" width="1920" height="80" fill="#1e293b" opacity="0.8"/>
+    <text x="100" y="1050" font-family="monospace" font-size="32" fill="#ff4757" font-weight="bold">113 FATALITIES (109 + 4 ON GROUND)</text>
+    <text x="1820" y="1050" font-family="monospace" font-size="20" fill="#64748b" text-anchor="end">CONCORDE / F-BTSC</text>
+  </g>
+</svg>

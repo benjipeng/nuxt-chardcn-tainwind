@@ -75,7 +75,7 @@
     <rect x="-8" y="100" width="16" height="30" fill="#00d4aa" opacity="0.5"/>
 
     <!-- Aircraft label -->
-    <text x="0" y="170" font-family="monospace" font-size="18" fill="#00d4aa" text-anchor="middle" font-weight="bold">KLM 4805</text>
+    <text x="0" y="170" font-family="monospace" font-size="18" fill="#00d4aa" text-anchor="middle" font-weight="bold">KL4805</text>
   </g>
 
   <!-- Boeing 747 #2 (Pan Am) - Top-down view, entering runway -->
@@ -104,7 +104,7 @@
     <rect x="-8" y="100" width="16" height="30" fill="#38bdf8" opacity="0.5"/>
 
     <!-- Aircraft label -->
-    <text x="0" y="170" font-family="monospace" font-size="18" fill="#38bdf8" text-anchor="middle" font-weight="bold">PAA 1736</text>
+    <text x="0" y="170" font-family="monospace" font-size="18" fill="#38bdf8" text-anchor="middle" font-weight="bold">PA1736</text>
   </g>
 
   <!-- Collision point indicator -->
@@ -135,7 +135,7 @@
 
   <!-- Top identifier -->
   <g font-family="monospace" text-anchor="middle">
-    <text x="960" y="120" font-size="56" fill="#fbbf24" font-weight="bold">TENERIFE 1977</text>
+    <text x="960" y="120" font-size="56" fill="#fbbf24" font-weight="bold">KL4805 & PA1736</text>
     <text x="960" y="165" font-size="22" fill="#94a3b8">27 MARCH 1977</text>
     <text x="960" y="195" font-size="22" fill="#94a3b8">LOS RODEOS AIRPORT, SPAIN</text>
   </g>
