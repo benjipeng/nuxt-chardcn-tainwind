@@ -37,21 +37,23 @@
           v-for="(card, index) in cards"
           :key="index"
           v-motion
-          :initial="{ opacity: 0, y: 60, scale: 0.95 }"
+          :initial="{ opacity: 0, y: 100, scale: 0.85, rotateX: 15 }"
           :visibleOnce="{
             opacity: 1,
             y: 0,
             scale: 1,
+            rotateX: 0,
             transition: {
-              duration: 600,
-              delay: 120 * index,
-              ease: [0.16, 1, 0.3, 1]
+              duration: 800,
+              delay: 150 * index,
+              ease: [0.34, 1.56, 0.64, 1]
             }
           }"
           :hovered="{
-            y: -6,
-            scale: 1.02,
-            transition: { duration: 300, ease: [0.16, 1, 0.3, 1] }
+            y: -8,
+            scale: 1.03,
+            rotateX: -2,
+            transition: { duration: 300, ease: [0.34, 1.56, 0.64, 1] }
           }"
           :class="[
             'transition-all duration-300 backdrop-blur-sm mb-8',
