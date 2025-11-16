@@ -2,15 +2,9 @@
 const route = useRoute()
 const slug = route.params.slug as string
 
-// Fetch all disasters and filter by slug
-// Using .find() instead of .findOne() for SSG compatibility
-const { data: disasters } = await useAsyncData(`disaster-${slug}`, () =>
-  queryContent('/disasters').find()
-)
-
-// Filter to get the matching disaster by slug
-const disaster = computed(() =>
-  disasters.value?.find((d: any) => d.slug === slug)
+// Fetch the disaster by slug using queryCollection
+const { data: disaster } = await useAsyncData(`disaster-${slug}`, () =>
+  queryCollection('disasters').where('slug', '=', slug).first()
 )
 
 // Get category color classes
