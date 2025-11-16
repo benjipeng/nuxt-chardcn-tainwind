@@ -38,6 +38,19 @@ export default defineNuxtConfig({
   // SSG mode enabled (ssr: true is default)
   ssr: true,
 
+  // Route rules for pre-rendering
+  routeRules: {
+    '/': { prerender: true },
+    '/browse': { prerender: true },
+    '/timeline': { prerender: true },
+    '/disaster/tenerife-1977': { prerender: true },
+    '/disaster/jal123-1985': { prerender: true },
+    '/disaster/charkhi-dadri-1996': { prerender: true },
+    '/disaster/aa191-1979': { prerender: true },
+    '/disaster/af447-2009': { prerender: true },
+    '/disaster/ethiopian-302-2019': { prerender: true }
+  },
+
   app: {
     baseURL: '/mayday-archive/',
     head: {
@@ -54,6 +67,37 @@ export default defineNuxtConfig({
       routes: ['/'],
       crawlLinks: true,
       failOnError: false
+    }
+  },
+
+  // Generate dynamic routes for SSG
+  hooks: {
+    async 'nitro:config'(nitroConfig) {
+      if (nitroConfig.dev) return
+
+      // Read disaster content files from filesystem
+      const { readdirSync } = await import('fs')
+      const { join } = await import('path')
+
+      const contentDir = join(process.cwd(), 'content', 'disasters')
+      const files = readdirSync(contentDir)
+
+      // Generate routes for all disaster detail pages (without baseURL, Nuxt handles that)
+      const disasterRoutes = files
+        .filter((file: string) => file.endsWith('.md'))
+        .map((file: string) => `/disaster/${file.replace('.md', '')}`)
+
+      // Add all routes to prerender (Nuxt will automatically prepend baseURL)
+      nitroConfig.prerender = nitroConfig.prerender || {}
+      nitroConfig.prerender.routes = nitroConfig.prerender.routes || []
+
+      // Clear default routes and add our explicit list
+      nitroConfig.prerender.routes = [
+        '/',
+        '/browse',
+        '/timeline',
+        ...disasterRoutes
+      ]
     }
   },
 

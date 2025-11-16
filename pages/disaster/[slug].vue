@@ -2,9 +2,9 @@
 const route = useRoute()
 const slug = route.params.slug as string
 
-// Fetch the disaster content
+// Fetch the disaster content using _path
 const { data: disaster } = await useAsyncData(`disaster-${slug}`, () =>
-  queryContent(`disasters/${slug}`).findOne()
+  queryContent(`/disasters/${slug}`).findOne()
 )
 
 // Handle 404
