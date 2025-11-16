@@ -59,7 +59,7 @@
       <path d="M -20,130 L 0,165 L 20,130" fill="#00d4aa" opacity="0.6"/>
       <rect x="-12" y="130" width="24" height="40" fill="#00d4aa" opacity="0.5"/>
 
-      <!-- CRITICAL: Tail failure indicator -->
+      <!-- CRITICAL: Tail failure indicator (ONLY graphics get glow) -->
       <g stroke="#ff4757" stroke-width="4" filter="url(#failure-glow)">
         <!-- Separation line -->
         <line x1="-30" y1="130" x2="30" y2="130" stroke-dasharray="8,4"/>
@@ -79,16 +79,16 @@
     <ellipse cx="0" cy="135" rx="60" ry="15" opacity="0.7"/>
   </g>
 
-  <!-- Top identifier -->
+  <!-- Top identifier (NO BLUR) -->
   <g font-family="monospace" text-anchor="middle">
-    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">FLIGHT 123</text>
+    <text x="960" y="120" font-size="56" fill="#00d4aa" font-weight="bold">JAL123</text>
     <text x="960" y="165" font-size="22" fill="#94a3b8">12 AUG 1985</text>
     <text x="960" y="195" font-size="22" fill="#94a3b8">MOUNT TAKAMAGAHARA, JAPAN</text>
   </g>
 
-  <!-- Failure callout -->
-  <g font-family="monospace" fill="#ff4757" filter="url(#failure-glow)">
-    <line x1="1050" y1="680" x2="1200" y2="760" stroke="#ff4757" stroke-width="2.5"/>
+  <!-- Failure callout (NO BLUR on text) -->
+  <g font-family="monospace" fill="#ff4757">
+    <line x1="1050" y1="680" x2="1200" y2="760" stroke="#ff4757" stroke-width="2.5" filter="url(#failure-glow)"/>
     <text x="1210" y="765" font-size="20" font-weight="bold">TAIL FAILURE</text>
     <text x="1210" y="790" font-size="16" fill="#94a3b8">Bulkhead rupture</text>
   </g>
