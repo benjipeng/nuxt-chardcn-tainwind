@@ -11,242 +11,99 @@
 
 ### Infrastructure
 - [x] Nuxt 4.2.1 setup with SSG
-- [x] Tailwind CSS v3.4.17 configuration
-- [x] shadcn-nuxt v0.10.4 integration
+- [x] Tailwind CSS v3.4.17 + shadcn-nuxt v0.10.4
 - [x] Font system (B612, Work Sans, B612 Mono)
 - [x] Icon system (@nuxt/icon with Lucide)
-- [x] Animation library (@oku-ui/motion)
-
-### Color System
-- [x] WCAG AA/AAA validated aviation color palette
-- [x] Dual-theme (light/dark) implementation
-- [x] Semantic color tokens in tailwind.css
-- [x] Color palette documentation
-- [x] Hard-coded color audit and fixes
+- [x] WCAG AA/AAA aviation color palette (dual-theme)
 
 ### Navigation
 - [x] Three-state responsive navbar (Full/Compact/Minimal)
-- [x] useNavbarScroll composable with debouncing
 - [x] HamburgerMenu overlay component
-- [x] Dark mode toggle (useDarkMode composable)
+- [x] Dark mode toggle
 - [x] Footer with navigation links
 
-### Landing Page Components
-- [x] Hero section with grid pattern background
+### Landing Page
+- [x] Hero section
 - [x] Featured Disasters grid (6 disasters)
 - [x] Statistics Dashboard section
-- [x] Browse Categories section (4 categories)
+- [x] Browse Categories section
 - [x] DisasterCard reusable component
 
-### Documentation
-- [x] CLAUDE.md project context file
-- [x] ROADMAP.md project tracking file
-
 ---
 
-## Phase 2: Core Content Pages
-
-### Disaster Detail Pages
-- [ ] Create disaster detail page layout (`/pages/disaster/[slug].vue`)
-- [ ] Design header section with hero image placeholder
-- [ ] Implement accident overview section (date, location, aircraft, fatalities)
-- [ ] Create timeline of events component
-- [ ] Add investigation findings section
-- [ ] Implement safety improvements section
-- [ ] Create related disasters component
-- [ ] Add share/bookmark functionality
-
-### Browse & Filter Page
-- [ ] Create browse page layout (`/pages/browse.vue`)
-- [ ] Implement category filter (Human Error, Mechanical, Weather, Other)
-- [ ] Add decade/year filter
-- [ ] Create fatality range filter
-- [ ] Implement aircraft type filter
-- [ ] Add sort options (date, fatalities, relevance)
-- [ ] Create results grid with pagination
-- [ ] Add "no results" state
-
-### Timeline Page
-- [ ] Design timeline visualization layout
-- [ ] Create decade markers component
-- [ ] Implement scrollable timeline with disaster markers
-- [ ] Add hover states with disaster previews
-- [ ] Create timeline filters (category, decade)
-- [ ] Add zoom/pan functionality for dense periods
-- [ ] Implement "jump to year" functionality
-
-### Statistics Page
-- [ ] Expand statistics dashboard from landing page
-- [ ] Create interactive charts (Chart.js or similar)
-- [ ] Add accidents by decade chart
-- [ ] Create accidents by cause breakdown chart
-- [ ] Implement safety improvements timeline
-- [ ] Add fatalities trend chart
-- [ ] Create geographical heatmap
-- [ ] Add downloadable data exports
-
----
-
-## Phase 3: Data & Content Management
-
-### Data Structure
-- [ ] Define disaster data schema (TypeScript interfaces)
-- [ ] Create JSON data structure for disasters
-- [ ] Implement data validation
-- [ ] Add data sanitization utilities
-- [ ] Create data import/export utilities
+## Phase 2: Core Content Pages (In Progress ~60%)
 
 ### Content Management
-- [ ] Decide on content approach (JSON files vs CMS vs API)
-- [ ] Create content structure for 207+ disasters
-- [ ] Organize disaster images/assets
-- [ ] Implement image optimization pipeline
-- [ ] Create content validation scripts
+- [x] @nuxt/content 3.8.2 with markdown files
+- [x] 6 disaster markdown files created
+- [x] Tailwind Typography plugin
+- [x] Content structure (slug, title, date, fatalities, aircraft, categories, location, images, summary)
 
-### Data Population
-- [ ] Complete data for 6 featured disasters (detailed)
-- [ ] Add data for top 50 deadliest disasters (moderate detail)
-- [ ] Add basic data for remaining 150+ disasters
-- [ ] Source and optimize disaster images
-- [ ] Add aircraft type metadata
-- [ ] Create category taxonomy
+### Disaster Detail Pages
+- [x] Page layout with hero image + gradient overlay
+- [x] Accident overview (date, location, aircraft, fatalities)
+- [x] Markdown content rendering with prose styling
+- [x] SEO meta tags + 404 handling
+- [ ] Timeline of events component
+- [ ] Investigation findings section
+- [ ] Safety improvements section
+- [ ] Related disasters
 
----
+### Browse Page
+- [x] Layout with search + filters
+- [x] Category filter dropdown
+- [x] Sort (fatalities, date)
+- [x] Search (title, aircraft, location)
+- [x] Responsive grid + "no results" state
+- [ ] Decade/year filter
+- [ ] Pagination
 
-## Phase 4: Search & Discovery
+### Timeline Page
+- [x] Chronological layout with decade markers
+- [x] Scrollable timeline with disaster cards
+- [x] Responsive mobile/desktop layout
+- [ ] Filters (category, decade)
 
-### Search Functionality
-- [ ] Choose search solution (local search vs Algolia/Meilisearch)
-- [ ] Implement search input component
-- [ ] Create search results page
-- [ ] Add search suggestions/autocomplete
-- [ ] Implement fuzzy search for misspellings
-- [ ] Add search filters
-- [ ] Create "no results" with suggestions
-
-### Enhanced Discovery
-- [ ] Implement "Related Disasters" algorithm
-- [ ] Create "You might also be interested in" section
-- [ ] Add tag-based discovery
-- [ ] Implement "This Day in Aviation History"
-- [ ] Create "Random Disaster" feature
-
----
-
-## Phase 5: Informational Pages
-
-### About & Context
-- [ ] Create About page (`/pages/about.vue`)
-- [ ] Write project mission and goals
-- [ ] Add team/creator information
-- [ ] Create Methodology page explaining data sources
-- [ ] Implement Sources & Credits page
-- [ ] Add Privacy Policy page
-- [ ] Create Terms of Use page
-
-### Educational Resources
-- [ ] Create Aviation Glossary page
-- [ ] Add common abbreviations (NTSB, CVR, FDR, TCAS, etc.)
-- [ ] Implement Safety Improvements timeline page
-- [ ] Create "How Aviation Became Safer" explainer
-- [ ] Add external resources/links section
-
-### Interactive Features
-- [ ] Create Contact/Feedback form
-- [ ] Add newsletter signup (if applicable)
-- [ ] Implement social sharing meta tags
+### Recent Fixes
+- [x] Fixed navbar duplication bug (browse/timeline pages)
+- [x] Made featured cards clickable
+- [x] Removed unnecessary React example files
 
 ---
 
-## Phase 6: Optimization & Launch Prep
+## Phase 3: Content Expansion
+
+- [ ] Complete detailed narratives for 6 featured disasters
+- [ ] Add top 50 deadliest disasters
+- [ ] Add remaining 150+ disasters (basic data)
+
+---
+
+## Phase 4: Informational Pages
+
+- [ ] About page
+- [ ] Methodology page
+- [ ] Aviation Glossary
+- [ ] Sources & Credits
+
+---
+
+## Phase 5: Optimization & Launch
 
 ### Performance
-- [ ] Audit and optimize bundle size
-- [ ] Implement lazy loading for images
-- [ ] Add progressive image loading
-- [ ] Optimize font loading
-- [ ] Enable Nuxt performance optimizations
-- [ ] Test and optimize SSG build times
-- [ ] Implement caching strategy
+- [ ] Bundle optimization
+- [ ] Lazy loading
+- [ ] Caching strategy
 
 ### SEO
-- [ ] Add meta tags to all pages
-- [ ] Create dynamic OG images for disasters
-- [ ] Implement structured data (JSON-LD)
-- [ ] Generate sitemap.xml
-- [ ] Create robots.txt
-- [ ] Add canonical URLs
-- [ ] Implement breadcrumbs
+- [ ] Dynamic OG images
+- [ ] Structured data (JSON-LD)
+- [ ] Sitemap.xml
 
 ### Accessibility
-- [ ] Run WCAG AA/AAA compliance audit
-- [ ] Test keyboard navigation
-- [ ] Add skip links
-- [ ] Test screen reader compatibility
-- [ ] Ensure sufficient color contrast (already done)
-- [ ] Add ARIA labels where missing
-- [ ] Test with accessibility tools
-
-### Analytics & Monitoring
-- [ ] Choose analytics solution (Plausible/Fathom for privacy-focused)
-- [ ] Implement basic analytics tracking
-- [ ] Add error tracking (Sentry or similar)
-- [ ] Create performance monitoring
-- [ ] Add user feedback collection
-
-### Testing & QA
-- [ ] Cross-browser testing (Chrome, Firefox, Safari, Edge)
-- [ ] Mobile device testing (iOS, Android)
-- [ ] Test dark/light mode consistency
-- [ ] Validate all forms
-- [ ] Test all navigation flows
-- [ ] Proofread all content
-- [ ] Test SSG build on production-like environment
-
-### Deployment
-- [ ] Choose hosting (Vercel, Netlify, Cloudflare Pages)
-- [ ] Set up CI/CD pipeline
-- [ ] Configure domain and DNS
-- [ ] Set up SSL certificate
-- [ ] Test production deployment
-- [ ] Create deployment documentation
+- [ ] WCAG AA/AAA audit
+- [ ] Keyboard navigation testing
 
 ---
 
-## Phase 7: Post-Launch (Future)
-
-### Content Expansion
-- [ ] Add more detailed disaster narratives
-- [ ] Include survivor stories (with sensitivity)
-- [ ] Add investigator interviews/quotes
-- [ ] Create video content embeds
-- [ ] Add audio clips (CVR transcripts with context warnings)
-
-### Advanced Features
-- [ ] Implement user accounts (if needed)
-- [ ] Add bookmark/save functionality
-- [ ] Create learning paths/guided tours
-- [ ] Add interactive accident reconstructions
-- [ ] Implement comparison tool (compare 2+ disasters)
-- [ ] Create quiz/educational assessment
-
-### Community
-- [ ] Add comment system (with moderation)
-- [ ] Create contribution guidelines
-- [ ] Implement content suggestions from users
-- [ ] Add fact-checking workflow
-
----
-
-## Technical Debt & Maintenance
-
-- [ ] Regular dependency updates (monthly)
-- [ ] Security vulnerability scanning
-- [ ] Performance monitoring and optimization
-- [ ] Content accuracy reviews
-- [ ] Broken link checks
-- [ ] Analytics review and insights
-
----
-
-**Current Phase:** Phase 1 ✅ Complete | Phase 2 Ready to Start
+**Current Status:** Phase 2 (60% complete) | Browse, Timeline, and Detail pages functional with 6 disasters

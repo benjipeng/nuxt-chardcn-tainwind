@@ -80,8 +80,6 @@ function getYear(dateString: string): number {
 
 <template>
   <div class="min-h-screen bg-bg-primary">
-    <Navbar />
-
     <!-- Header Section -->
     <div class="container mx-auto px-4 pt-32 pb-12">
       <div class="max-w-3xl">
@@ -258,7 +256,5 @@ function getYear(dateString: string): number {
         </div>
       </div>
     </div>
-
-    <Footer />
   </div>
 </template>

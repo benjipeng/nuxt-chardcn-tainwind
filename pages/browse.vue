@@ -99,8 +99,6 @@ function formatDate(dateString: string): string {
 
 <template>
   <div class="min-h-screen bg-bg-primary">
-    <Navbar />
-
     <!-- Header Section -->
     <div class="container mx-auto px-4 pt-32 pb-12">
       <div class="max-w-3xl">
@@ -251,7 +249,5 @@ function formatDate(dateString: string): string {
         </NuxtLink>
       </div>
     </div>
-
-    <Footer />
   </div>
 </template>
