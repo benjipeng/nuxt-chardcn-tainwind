@@ -37,40 +37,39 @@
     <section class="py-12 md:py-16">
       <div class="container mx-auto px-4 max-w-4xl">
         <Motion
-          :initial="{ opacity: 0 }"
-          :animate="{ opacity: 1 }"
-          :transition="{ staggerChildren: 0.12, delayChildren: 0.3 }"
+          v-for="(card, index) in cards"
+          :key="index"
+          :initial="{ opacity: 0, y: 60, scale: 0.9 }"
+          :whileInView="{ opacity: 1, y: 0, scale: 1 }"
+          :viewport="{ once: true, margin: '-50px' }"
+          :transition="{
+            duration: 0.6,
+            delay: 0.12 * index,
+            ease: [0.16, 1, 0.3, 1]
+          }"
+          :whileHover="{
+            y: -6,
+            scale: 1.02,
+            transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
+          }"
+          class="mb-8"
         >
-          <Motion
-            v-for="(card, index) in cards"
-            :key="index"
-            :initial="{ opacity: 0, y: 30, scale: 0.95 }"
-            :animate="{ opacity: 1, y: 0, scale: 1 }"
-            :transition="{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }"
-            :whileHover="{
-              y: -6,
-              scale: 1.02,
-              transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
-            }"
-            class="mb-8"
-          >
-            <Card :class="[
-              'transition-all duration-300 backdrop-blur-sm',
-              'border-border-subtle',
-              card.borderClass,
-              card.glowClass
-            ]">
-              <CardHeader>
-                <CardTitle :class="card.titleClass">
-                  <component :is="card.icon" v-if="card.icon" />
-                  {{ card.title }}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <component :is="card.content" />
-              </CardContent>
-            </Card>
-          </Motion>
+          <Card :class="[
+            'transition-all duration-300 backdrop-blur-sm',
+            'border-border-subtle',
+            card.borderClass,
+            card.glowClass
+          ]">
+            <CardHeader>
+              <CardTitle :class="card.titleClass">
+                <component :is="card.icon" v-if="card.icon" />
+                {{ card.title }}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <component :is="card.content" />
+            </CardContent>
+          </Card>
         </Motion>
 
         <!-- Bottom Navigation -->
