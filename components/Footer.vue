@@ -59,7 +59,7 @@
         <!-- Resources -->
         <div class="md:col-span-2">
           <h3 class="font-display font-bold text-text-primary mb-4">Resources</h3>
-          <ul class="space-y-2 md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-2">
+          <ul class="space-y-2 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-2">
             <li>
               <NuxtLink
                 to="/statistics"
