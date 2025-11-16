@@ -175,9 +175,14 @@ onUnmounted(() => {
 }
 
 /* Fade transition for backdrop */
-.fade-enter-active,
+.fade-enter-active {
+  transition: opacity 0.3s ease;
+  transition-delay: 0.3s; /* Sync with menu panel entrance */
+}
+
 .fade-leave-active {
   transition: opacity 0.3s ease;
+  /* No delay on exit */
 }
 
 .fade-enter-from,
@@ -186,9 +191,14 @@ onUnmounted(() => {
 }
 
 /* Slide transition for menu panel */
-.slide-enter-active,
+.slide-enter-active {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.3s; /* Delay entrance until navbar collapses */
+}
+
 .slide-leave-active {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* No delay on exit, menu leaves immediately */
 }
 
 .slide-enter-from,

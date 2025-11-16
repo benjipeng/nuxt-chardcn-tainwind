@@ -1,9 +1,11 @@
 <template>
   <nav
     :class="[
-      'fixed top-2 left-3 right-3 z-50 transition-all duration-300 ease-out',
+      'fixed top-2 left-3 right-3 z-50',
       'bg-bg-secondary/95 backdrop-blur-sm',
       'border border-border-subtle rounded-xl',
+      'origin-top-right',
+      isMenuOpen ? 'scale-0 opacity-0' : 'scale-100 opacity-100',
       navbarClasses
     ]"
   >
@@ -217,6 +219,23 @@ const titleClasses = computed(() => {
 </script>
 
 <style scoped>
+/* Navbar collapse animation */
+nav {
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+/* When navbar is appearing (not menu open), add delay */
+nav:not(.scale-0) {
+  transition-delay: 0.3s;
+}
+
+/* When navbar is disappearing (menu opening), no delay */
+nav.scale-0 {
+  transition-delay: 0s;
+}
+
 .nav-link {
   @apply font-body text-sm font-medium text-text-secondary;
   @apply hover:text-cockpit-green-text transition-colors duration-200;
