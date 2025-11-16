@@ -108,12 +108,13 @@ function getYear(dateString: string): number {
             <div v-for="(decadeDisasters, decade) in timelineByDecade" :key="decade">
               <!-- Decade Header -->
               <div class="relative mb-8">
-                <div class="md:absolute md:left-1/2 md:-translate-x-1/2 flex items-center justify-center">
+                <!-- Desktop decade header (centered on timeline) -->
+                <div class="hidden md:flex md:absolute md:left-1/2 md:-translate-x-1/2 items-center justify-center">
                   <div class="bg-cockpit-green px-6 py-2 rounded-full border-4 border-bg-primary shadow-glow-green">
-                    <span class="text-sm md:text-base font-display font-bold text-bg-primary">{{ decade }}</span>
+                    <span class="text-base font-display font-bold text-bg-primary">{{ decade }}</span>
                   </div>
                 </div>
-                <!-- Mobile decade header adjustment -->
+                <!-- Mobile decade header (left-aligned) -->
                 <div class="md:hidden ml-16 mb-4">
                   <div class="inline-block bg-cockpit-green px-6 py-2 rounded-full shadow-glow-green">
                     <span class="text-sm font-display font-bold text-bg-primary">{{ decade }}</span>
@@ -130,8 +131,8 @@ function getYear(dateString: string): number {
                 >
                   <!-- Desktop: Alternating layout -->
                   <div class="hidden md:grid md:grid-cols-2 md:gap-8 items-center">
-                    <!-- Left side (even indexes) -->
-                    <div :class="index % 2 === 0 ? 'text-right pr-8' : 'order-2 pl-8'">
+                    <!-- Alternating left/right placement -->
+                    <div :class="index % 2 === 0 ? 'text-right pr-8' : 'col-start-2 pl-8'">
                       <NuxtLink
                         :to="`/disaster/${disaster.slug}`"
                         class="group inline-block text-left max-w-md bg-bg-secondary border border-border-subtle rounded-lg p-6 hover:border-cockpit-green hover:shadow-glow-green transition-all duration-300 hover:-translate-y-1"
